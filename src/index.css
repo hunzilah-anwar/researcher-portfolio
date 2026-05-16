@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-syne: "Syne", sans-serif;
+  --color-primary: #0f0e0f;
+  --color-secondary: #ff6b00;
+  /* --color-secondary: #8338ec; */
+}
+
+@layer base {
+  body {
+    font-family: var(--font-syne);
+    color: var(--color-primary);
+    color: var(--color-secondary);
+  }
+}
