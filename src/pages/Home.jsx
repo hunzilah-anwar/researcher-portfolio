@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import ProfilePic from "../assets/profile-pic.webp";
+import ProfilePic from "../assets/profile-pic.jpg";
 import HeroBg from "../assets/hero-bg.jpg";
 import { ButtonA, ButtonLink } from "../components/Button";
 import { Heading } from "../components/OtherCommon";
