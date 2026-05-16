@@ -1,22 +1,29 @@
 import { useState } from "react";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { ListMinus } from "lucide-react";
 import { FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { GoArrowUpRight } from "react-icons/go";
 import { FaGoogleScholar } from "react-icons/fa6";
 import { HiAcademicCap } from "react-icons/hi";
-
+import { useSmoothScroll } from "../hooks/useSmoothScroll";
 const Header = () => {
+  const { scrollToSection } = useSmoothScroll();
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
 
-  const navItems = [
+  const navItemsFirst = [
     { name: "Home", path: "#home" },
     { name: "About", path: "#about" },
     { name: "Education", path: "#education" },
     { name: "Skills", path: "#skills" },
+  ];
+  const navItemsSec = [
     { name: "Experience", path: "#experience" },
-    { name: "Contact", path: "#contact" },
+    { name: "Research Projects", path: "#research" },
+    { name: "Publications", path: "#publications" },
+    { name: "Awards", path: "#awards" },
+    { name: "Trainings", path: "#training" },
+    { name: "Seminars", path: "#seminars" },
   ];
 
   const heroData = {
@@ -28,13 +35,12 @@ const Header = () => {
       phone: "+1 (505) 398-5375",
     },
     socialLinks: {
-      facebook:
-        "https://www.facebook.com/wix",
-      twitter:
-        "https://www.twitter.com/wix",
+      facebook: "https://www.facebook.com/wix",
+      twitter: "https://www.twitter.com/wix",
       linkedin: "https://www.linkedin.com/in/drqurat-ul-ain-4aa8a2165/",
       academic: "https://www.iare.com.au/team-3/",
-      googleScholar: "https://scholar.google.com/citations?user=2T7GuFUAAAAJ&hl=en"
+      googleScholar:
+        "https://scholar.google.com/citations?user=2T7GuFUAAAAJ&hl=en",
     },
   };
 
@@ -42,22 +48,22 @@ const Header = () => {
     <header className="text-primary bg-white/70 backdrop-blur-md shadow-md fixed w-full z-50">
       <nav className="mx-auto flex justify-between items-center py-4 px-4">
         {/* Logo */}
-        <a href="#home">
+        <Link to="/">
           <h1 className="font-syne text-[32px] font-bold">
             <span className="text-secondary">{heroData.name}</span>
           </h1>
-        </a>
+        </Link>
 
         {/* Desktop Nav */}
         <ul className="md:flex hidden space-x-6 text-lg font-medium">
-          {navItems.map((item) => {
+          {navItemsFirst.map((item) => {
             const isActive = location.pathname === item.path;
 
             return (
               <li key={item.path} className="relative group py-2">
-                <a
-                  href={item.path}
-                  className={`px-4 py-2 transition-colors duration-300 text-center ${
+                <button
+                  onClick={() => scrollToSection(item.path.replace("#", ""))}
+                  className={`px-4 py-2 transition-colors duration-300 text-center cursor-pointer ${
                     isActive
                       ? "text-secondary"
                       : "text-primary hover:text-secondary"
@@ -65,18 +71,63 @@ const Header = () => {
                 >
                   {item.name}
 
-                  {/* Top Bar */}
                   <span
-                    className={`absolute -top-4.5 left-0 w-full h-0.75 rounded-full transition-all duration-300 ${
+                    className={`absolute -top-4 left-0 w-full h-0.75 rounded-full transition-all duration-300 ${
                       isActive
                         ? "bg-secondary"
                         : "bg-transparent group-hover:bg-secondary"
                     }`}
                   ></span>
-                </a>
+                </button>
               </li>
             );
           })}
+
+          {/* ========================= */}
+          {/* MORE PAGES DROPDOWN */}
+          {/* ========================= */}
+          <li className="relative group py-2">
+            {/* Trigger */}
+            <button className="px-4 cursor-pointer py-2 text-primary hover:text-secondary transition-colors duration-300">
+              More Pages
+            </button>
+
+            {/* Dropdown */}
+            <div className="absolute left-0 bg-transparent pt-6.25">
+              <div className="w-48 bg-white shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                {navItemsSec.map((item) => {
+                  const isActive = location.pathname === item.path;
+
+                  return (
+                    <li key={item.path} className="group">
+                      <button
+                        onClick={() =>
+                          scrollToSection(item.path.replace("#", ""))
+                        }
+                        className={`block w-full cursor-pointer text-left px-4 py-2 hover:bg-gray-100 ${
+                          isActive
+                            ? "text-secondary"
+                            : "text-primary hover:text-secondary"
+                        }`}
+                      >
+                        {item.name}
+                      </button>
+                    </li>
+                  );
+                })}
+              </div>
+            </div>
+          </li>
+
+          {/* Contact */}
+          <li className="relative group py-2">
+            <button
+              onClick={() => scrollToSection("contact")}
+              className="px-4 py-2 text-primary hover:text-secondary cursor-pointer transition-colors duration-300"
+            >
+              Contact
+            </button>
+          </li>
         </ul>
 
         {/* Menu Button */}
@@ -94,7 +145,7 @@ const Header = () => {
             className="fixed inset-0 z-50 h-screen flex justify-end bg-black/80 transition-all duration-300"
             onClick={() => setIsOpen(false)}
           >
-            <div className="fixed top-0 -right-2 flex justify-end bg-black/40">
+            <div className="fixed top-0 md:-right-2 w-full sm:w-96 flex justify-end bg-black/40">
               <div className="bg-[#F3F3F3] w-full sm:w-96 h-screen px-6 py-4 relative shadow-lg overflow-y-auto">
                 {/* Close Button */}
                 <button
@@ -104,11 +155,12 @@ const Header = () => {
                   <ListMinus size={24} />
                 </button>
 
-                {/* Content */}
-                <div className="block">
-                  <a
-                    href="#home"
-                    onClick={() => setIsOpen(false)}
+                <div className="hidden md:block">
+                  <button
+                    onClick={() => {
+                      scrollToSection("#home".replace("#", ""));
+                      setIsOpen(false);
+                    }}
                     className="inline-block"
                   >
                     <h1 className="font-syne text-[32px] font-bold mb-4">
@@ -121,7 +173,7 @@ const Header = () => {
                         </span>
                       ))}
                     </h1>
-                  </a>
+                  </button>
 
                   <p className="text-primary text-[13px] mb-6">
                     {heroData.description}
@@ -212,45 +264,49 @@ const Header = () => {
                   </div>
 
                   {/* Button */}
-                  <a href="#contact" onClick={() => setIsOpen(false)}>
-                    <button className="w-full py-5 bg-secondary cursor-pointer text-white rounded-md hover:bg-primary transition ease-in-out duration-300 flex items-center justify-center gap-2">
-                      <span>Let's Talk</span>
-                      <GoArrowUpRight />
-                    </button>
-                  </a>
-
-                  {/* Mobile Nav */}
-                  <ul className="flex md:hidden flex-col gap-4 mt-10 text-lg font-medium">
-                    {navItems.map((item) => {
-                      const isActive = location.pathname === item.path;
-
-                      return (
-                        <li key={item.path} className="relative group py-2">
-                          <a
-                            href={item.path}
-                            onClick={() => setIsOpen(false)}
-                            className={`block px-4 py-2 transition-colors duration-300 ${
-                              isActive
-                                ? "text-secondary"
-                                : "text-primary hover:text-secondary"
-                            }`}
-                          >
-                            {item.name}
-
-                            {/* Left Bar */}
-                            <span
-                              className={`absolute left-0 top-0 h-full w-0.75 rounded-full transition-all duration-300 ${
-                                isActive
-                                  ? "bg-secondary"
-                                  : "bg-transparent group-hover:bg-secondary"
-                              }`}
-                            ></span>
-                          </a>
-                        </li>
-                      );
-                    })}
-                  </ul>
+                  <button
+                    onClick={() => {
+                      scrollToSection("contact");
+                      setIsOpen(false);
+                    }}
+                    className="w-full py-5 bg-secondary cursor-pointer text-white rounded-md hover:bg-primary transition ease-in-out duration-300 flex items-center justify-center gap-2"
+                  >
+                    <span>Let's Talk</span>
+                    <GoArrowUpRight />
+                  </button>
                 </div>
+
+                {/* Mobile Nav */}
+                <ul className="flex md:hidden flex-col gap-4 mt-10 text-lg font-medium">
+                  {navItems.map((item) => {
+                    const isActive = location.pathname === item.path;
+
+                    return (
+                      <li key={item.path} className="relative group py-2">
+                        <a
+                          href={item.path}
+                          onClick={() => setIsOpen(false)}
+                          className={`block px-4 py-2 transition-colors duration-300 ${
+                            isActive
+                              ? "text-secondary"
+                              : "text-primary hover:text-secondary"
+                          }`}
+                        >
+                          {item.name}
+
+                          {/* Left Bar */}
+                          <span
+                            className={`absolute left-0 top-0 h-full w-0.75 rounded-full transition-all duration-300 ${
+                              isActive
+                                ? "bg-secondary"
+                                : "bg-transparent group-hover:bg-secondary"
+                            }`}
+                          ></span>
+                        </a>
+                      </li>
+                    );
+                  })}
+                </ul>
               </div>
             </div>
           </div>

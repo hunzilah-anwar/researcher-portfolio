@@ -1,6 +1,4 @@
-import React from "react";
-
-const Heading = ({name, darkColor}) => {
+const Heading = ({ name, darkColor }) => {
   return (
     <div className="relative flex items-center justify-center py-6">
       {/* Stroke Text */}

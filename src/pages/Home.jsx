@@ -3,6 +3,10 @@ import ProfilePic from "../assets/profile-pic.webp";
 import HeroBg from "../assets/hero-bg.jpg";
 import { ButtonA, ButtonLink } from "../components/Button";
 import { Heading } from "../components/OtherCommon";
+import ExpertiesImg from "../assets/experties-img.jpg";
+import Contact from "../components/Contact";
+import Resume from "../../public/Resume.pdf";
+
 
 const Home = () => {
   const experience = [
@@ -219,6 +223,346 @@ const Home = () => {
     { name: "Public Speaking", value: 100 },
   ];
 
+  //   Research Projects
+  const researchProjects = [
+    {
+      title:
+        "NEED ASSESSMENT FOR THE CHILDREN OF DRUG-ADDICTED PARENTS AND THE ROLE OF SCHOOL GUIDANCE AND COUNSELING SERVICES",
+      advisor: "Prof. Dr. Muhammad Arshad Dahar",
+      mentor: "Prof. Tony Lee (National Taiwan Normal University)",
+      examiners:
+        "Prof. Dr. Valentin Martínez Otero Pérez (Spain); Prof. Dr. Carolyn M. Shields (USA)",
+    },
+
+    {
+      title:
+        "THESIS: EFFECT OF NARCOTIC ADDICTION OF PARENTS ON SOCIAL AND ACADEMIC AFFAIRS OF THEIR CHILDREN.",
+      advisor: "Prof. Dr. Muhammad Arshad Dahar",
+    },
+  ];
+
+  //   Publications
+  const publications = [
+    {
+      title:
+        "Impact of Parental Addiction on Children’s Academic Performance and School Counseling Interventions to Support Student Success",
+    },
+
+    {
+      title:
+        "Positive Educational Development Through Counseling: Influence of Prenatal Substance Misuse on Children’s Learning Abilities",
+    },
+
+    {
+      title:
+        "Effect of Paternal Heroin Addictive Behavior on Academic Grades of Their Children at Secondary School Level.",
+    },
+
+    {
+      title:
+        "Prevalence of Contingent Academic Stress and Depression Among Children with and Without Substance Use Disorder Family History",
+    },
+
+    {
+      title:
+        "Adherence Among HIV-Positive Injection Drug Users Undergoing Methadone Treatment in Taiwan.",
+    },
+
+    {
+      title:
+        "Child Academic Performance is Negatively Impacted by Heroin-Using Parents",
+      link: "https://cpdd.org/wp-content/uploads/2019/05/Program_Book_2019_Finished.pdf",
+    },
+
+    {
+      title:
+        "prevalence and characteristics of school bullying in children and adolescents: Evidence from a systematic review (2000-2024)",
+    },
+  ];
+
+  //   Upcoming Publications
+  const upcomingResearch = [
+    {
+      title:
+        "No Health without Mental Health: Factors Influencing Psychological Distress in HIV Patients on Antiretroviral Therapy in Lahore, Pakistan",
+      status: "In Review",
+    },
+
+    {
+      title:
+        "Epidemiological Insights into Community-Acquired Pneumonia Risk Factors among Children Under 5: Unveiling the Impact in the Post-Pneumococcal Vaccine Era",
+      status: "Accepted for Publishing",
+    },
+
+    {
+      title:
+        "Risk Factors for Community-Acquired Pneumonia in Children under Five in the Post-Pneumococcal Vaccine Era in Lahore, Pakistan: a case control study",
+      status: "In Review",
+    },
+
+    {
+      title:
+        "Behavioral and Emotional Outcomes in Children of Methamphetamine-Using Parents in Pakistan: A CBCL-Based Study During the Ice Epidemic.",
+      status: "Organization Phase",
+    },
+
+    {
+      title:
+        "Behavioral and Emotional Outcomes in Children of Methamphetamine-Using Parents in Pakistan: A CBCL-Based Study During the Ice Epidemic.",
+      status: "Ongoing",
+    },
+
+    {
+      title:
+        "Book author Dr Qurat: Survivors in Love; The Psychology of Partner Choice, Attachment, and Healing After Trauma",
+      status: "Upcoming Book",
+    },
+  ];
+
+  //   Peer Reviewer Work
+  const peerReviewerWork = {
+    title: "STUDENTS-SUPERVISED SUCCESSFULLY IN INDIA, CHINA, USA, Pakistan",
+    role: "Peer Reviewer – PLOS ONE",
+    duration: "2023 – Present",
+
+    description:
+      "Reviewed manuscripts in behavioral science, public health, and education for international scholarly publications.",
+
+    reviewedTopics: [
+      "Post-pandemic mental health in middle school students Florida (USA)",
+      "Learning deficits and early school leaving (India)",
+      "Post-pandemic mental health in middle school students Florida (USA)",
+      "Equity in rural physical education resource allocation (China)",
+    ],
+
+    reviewedArticles: [
+      "PONE-D-25-31922R1: Learning deficits and early school leaving: Evidence from a longitudinal study in India.",
+
+      "Post-Pandemic Mental Health Skills in South Florida Middle Schoolers",
+
+      "Equity in Rural Physical Education Resource Allocation in China",
+
+      "Research on the Characteristics and Implications of Leading Medical Talent Groups in China: A Case Study of Academicians of the Chinese Academy of Sciences and the Chinese Academy of Engineering in Biomedical Sciences",
+
+      "Challenges in achieving common prosperity: evaluating and mitigating the vulnerability of rural physical education teacher resource allocation in China.",
+
+      "Parental influence and dietary habits in Lebanese students' lunchboxes: implications for health and academic performance (On going)",
+    ],
+  };
+
+  //   Awards and Recognitions
+  const awards = [
+    {
+      title:
+        "Young Scientist Travel Award – CPDD 81st Annual Scientific Meeting",
+      organization:
+        "National Institute on Drug Abuse (NIDA) International Forum",
+      location: "San Antonio, Texas, USA",
+      year: "June 2019",
+      description:
+        '"The Hidden Harm: Child Academic Performance Negatively Impacted by Heroin Use" — Recognized for academic merit and research contribution in behavioral and public health.',
+    },
+
+    {
+      title:
+        "National Award for Excellence in Research Supporting Children and Families Affected by Substance Use",
+      organization: "Anti-Narcotic Force (ANF)",
+      description:
+        "Recognized for strengthening preventive and rehabilitative strategies, supporting vulnerable populations, and advancing institutional and national frameworks aligned with the ANF mission.",
+    },
+
+    {
+      title: "Best Teacher of the Year Award",
+      organization: "Pakistan Askari School & College",
+    },
+
+    {
+      title: "Best Speaker of the Year Award",
+      organization: "Iqra University, Islamabad, Pakistan",
+    },
+  ];
+
+  //   Trainings and Certifications
+  const trainings = [
+    {
+      title: "Human Research Protection Training",
+      organization: "Yale School of Medicine & NTNU",
+      year: "2019",
+    },
+
+    {
+      title: "Life Skills Training for Pre-Service Teachers",
+      organization: "NTU",
+      year: "2019",
+    },
+
+    {
+      title: "Drug Control Strategies for Children Symposium",
+      organization: "NTNU",
+      year: "2017",
+    },
+
+    {
+      title: "CompTIA+ (Networking) Certification",
+      organization: "Houston Community College",
+      year: "2023",
+    },
+
+    {
+      title: "First Aid",
+      organization: "NM Behavioral Health Institute",
+      year: "2020",
+    },
+
+    {
+      title: "CPR & AED",
+      organization: "NM Behavioral Health Institute",
+      year: "2020",
+    },
+
+    {
+      title: "FY20 HIPAA Compliance",
+      organization: "NM Behavioral Health Institute",
+      year: "2020",
+    },
+
+    {
+      title: "Psychiatric Technician Training Certificate",
+      organization: "NM Behavioral Health Institute",
+      year: "2020",
+    },
+
+    {
+      title: "Suicide Prevention Certificate",
+      organization: "",
+      year: "2020",
+    },
+
+    {
+      title: "Passenger Assistant & Transportation",
+    },
+
+    {
+      title: "Teacher Training Skills and Lesson Planning",
+      organization:
+        "Pakistan Askari School & College Islamabad, Pakistan (PASCI)",
+      year: "2012",
+    },
+
+    {
+      title: "Curriculum Development and Implementation of Change",
+      organization: "PASCI",
+      year: "2011",
+    },
+
+    {
+      title:
+        "Assessing the Drug Use Withdrawal Symptoms and Management Techniques",
+      organization: "AASRA",
+      year: "2012",
+    },
+
+    {
+      title: "Early Childhood & Student Support for Elementary School",
+      organization: "PASCI",
+      year: "2014",
+    },
+
+    {
+      title:
+        "Teaching Methodology and Use of Audio-visual Aids in the Classroom",
+      organization: "College Of Education (H-9)",
+      year: "2008",
+    },
+
+    {
+      title: "Effective Teaching at Primary Level",
+      organization: "Oxford University Press",
+      year: "2016",
+    },
+
+    {
+      title: "Assessment and Evaluation in Education",
+      organization: "PASCI",
+      year: "2015",
+    },
+
+    {
+      title: "Teaching Of English - Nicholas Horsburgh",
+      organization: "Oxford University Press",
+      year: "2012",
+    },
+
+    {
+      title: "Teaching Practice Completion for Diploma in Education",
+      organization: "F.G. Model School for Girls",
+      year: "2006",
+    },
+
+    {
+      title:
+        "Sleep and Addiction: Fundamentals for Behavioral Healthcare Providers",
+      year: "March 3, 2026",
+    },
+
+    {
+      title: "How AI Is Rapidly Altering Life, Illness, and Mental Healthcare",
+      year: "March 13, 2026",
+    },
+
+    {
+      title:
+        "Ask the Experts: When Treatment Gets Tough: Trauma in Complex Eating Disorder Cases",
+      year: "March 18, 2026",
+    },
+  ];
+
+  //   Seminars and Workshops
+  const seminars = [
+    {
+      title: "Protecting the Emotional Well-Being of School-Going Children",
+      role: "Speaker and Organizer",
+      organization:
+        "Aasra Addiction Treatment & Rehabilitation Services with Pakistan Askari College Islamabad",
+      date: "8th February 2014",
+    },
+
+    {
+      title:
+        "Building Resilience and Emotional Regulation Techniques in Children Affected by Parental Drug Addiction",
+      role: "Trainer and Organizer",
+      organization:
+        "Aasra Addiction Treatment & Rehabilitation Services with Pakistan Askari College Islamabad",
+      date: "12th June 2014",
+    },
+
+    {
+      title: "Preventing Intergenerational Substance Use in Societies",
+      role: "Organizer",
+      organization:
+        "Aasra Addiction Treatment & Rehabilitation Services with Pakistan Askari College Islamabad",
+      date: "21st September 2015",
+    },
+
+    {
+      title:
+        "Support Child’s Education During Family Crisis and Violent Environment",
+      role: "Organizer (Webinar)",
+      organization: "Aasra Addiction Treatment & Rehabilitation Services",
+      date: "2nd January 2016",
+    },
+  ];
+
+  //   Expertises
+  const expertise = [
+    "Intergenerational impact of substance use disorders on academic achievement",
+    "Addiction-informed school counseling frameworks",
+    "Methadone treatment adherence research",
+    "Bullying, depression, and educational performance outcomes",
+    "Behavioral health integration in academic institutions",
+    "Quantitative research design & statistical analysis",
+  ];
+
   return (
     <>
       <section
@@ -229,9 +573,10 @@ const Home = () => {
           backgroundPosition: "center",
         }}
       >
-        <div className="flex items-center justify-between gap-8">
+        <div className="flex flex-wrap items-center justify-between gap-8">
           <div>
             <h4 className="text-xl font-bold">Hey There!</h4>
+            <h4 className="text-xl font-bold">I'am Dr. QURATULAIN</h4>
             <h1 className="text-2xl md:text-3xl font-bold max-w-150 text-secondary">
               International Researcher | Behavioral Health Specialist |
               Education Expert
@@ -244,14 +589,14 @@ const Home = () => {
             <div className="mt-6 flex items-center gap-4">
               <ButtonA
                 name="Download CV"
-                href="#"
+                href={Resume}
                 bgColor={"bg-primary"}
                 textColor={"text-white"}
                 HoverClasses={"hover:bg-white hover:text-primary"}
               />
               <ButtonLink
+              to="#contact"
                 name="Contact Me"
-                to="/contact"
                 bgColor={"bg-transparent"}
                 textColor={"text-primary"}
                 HoverClasses={"hover:bg-primary hover:text-white"}
@@ -349,18 +694,20 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section ref={sectionRef} className="bg-primary text-white py-16 px-4" id="skills">
+      <section
+        ref={sectionRef}
+        className="bg-primary text-white py-16 px-4"
+        id="skills"
+      >
         <div className="max-w-5xl mx-auto">
-          <Heading name="Skills" darkColor='#325254' />
+          <Heading name="Skills" darkColor="#325254" />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 py-10">
             {skills.map((skill, index) => (
               <div key={index}>
                 {/* Label */}
                 <div className="flex justify-between mb-1">
-                  <span className="font-medium">
-                    {skill.name}
-                  </span>
+                  <span className="font-medium">{skill.name}</span>
                   <span className="text-sm">{skill.value}%</span>
                 </div>
 
@@ -413,6 +760,419 @@ const Home = () => {
           ))}
         </div>
       </section>
+      <section className="bg-primary text-white py-20 px-4">
+        <div className="max-w-6xl mx-auto">
+          {/* Heading */}
+          <div className="mb-14 text-center">
+            <h2 className="text-4xl font-bold">Research Projects</h2>
+
+            <p className="text-gray-300 mt-4 max-w-3xl mx-auto">
+              National and international research projects focused on addiction
+              science, behavioral health, counseling, and educational
+              interventions.
+            </p>
+          </div>
+
+          {/* Projects */}
+          <div className="space-y-8">
+            {researchProjects.map((project, index) => (
+              <div
+                key={index}
+                className="relative border-l-2 border-secondary pl-8 group"
+              >
+                {/* Dot */}
+                <span className="absolute -left-2.25 top-0 w-4 h-4 bg-primary rounded-full inset-ring-2 inset-ring-primary group-hover:bg-secondary transition ease-in-out duration-300 border-2 border-white"></span>
+
+                {/* Card */}
+                <div className="bg-black/30 border border-white/10 p-8 hover:bg-black/40 transition duration-300">
+                  {/* Title */}
+                  <h3 className="text-2xl font-semibold leading-relaxed text-white">
+                    {project.title}
+                  </h3>
+
+                  {/* Advisor */}
+                  <div className="mt-6 space-y-4">
+                    <div>
+                      <h4 className="text-secondary font-semibold mb-1">
+                        Advisor
+                      </h4>
+
+                      <p className="text-gray-300">{project.advisor}</p>
+                    </div>
+
+                    {/* Mentor */}
+                    {project.mentor && (
+                      <div>
+                        <h4 className="text-secondary font-semibold mb-1">
+                          Co-Mentor
+                        </h4>
+
+                        <p className="text-gray-300">{project.mentor}</p>
+                      </div>
+                    )}
+
+                    {/* Examiners */}
+                    {project.examiners && (
+                      <div>
+                        <h4 className="text-secondary font-semibold mb-1">
+                          External Examiners
+                        </h4>
+
+                        <p className="text-gray-300 leading-relaxed">
+                          {project.examiners}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="bg-white py-20 px-20">
+        <div className="max-w-7xl mx-auto">
+          {/* Heading */}
+          <div className="mb-16 text-center">
+            <h2 className="text-4xl font-bold text-black">
+              Publications & Scholarly Contributions
+            </h2>
+
+            <p className="text-gray-600 mt-4 max-w-3xl mx-auto">
+              Research publications focused on behavioral health, addiction
+              science, counseling, educational psychology, and public health
+              interventions.
+            </p>
+          </div>
+
+          {/* Publications Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {publications.map((item, index) => (
+              <div
+                key={index}
+                className="group relative overflow-hidden rounded-3xl border border-gray-200 bg-[#FAFAFA] p-8 hover:shadow-2xl hover:-translate-y-1 transition duration-300"
+              >
+                {/* Number */}
+                <div className="absolute top-0 right-0 text-[90px] font-bold text-black/5 leading-none select-none">
+                  {index + 1}
+                </div>
+
+                {/* Content */}
+                <div className="relative z-10">
+                  <div className="mb-6 flex items-center gap-3">
+                    <div className="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center text-lg font-semibold">
+                      {index + 1}
+                    </div>
+
+                    <span className="text-sm uppercase tracking-widest text-secondary font-semibold">
+                      Research Publication
+                    </span>
+                  </div>
+
+                  <h3 className="text-xl font-semibold text-black leading-relaxed">
+                    {item.title}
+                  </h3>
+
+                  {/* Link */}
+                  {item.link && (
+                    <a
+                      href={item.link}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-2 mt-6 text-secondary font-medium hover:underline"
+                    >
+                      View Publication →
+                    </a>
+                  )}
+                </div>
+
+                {/* Hover Effect */}
+                <div className="absolute inset-0 bg-linear-to-br from-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition duration-300"></div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="bg-[#0B0B0B] text-white py-20 px-20">
+        <div className="max-w-7xl mx-auto">
+          {/* Heading */}
+          <div className="mb-16">
+            <h4 className="text-secondary uppercase tracking-[4px] text-sm font-medium text-center">
+              Ongoing Academic Work
+            </h4>
+            <Heading name="Upcoming Research Articles" darkColor="#325254" />
+          </div>
+
+          {/* Research List */}
+          <div className="space-y-8">
+            {upcomingResearch.map((item, index) => (
+              <div key={index} className="group border-b border-white/10 pb-8">
+                <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
+                  {/* Left */}
+                  <div className="flex gap-5">
+                    {/* Number */}
+                    <div className="min-w-15 h-15 rounded-full border border-secondary text-secondary flex items-center justify-center text-lg font-semibold group-hover:bg-secondary group-hover:text-white transition duration-300">
+                      {String(index + 1).padStart(2, "0")}
+                    </div>
+
+                    {/* Content */}
+                    <div>
+                      <h3 className="text-xl font-semibold leading-relaxed">
+                        {item.title}
+                      </h3>
+                    </div>
+                  </div>
+
+                  {/* Status */}
+                  <div>
+                    <span className="inline-flex items-center px-5 py-2 rounded-full border border-secondary text-secondary text-sm font-medium whitespace-nowrap">
+                      {item.status}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="bg-white py-20 px-20">
+        <div className="max-w-7xl mx-auto">
+          {/* Heading */}
+          <div className="mb-16">
+            <h4 className="text-secondary text-center uppercase tracking-[4px] text-sm font-semibold">
+              Academic Contributions
+            </h4>
+
+            <Heading name="Peer Reviewer Work" />
+          </div>
+
+          {/* Main Card */}
+          <div className="border border-black/10 rounded-xl overflow-hidden shadow-sm">
+            {/* Top */}
+            <div className="bg-primary text-white p-8">
+              <h3 className="text-3xl font-bold">{peerReviewerWork.title}</h3>
+
+              <p className="text-white/70 mt-2 text-lg">
+                {peerReviewerWork.role} {"|"} {peerReviewerWork.duration}
+              </p>
+
+              <p className="text-white/80 leading-relaxed text-sm max-w-4xl">
+                {peerReviewerWork.description}
+              </p>
+            </div>
+
+            {/* Reviewed Topics */}
+            <div className="p-8 border-b border-black/10">
+              <h4 className="text-2xl font-semibold text-primary mb-8">
+                Reviewed Research Areas
+              </h4>
+
+              <div className="grid md:grid-cols-2 gap-5">
+                {peerReviewerWork.reviewedTopics.map((topic, index) => (
+                  <div
+                    key={index}
+                    className="group bg-[#F8F8F8] p-5 border border-black/5 hover:border-secondary transition duration-300"
+                  >
+                    <div className="flex items-center gap-4">
+                      <div className="min-w-10.5 h-10.5 rounded-full bg-secondary text-white flex items-center justify-center font-semibold">
+                        {index + 1}
+                      </div>
+
+                      <p className="text-gray-700 leading-relaxed group-hover:text-primary transition duration-300">
+                        {topic}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Reviewed Articles */}
+            <div className="p-8">
+              <h4 className="text-2xl font-semibold text-primary mb-8">
+                Reviewed Articles
+              </h4>
+
+              <div className="space-y-5">
+                {peerReviewerWork.reviewedArticles.map((article, index) => (
+                  <div key={index} className="flex items-center gap-5 px-4">
+                    <div className="min-w-11.25 h-11.25 rounded-full border border-secondary text-secondary flex items-center justify-center font-semibold">
+                      {String(index + 1).padStart(2, "0")}
+                    </div>
+
+                    <p className="text-gray-700 leading-relaxed">{article}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="bg-primary text-white py-20 px-20 overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          {/* Heading */}
+          <div className="mb-16">
+            <h4 className="text-secondary text-center uppercase tracking-[4px] text-sm font-medium">
+              Recognition & Excellence
+            </h4>
+
+            <Heading name="Awards & Achievements" darkColor="#325254" />
+          </div>
+
+          {/* Awards Grid */}
+          <div className="grid lg:grid-cols-2 gap-8">
+            {awards.map((award, index) => (
+              <div
+                key={index}
+                className="group relative border border-white/10 rounded-xl p-8 bg-white/5 hover:bg-white/10 transition duration-500 overflow-hidden"
+              >
+                {/* Number */}
+                <div className="absolute -top-8 -right-5 text-[120px] font-bold text-white/5 select-none">
+                  {String(index + 1).padStart(2, "0")}
+                </div>
+
+                {/* Content */}
+                <h3 className="text-2xl font-semibold leading-snug group-hover:text-secondary transition duration-300">
+                  {award.title}
+                </h3>
+
+                <div className="mt-5 space-y-2">
+                  <p className="text-white/80 text-lg">{award.organization}</p>
+
+                  {award.location && (
+                    <p className="text-white/60">{award.location}</p>
+                  )}
+
+                  {award.year && (
+                    <p className="inline-flex px-4 py-1 rounded-full border border-secondary text-secondary text-sm mt-3">
+                      {award.year}
+                    </p>
+                  )}
+                </div>
+
+                {award.description && (
+                  <p className="text-white/70 leading-relaxed mt-8">
+                    {award.description}
+                  </p>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="bg-white py-20 px-20">
+        <div className="max-w-7xl mx-auto">
+          {/* Heading */}
+          <div className="mb-16">
+            <h4 className="text-secondary text-center uppercase tracking-[4px] text-sm font-medium">
+              Professional Development
+            </h4>
+
+            <Heading name="Trainings & Certifications" />
+          </div>
+
+          {/* Cards */}
+          <div className="grid md:grid-cols-2 gap-6">
+            {trainings.map((item, index) => (
+              <div
+                key={index}
+                className="group relative border border-black/10 rounded-xl px-4 py-2 hover:border-secondary hover:-translate-y-1 transition duration-300 bg-[#fafafa] cursor-default"
+              >
+                {/* Year */}
+                {item.year && (
+                  <div className="text-sm font-medium">{item.year}</div>
+                )}
+
+                {/* Title */}
+                <h3 className="text-xl font-semibold text-primary leading-relaxed group-hover:text-secondary transition duration-300">
+                  {item.title}
+                </h3>
+
+                {/* Organization */}
+                {item.organization && (
+                  <p className="text-gray-600 leading-relaxed">
+                    {item.organization}
+                  </p>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="bg-primary text-white py-20 px-20">
+        <div className="max-w-7xl mx-auto">
+          {/* Heading */}
+          <div className="mb-16">
+            <h4 className="text-secondary text-center uppercase tracking-[4px] text-sm font-medium">
+              Community Engagement
+            </h4>
+
+            <Heading name="Seminars & Workshops" darkColor="#325254" />
+          </div>
+
+          {/* Timeline */}
+          <div className="space-y-10">
+            {seminars.map((item, index) => (
+              <div key={index} className="">
+                {/* Content */}
+                <div className="border-b border-white/10 pb-2">
+                  <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-3">
+                    <span className="text-secondary text-sm font-medium">
+                      {item.role}
+                    </span>
+
+                    <span className="text-white/60 text-sm">{item.date}</span>
+                  </div>
+                  <h3 className="text-xl font-semibold group-hover:text-secondary transition duration-300">
+                    {item.title}
+                  </h3>
+
+                  <p className="text-white/70 mt-3 text-sm leading-relaxed">
+                    {item.organization}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="bg-white py-20 px-4">
+        <div className="max-w-7xl mx-auto">
+          {/* Heading */}
+          <div className="mb-14 text-center">
+            <h4 className="text-secondary text-center uppercase tracking-[4px] text-sm font-medium">
+              Core Strengths
+            </h4>
+
+            <Heading name="Areas of Expertise" />
+          </div>
+
+          <div className="grid md:grid-cols-2 grid-cols-1 gap-6">
+            <div className="space-y-4">
+              {expertise.map((item, index) => (
+                <div key={index} className="flex flex-row items-center gap-4">
+                  <div className="min-w-11.25 h-11.25 rounded-full border border-secondary text-secondary flex items-center justify-center font-semibold">
+                    {String(index + 1).padStart(2, "0")}
+                  </div>
+
+                  {/* Text */}
+                  <p className="text-gray-700 leading-relaxed group-hover:text-primary transition duration-300">
+                    {item}
+                  </p>
+                </div>
+              ))}
+            </div>
+            <div>
+              <img
+                src={ExpertiesImg}
+                alt="Experties"
+                className="w-full h-fit rounded-2xl"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+      <Contact />
     </>
   );
 };
