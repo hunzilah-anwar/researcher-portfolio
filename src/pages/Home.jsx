@@ -995,8 +995,8 @@ const Home = () => {
 
               <div className="space-y-5">
                 {peerReviewerWork.reviewedArticles.map((article, index) => (
-                  <div key={index} className="flex items-center gap-5 sm:px-4">
-                    <div className="min-w-11.25 h-11.25 rounded-full border border-secondary text-secondary flex items-center justify-center font-semibold">
+                  <div key={index} className="flex items-start gap-5 sm:px-4">
+                    <div className="min-w-11.25 h-11.25 rounded-full border border-secondary text-secondary flex items-center justify-center font-semibold mt-1">
                       {String(index + 1).padStart(2, "0")}
                     </div>
 
@@ -1008,10 +1008,10 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className="bg-primary text-white py-20 px-20 overflow-hidden" id="awards">
+      <section className="bg-primary text-white sm:py-20 py-10 lg:px-20 sm:px-10 px-5 overflow-hidden" id="awards">
         <div className="max-w-7xl mx-auto">
           {/* Heading */}
-          <div className="mb-16">
+          <div className="sm:mb-16 mb-5">
             <h4 className="text-secondary text-center uppercase tracking-[4px] text-sm font-medium">
               Recognition & Excellence
             </h4>
@@ -1020,11 +1020,11 @@ const Home = () => {
           </div>
 
           {/* Awards Grid */}
-          <div className="grid lg:grid-cols-2 gap-8">
+          <div className="grid lg:grid-cols-2 sm:gap-8 gap-4">
             {awards.map((award, index) => (
               <div
                 key={index}
-                className="group relative border border-white/10 rounded-xl p-8 bg-white/5 hover:bg-white/10 transition duration-500 overflow-hidden"
+                className="group relative border border-white/10 rounded-xl sm:p-8 p-4 bg-white/5 hover:bg-white/10 transition duration-500 overflow-hidden"
               >
                 {/* Number */}
                 <div className="absolute -top-8 -right-5 text-[120px] font-bold text-white/5 select-none">
@@ -1032,26 +1032,26 @@ const Home = () => {
                 </div>
 
                 {/* Content */}
-                <h3 className="text-2xl font-semibold leading-snug group-hover:text-secondary transition duration-300">
+                <h3 className="text-lg sm:text-2xl font-semibold leading-snug group-hover:text-secondary transition duration-300">
                   {award.title}
                 </h3>
 
-                <div className="mt-5 space-y-2">
-                  <p className="text-white/80 text-lg">{award.organization}</p>
+                <div className="sm:mt-5 mt-2 space-y-2">
+                  <p className="text-white/80 sm:text-lg text-sm">{award.organization}</p>
 
                   {award.location && (
-                    <p className="text-white/60">{award.location}</p>
+                    <p className="text-white/60 sm:text-lg text-sm">{award.location}</p>
                   )}
 
                   {award.year && (
-                    <p className="inline-flex px-4 py-1 rounded-full border border-secondary text-secondary text-sm mt-3">
+                    <p className="inline-flex px-4 py-1 rounded-full border border-secondary text-secondary text-sm sm:mt-3 mt-1">
                       {award.year}
                     </p>
                   )}
                 </div>
 
                 {award.description && (
-                  <p className="text-white/70 leading-relaxed mt-8">
+                  <p className="text-white/70 sm:text-[16px] text-sm leading-relaxed sm:mt-8 mt-4">
                     {award.description}
                   </p>
                 )}
@@ -1060,10 +1060,10 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className="bg-white py-20 px-20" id="training">
+      <section className="bg-white sm:py-20 py-10 lg:px-20 sm:px-10 px-5" id="training">
         <div className="max-w-7xl mx-auto">
           {/* Heading */}
-          <div className="mb-16">
+          <div className="sm:mb-16 mb-5">
             <h4 className="text-secondary text-center uppercase tracking-[4px] text-sm font-medium">
               Professional Development
             </h4>
@@ -1072,7 +1072,7 @@ const Home = () => {
           </div>
 
           {/* Cards */}
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 sm:gap-6 gap-2">
             {trainings.map((item, index) => (
               <div
                 key={index}
@@ -1099,10 +1099,10 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className="bg-primary text-white py-20 px-20" id="seminars">
+      <section className="bg-primary text-white sm:py-20 py-10 lg:px-20 sm:px-10 px-5" id="seminars">
         <div className="max-w-7xl mx-auto">
           {/* Heading */}
-          <div className="mb-16">
+          <div className="sm:mb-16 mb-5">
             <h4 className="text-secondary text-center uppercase tracking-[4px] text-sm font-medium">
               Community Engagement
             </h4>
@@ -1111,23 +1111,23 @@ const Home = () => {
           </div>
 
           {/* Timeline */}
-          <div className="space-y-10">
+          <div className="sm:space-y-10 space-y-6">
             {seminars.map((item, index) => (
               <div key={index} className="">
                 {/* Content */}
-                <div className="border-b border-white/10 pb-2">
-                  <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-3">
+                <div className="border-b border-white/10 sm:pb-2">
+                  <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-1">
                     <span className="text-secondary text-sm font-medium">
                       {item.role}
                     </span>
 
                     <span className="text-white/60 text-sm">{item.date}</span>
                   </div>
-                  <h3 className="text-xl font-semibold group-hover:text-secondary transition duration-300">
+                  <h3 className="sm:text-xl text-lg font-semibold group-hover:text-secondary transition duration-300">
                     {item.title}
                   </h3>
 
-                  <p className="text-white/70 mt-3 text-sm leading-relaxed">
+                  <p className="text-white/70 sm:mt-3 mt-2 text-sm leading-relaxed">
                     {item.organization}
                   </p>
                 </div>
@@ -1136,10 +1136,10 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className="bg-white py-20 px-4" id="expertise">
+      <section className="bg-white sm:py-20 py-10 lg:px-20 sm:px-10 px-5" id="expertise">
         <div className="max-w-7xl mx-auto">
           {/* Heading */}
-          <div className="mb-14 text-center">
+          <div className="sm:mb-14 mb-8 text-center">
             <h4 className="text-secondary text-center uppercase tracking-[4px] text-sm font-medium">
               Core Strengths
             </h4>

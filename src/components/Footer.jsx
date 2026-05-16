@@ -1,18 +1,17 @@
-import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#7e7e7e]">
-      <div className="flex justify-between items-center lg:mx-25 sm:mx-12.5 mx-5 py-4 text-sm text-white">
+    <footer className="bg-white">
+      <div className="flex sm:flex-nowrap flex-wrap justify-center sm:justify-between items-center gap-2 lg:mx-25 sm:mx-12.5 mx-5 py-4 text-sm text-white">
         {/* Logo */}
         <Link to="/">
           <h1 className="font-syne text-[32px] font-bold">
-            <span className="text-secondary">Hunzilah</span>
+            <span className="text-secondary">Quratulain</span>
           </h1>
         </Link>
-        <p>
-          &copy; {new Date().getFullYear()} {"Hunzilah"}. All
+        <p className="text-primary">
+          &copy; {new Date().getFullYear()} {"Quratulain"}. All
           rights reserved.
         </p>
       </div>

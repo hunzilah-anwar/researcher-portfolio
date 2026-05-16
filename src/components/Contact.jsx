@@ -18,10 +18,13 @@ const contactData = {
 
 const Contact = () => {
   return (
-    <section className="bg-primary text-white py-20 px-20" id="contact">
+    <section
+      className="bg-primary text-white sm:py-20 py-10 lg:px-20 sm:px-10 px-5"
+      id="contact"
+    >
       <div className="max-w-7xl mx-auto">
         {/* Heading */}
-        <div className="text-center mb-16">
+        <div className="text-center sm:mb-16 mb-5">
           <h4 className="text-secondary uppercase tracking-[4px] text-sm font-medium">
             Get In Touch
           </h4>
@@ -32,7 +35,7 @@ const Contact = () => {
         {/* Content */}
         <div className="grid md:grid-cols-2 gap-14 items-start">
           {/* LEFT SIDE */}
-          <div className="bg-white/5 border border-white/10 p-8 rounded-xl">
+          <div className="bg-white/5 border border-white/10 sm:p-8 p-4 rounded-xl">
             <h3 className="text-2xl font-semibold mb-6">Send a Message</h3>
 
             <form className="space-y-5">
@@ -64,7 +67,7 @@ const Contact = () => {
           </div>
 
           {/* RIGHT SIDE */}
-          <div className="space-y-6">
+          <div className="sm:space-y-6 space-y-4">
             {/* Intro Paragraph (NEW) */}
             <div>
               <p className="text-white/70 leading-relaxed text-[15px]">
@@ -82,7 +85,7 @@ const Contact = () => {
                 <MdLocationOn className="text-secondary text-2xl" />
                 <h3 className="text-lg font-semibold">Address</h3>
               </div>
-              <p className="text-white/70 mt-3">{contactData.address}</p>
+              <p className="text-white/70 sm:mt-3">{contactData.address}</p>
             </div>
 
             {/* Email */}
@@ -91,7 +94,7 @@ const Contact = () => {
                 <MdEmail className="text-secondary text-2xl" />
                 <h3 className="text-lg font-semibold">Email</h3>
               </div>
-              <p className="text-white/70 mt-3">{contactData.email}</p>
+              <p className="text-white/70 sm:mt-3">{contactData.email}</p>
             </div>
 
             {/* Phone */}
@@ -100,7 +103,7 @@ const Contact = () => {
                 <FiPhone className="text-secondary text-2xl" />
                 <h3 className="text-lg font-semibold">Phone</h3>
               </div>
-              <p className="text-white/70 mt-3">{contactData.phone}</p>
+              <p className="text-white/70 sm:mt-3">{contactData.phone}</p>
             </div>
 
             {/* Social */}
