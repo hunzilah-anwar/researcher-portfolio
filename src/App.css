@@ -10,7 +10,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #8338ec; /* secondary color */
+  background: #ff6b00; /* secondary color */
   border-radius: 10px;
   border: 2px solid #f3f3f3;
 }
@@ -22,5 +22,5 @@
 /* Firefox */
 * {
   scrollbar-width: thin;
-  scrollbar-color: #8338ec #f3f3f3;
+  scrollbar-color: #ff6b00 #f3f3f3;
 }

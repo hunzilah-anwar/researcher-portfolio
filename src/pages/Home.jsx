@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect, useRef, useState } from "react";
 import ProfilePic from "../assets/profile-pic.webp";
 import HeroBg from "../assets/hero-bg.jpg";
 import { ButtonA, ButtonLink } from "../components/Button";
@@ -86,6 +86,43 @@ const Home = () => {
     },
   ];
 
+  //   Skill Related Code
+  const sectionRef = useRef(null);
+  const [animate, setAnimate] = useState(false);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setAnimate(entry.isIntersecting);
+      },
+      { threshold: 0.3 },
+    );
+
+    const current = sectionRef.current;
+
+    if (current) {
+      observer.observe(current);
+    }
+
+    return () => {
+      if (current) observer.unobserve(current);
+      observer.disconnect();
+    };
+  }, []);
+  const skills = [
+    { name: "Teamwork", value: 100 },
+    { name: "Microsoft Excel", value: 100 },
+    { name: "Leadership Skills", value: 80 },
+    { name: "Communication Skills", value: 100 },
+    { name: "Multitasking", value: 100 },
+    { name: "Dedicated Team Player", value: 100 },
+    { name: "Behavioral Health Research", value: 100 },
+    { name: "Addiction Epidemiology & Public Health", value: 80 },
+    { name: "Microsoft Office & LMS", value: 80 },
+    { name: "Public Speaking", value: 100 },
+  ];
+
+
+  
   return (
     <>
       <section
@@ -141,7 +178,10 @@ const Home = () => {
             />
           </div>
           <div>
-            <p className="text-[16px] max-w-120">
+            <h1 className="text-2xl font-bold text-secondary max-w-120">
+              Internationally Recognized Interdisciplinary Researcher
+            </h1>
+            <p className="text-[16px] max-w-120 text-justify">
               I am an experienced Researcher and Academic passionate about
               public health, social and behavioral research, and data-driven
               insights. I lead and mentor students and junior researchers,
@@ -218,43 +258,70 @@ const Home = () => {
           ))}
         </div>
       </section>
-      <section className="bg-primary text-white py-16 px-4">
-      <div className="max-w-5xl mx-auto">
-        <Heading name="Education" darkColor="#325254" />
+      <section className="bg-primary text-white py-16 px-4" id="education">
+        <div className="max-w-5xl mx-auto">
+          <Heading name="Education" darkColor="#325254" />
 
-        <div className="relative border-l-2 border-secondary/40 pl-8 space-y-10 my-10 cursor-default">
-          {education.map((item, index) => (
-            <div key={index} className="relative group">
-              {/* Dot */}
-              <span className="absolute -left-10.5 top-0 w-4 h-4 bg-primary rounded-full inset-ring-2 inset-ring-primary group-hover:bg-secondary transition ease-in-out duration-300 border-2 border-white"></span>
+          <div className="relative border-l-2 border-secondary/40 pl-8 space-y-10 my-10 cursor-default">
+            {education.map((item, index) => (
+              <div key={index} className="relative group">
+                {/* Dot */}
+                <span className="absolute -left-10.5 top-0 w-4 h-4 bg-primary rounded-full inset-ring-2 inset-ring-primary group-hover:bg-secondary transition ease-in-out duration-300 border-2 border-white"></span>
 
-              {/* Content */}
-              <div className="-translate-y-1 group-hover:-translate-y-2 transition ease-in-out duration-300 border-b border-white/20 pb-4">
-                <div className="flex flex-col md:flex-row md:justify-between md:items-start">
-                  <div>
-                    <h3 className="text-xl font-semibold text-secondary">
-                      {item.degree}
-                    </h3>
-                    <p className="text-gray-300 mt-1">
-                      {item.institute}
-                    </p>
-                  </div>
+                {/* Content */}
+                <div className="-translate-y-1 group-hover:-translate-y-2 transition ease-in-out duration-300 border-b border-white/20 pb-4">
+                  <div className="flex flex-col md:flex-row md:justify-between md:items-start">
+                    <div>
+                      <h3 className="text-xl font-semibold text-secondary">
+                        {item.degree}
+                      </h3>
+                      <p className="text-gray-300 mt-1">{item.institute}</p>
+                    </div>
 
-                  <div className="text-sm text-gray-400 mt-2 md:mt-0 text-right">
-                    <p>{item.duration}</p>
-                    {item.grade && (
-                      <p className="text-secondary font-medium">
-                        {item.grade}
-                      </p>
-                    )}
+                    <div className="text-sm text-gray-400 mt-2 md:mt-0 text-right">
+                      <p>{item.duration}</p>
+                      {item.grade && (
+                        <p className="text-secondary font-medium">
+                          {item.grade}
+                        </p>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+      <section ref={sectionRef} className="py-16 px-4">
+        <div className="max-w-5xl mx-auto">
+          <Heading name="Skills" />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 py-10">
+            {skills.map((skill, index) => (
+              <div key={index}>
+                {/* Label */}
+                <div className="flex justify-between mb-1">
+                  <span className="text-gray-800 font-medium">
+                    {skill.name}
+                  </span>
+                  <span className="text-gray-500 text-sm">{skill.value}%</span>
+                </div>
+
+                {/* Bar */}
+                <div className="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+                  <div
+                    className="h-3 bg-secondary rounded-full transition-all duration-1000 ease-out"
+                    style={{
+                      width: animate ? `${skill.value}%` : "0%",
+                    }}
+                  ></div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </>
   );
 };
