@@ -15,15 +15,18 @@ const Header = () => {
     { name: "Home", path: "#home" },
     { name: "About", path: "#about" },
     { name: "Education", path: "#education" },
-    { name: "Skills", path: "#skills" },
   ];
   const navItemsSec = [
+    { name: "Skills", path: "#skills" },
     { name: "Experience", path: "#experience" },
-    { name: "Research Projects", path: "#research" },
+    { name: "Research Projects", path: "#researchprojects" },
     { name: "Publications", path: "#publications" },
+    { name: "Research Articles", path: "#researcharticles" },
+    { name: "Peer Reviewer", path: "#reviewer" },
     { name: "Awards", path: "#awards" },
     { name: "Trainings", path: "#training" },
     { name: "Seminars", path: "#seminars" },
+    { name: "Expertise", path: "#expertise" },
   ];
 
   const heroData = {
@@ -55,9 +58,9 @@ const Header = () => {
         </Link>
 
         {/* Desktop Nav */}
-        <ul className="md:flex hidden space-x-6 text-lg font-medium">
+        <ul className="lg:flex hidden space-x-6 text-lg font-medium">
           {navItemsFirst.map((item) => {
-            const isActive = location.pathname === item.path;
+            const isActive = location.hash === item.path;
 
             return (
               <li key={item.path} className="relative group py-2">
@@ -93,21 +96,19 @@ const Header = () => {
             </button>
 
             {/* Dropdown */}
-            <div className="absolute left-0 bg-transparent pt-6.25">
-              <div className="w-48 bg-white shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+            <div className="absolute left-0 top-full pt-4.5 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+              <ul className="w-48 bg-white shadow-lg rounded-md overflow-hidden">
                 {navItemsSec.map((item) => {
-                  const isActive = location.pathname === item.path;
+                  const isActive = location.hash === item.path;
 
                   return (
-                    <li key={item.path} className="group">
+                    <li key={item.path}>
                       <button
                         onClick={() =>
                           scrollToSection(item.path.replace("#", ""))
                         }
-                        className={`block w-full cursor-pointer text-left px-4 py-2 hover:bg-gray-100 ${
-                          isActive
-                            ? "text-secondary"
-                            : "text-primary hover:text-secondary"
+                        className={`block cursor-pointer w-full text-left px-4 py-2 hover:bg-gray-100 transition ${
+                          isActive ? "text-secondary" : "text-primary"
                         }`}
                       >
                         {item.name}
@@ -115,7 +116,7 @@ const Header = () => {
                     </li>
                   );
                 })}
-              </div>
+              </ul>
             </div>
           </li>
 
@@ -123,10 +124,21 @@ const Header = () => {
           <li className="relative group py-2">
             <button
               onClick={() => scrollToSection("contact")}
-              className="px-4 py-2 text-primary hover:text-secondary cursor-pointer transition-colors duration-300"
+              className={`px-4 py-2 cursor-pointer transition-colors duration-300 ${
+                location.hash === "#contact"
+                  ? "text-secondary"
+                  : "text-primary hover:text-secondary"
+              }`}
             >
               Contact
             </button>
+            <span
+              className={`absolute -top-4 left-0 w-full h-0.75 rounded-full transition-all duration-300 ${
+                location.hash === "#contact"
+                  ? "bg-secondary"
+                  : "bg-transparent group-hover:bg-secondary"
+              }`}
+            ></span>
           </li>
         </ul>
 
@@ -155,7 +167,7 @@ const Header = () => {
                   <ListMinus size={24} />
                 </button>
 
-                <div className="hidden md:block">
+                <div className="hidden lg:block">
                   <button
                     onClick={() => {
                       scrollToSection("#home".replace("#", ""));
@@ -277,9 +289,10 @@ const Header = () => {
                 </div>
 
                 {/* Mobile Nav */}
-                <ul className="flex md:hidden flex-col gap-4 mt-10 text-lg font-medium">
-                  {navItems.map((item) => {
-                    const isActive = location.pathname === item.path;
+                <ul className="flex lg:hidden flex-col gap-4 mt-10 text-lg font-medium">
+                  {/* FIRST MENU */}
+                  {navItemsFirst.map((item) => {
+                    const isActive = location.hash === item.path;
 
                     return (
                       <li key={item.path} className="relative group py-2">
@@ -294,7 +307,6 @@ const Header = () => {
                         >
                           {item.name}
 
-                          {/* Left Bar */}
                           <span
                             className={`absolute left-0 top-0 h-full w-0.75 rounded-full transition-all duration-300 ${
                               isActive
@@ -306,6 +318,56 @@ const Header = () => {
                       </li>
                     );
                   })}
+
+                  {/* SECOND MENU */}
+                  {navItemsSec.map((item) => {
+                    const isActive = location.hash === item.path;
+
+                    return (
+                      <li key={item.path} className="relative group py-2">
+                        <a
+                          href={item.path}
+                          onClick={() => setIsOpen(false)}
+                          className={`block px-4 py-2 transition-colors duration-300 ${
+                            isActive
+                              ? "text-secondary"
+                              : "text-primary hover:text-secondary"
+                          }`}
+                        >
+                          {item.name}
+
+                          <span
+                            className={`absolute left-0 top-0 h-full w-0.75 rounded-full transition-all duration-300 ${
+                              isActive
+                                ? "bg-secondary"
+                                : "bg-transparent group-hover:bg-secondary"
+                            }`}
+                          ></span>
+                        </a>
+                      </li>
+                    );
+                  })}
+                  <li className="relative group py-2">
+                    <a
+                      href="#contact"
+                      onClick={() => setIsOpen(false)}
+                      className={`block px-4 py-2 transition-colors duration-300 ${
+                        location.hash === "#contact"
+                          ? "text-secondary"
+                          : "text-primary hover:text-secondary"
+                      }`}
+                    >
+                      Contact
+                      {/* Left Bar */}
+                      <span
+                        className={`absolute left-0 top-0 h-full w-0.75 rounded-full transition-all duration-300 ${
+                          location.hash === "#contact"
+                            ? "bg-secondary"
+                            : "bg-transparent group-hover:bg-secondary"
+                        }`}
+                      ></span>
+                    </a>
+                  </li>
                 </ul>
               </div>
             </div>

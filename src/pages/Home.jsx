@@ -566,18 +566,18 @@ const Home = () => {
   return (
     <>
       <section
-        className="px-20 py-12"
+        className="lg:px-20 sm:px-10 px-5 py-12"
         style={{
           backgroundImage: `url(${HeroBg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
-        <div className="flex flex-wrap items-center justify-between gap-8">
+        <div className="flex md:flex-nowrap flex-wrap items-center justify-between gap-8">
           <div>
             <h4 className="text-xl font-bold">Hey There!</h4>
             <h4 className="text-xl font-bold">I'am Dr. QURATULAIN</h4>
-            <h1 className="text-2xl md:text-3xl font-bold max-w-150 text-secondary">
+            <h1 className="text-xl md:text-2xl lg:text-3xl font-bold max-w-150 text-secondary">
               International Researcher | Behavioral Health Specialist |
               Education Expert
             </h1>
@@ -586,7 +586,7 @@ const Home = () => {
               education, addiction science, behavioral health, and
               interdisciplinary research.
             </p>
-            <div className="mt-6 flex items-center gap-4">
+            <div className="mt-6 flex flex-wrap items-center gap-4">
               <ButtonA
                 name="Download CV"
                 href={Resume}
@@ -603,26 +603,26 @@ const Home = () => {
               />
             </div>
           </div>
-          <div className="p-4 overflow-hidden">
-            <img src={ProfilePic} alt="Profile" className="max-w-200 h-fit" />
+          <div className="lg:p-4 overflow-hidden md:w-fit w-full flex items-center justify-center">
+            <img src={ProfilePic} alt="Profile" className="max-w-full md:max-w-180 md:h-fit h-120 object-cover" />
           </div>
         </div>
       </section>
-      <section className="px-20 pt-12 pb-30 bg-primary text-white" id="about">
+      <section className="lg:px-20 sm:px-10 px-5 pt-12 pb-30 bg-primary text-white" id="about">
         <Heading name="About Me" darkColor="#325254" />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
-          <div className="px-8 overflow-hidden">
+          <div className="md:px-8 overflow-hidden">
             <img
               src={ProfilePic}
               alt="Profile"
-              className="w-full h-fit rounded-2xl border-2 border-secondary"
+              className="w-full md:h-120 h-fit object-cover rounded-2xl border-2 border-secondary"
             />
           </div>
-          <div>
-            <h1 className="text-2xl font-bold text-secondary max-w-120">
+          <div className="md:mt-0 mt-5">
+            <h1 className="md:text-2xl text-xl font-bold text-secondary md:max-w-120 max-w-full">
               Internationally Recognized Interdisciplinary Researcher
             </h1>
-            <p className="text-[16px] max-w-120 text-justify">
+            <p className="text-sm md:text-[16px] md:max-w-120 max-w-full text-justify">
               I am an experienced Researcher and Academic passionate about
               public health, social and behavioral research, and data-driven
               insights. I lead and mentor students and junior researchers,
@@ -637,27 +637,27 @@ const Home = () => {
               research collaborations across the USA, Australia, Taiwan, and
               Pakistan.
             </p>
-            <ul className="text-[18px] mt-8 space-y-2">
+            <ul className="md:text-[18px] text-sm mt-8 space-y-2">
               <li className="flex items-center justify-start gap-2">
-                <span className="text-secondary font-bold text-xl">
+                <span className="text-secondary font-bold text-lg md:text-xl">
                   experience:
                 </span>{" "}
                 <p>9+ Years,</p>
               </li>
               <li className="flex items-center justify-start gap-2">
-                <span className="text-secondary font-bold text-xl">
+                <span className="text-secondary font-bold text-lg md:text-xl">
                   projects:
                 </span>{" "}
                 <p>20+ Research Projects,</p>
               </li>
               <li className="flex items-center justify-start gap-2">
-                <span className="text-secondary font-bold text-xl">
+                <span className="text-secondary font-bold text-lg md:text-xl">
                   publications:
                 </span>{" "}
                 <p>15+ Publications,</p>
               </li>
               <li className="flex items-center justify-start gap-2">
-                <span className="text-secondary font-bold text-xl">
+                <span className="text-secondary font-bold text-lg md:text-xl">
                   countries:
                 </span>{" "}
                 <p>4 Countries Worked</p>
@@ -670,7 +670,7 @@ const Home = () => {
         <div className="max-w-5xl mx-auto">
           <Heading name="Education" />
 
-          <div className="relative border-l-2 border-black/40 pl-8 space-y-10 my-10 cursor-default">
+          <div className="relative border-l-2 border-black/40 pl-8 md:space-y-10 space-y-4 my-10 cursor-default">
             {education.map((item, index) => (
               <div key={index} className="relative group">
                 {/* Dot */}
@@ -679,14 +679,14 @@ const Home = () => {
                 {/* Content */}
                 <div className="-translate-y-1 group-hover:-translate-y-2 transition ease-in-out duration-300 border-b border-white/20 pb-4">
                   <div className="flex flex-col items-start">
-                    <h3 className="text-xl font-semibold text-secondary">
+                    <h3 className="md:text-xl text-lg font-semibold text-secondary">
                       {item.title}
                     </h3>
                     {item.grade && (
-                      <p className="text-secondary font-medium">{item.grade}</p>
+                      <p className="text-secondary font-medium md:text-[16px] text-sm">{item.grade}</p>
                     )}
-                    <p className="text-gray-400">{item.duration}</p>
-                    <p className="text-primary mt-1">{item.description}</p>
+                    <p className="text-gray-400 md:text-[16px] text-sm">{item.duration}</p>
+                    <p className="text-primary mt-1 md:text-[16px] text-sm">{item.description}</p>
                   </div>
                 </div>
               </div>
@@ -702,7 +702,7 @@ const Home = () => {
         <div className="max-w-5xl mx-auto">
           <Heading name="Skills" darkColor="#325254" />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 py-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 py-5 sm:py-10">
             {skills.map((skill, index) => (
               <div key={index}>
                 {/* Label */}
@@ -712,9 +712,9 @@ const Home = () => {
                 </div>
 
                 {/* Bar */}
-                <div className="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+                <div className="w-full bg-gray-200 rounded-full sm:h-3 h-2 overflow-hidden">
                   <div
-                    className="h-3 bg-secondary rounded-full transition-all duration-1000 ease-out"
+                    className="sm:h-3 h-2 bg-secondary rounded-full transition-all duration-1000 ease-out"
                     style={{
                       width: animate ? `${skill.value}%` : "0%",
                     }}
@@ -727,11 +727,11 @@ const Home = () => {
       </section>
       <section className="py-16 px-4 max-w-6xl mx-auto" id="experience">
         <Heading name="Experience" />
-        <div className="space-y-8 my-10">
+        <div className="sm:space-y-8 space-y-4 sm:my-10 my-2">
           {experience.map((item, index) => (
             <div
               key={index}
-              className="bg-white shadow-md rounded-xl p-6 border border-gray-100 hover:shadow-lg transition duration-300"
+              className="bg-white shadow-md rounded-xl sm:p-6 p-3 border border-gray-100 hover:shadow-lg transition duration-300"
             >
               {/* Top */}
               <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
@@ -760,13 +760,13 @@ const Home = () => {
           ))}
         </div>
       </section>
-      <section className="bg-primary text-white py-20 px-4">
+      <section className="bg-primary text-white py-20 px-4" id="researchprojects">
         <div className="max-w-6xl mx-auto">
           {/* Heading */}
           <div className="mb-14 text-center">
-            <h2 className="text-4xl font-bold">Research Projects</h2>
+            <h2 className="sm:text-4xl text-2xl font-bold">Research Projects</h2>
 
-            <p className="text-gray-300 mt-4 max-w-3xl mx-auto">
+            <p className="text-gray-300 mt-4 max-w-3xl mx-auto sm:text-[16px] text-sm">
               National and international research projects focused on addiction
               science, behavioral health, counseling, and educational
               interventions.
@@ -778,15 +778,15 @@ const Home = () => {
             {researchProjects.map((project, index) => (
               <div
                 key={index}
-                className="relative border-l-2 border-secondary pl-8 group"
+                className="relative sm:border-l-2 border-secondary sm:pl-8 group"
               >
                 {/* Dot */}
-                <span className="absolute -left-2.25 top-0 w-4 h-4 bg-primary rounded-full inset-ring-2 inset-ring-primary group-hover:bg-secondary transition ease-in-out duration-300 border-2 border-white"></span>
+                <span className="absolute sm:block hidden -left-2.25 top-0 w-4 h-4 bg-primary rounded-full inset-ring-2 inset-ring-primary group-hover:bg-secondary transition ease-in-out duration-300 border-2 border-white"></span>
 
                 {/* Card */}
                 <div className="bg-black/30 border border-white/10 p-8 hover:bg-black/40 transition duration-300">
                   {/* Title */}
-                  <h3 className="text-2xl font-semibold leading-relaxed text-white">
+                  <h3 className="text-lg sm:text-2xl font-semibold leading-relaxed text-white">
                     {project.title}
                   </h3>
 
@@ -830,11 +830,11 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className="bg-white py-20 px-20">
+      <section className="bg-white sm:py-20 py-10 lg:px-20 sm:px-10 px-5" id="publications">
         <div className="max-w-7xl mx-auto">
           {/* Heading */}
           <div className="mb-16 text-center">
-            <h2 className="text-4xl font-bold text-black">
+            <h2 className="sm:text-4xl text-2xl font-bold text-black">
               Publications & Scholarly Contributions
             </h2>
 
@@ -893,7 +893,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className="bg-[#0B0B0B] text-white py-20 px-20">
+      <section className="bg-[#0B0B0B] text-white sm:py-20 py-10 lg:px-20 sm:px-10 px-5" id="researcharticles">
         <div className="max-w-7xl mx-auto">
           {/* Heading */}
           <div className="mb-16">
@@ -911,7 +911,7 @@ const Home = () => {
                   {/* Left */}
                   <div className="flex gap-5">
                     {/* Number */}
-                    <div className="min-w-15 h-15 rounded-full border border-secondary text-secondary flex items-center justify-center text-lg font-semibold group-hover:bg-secondary group-hover:text-white transition duration-300">
+                    <div className="sm:flex hidden min-w-15 h-15 rounded-full border border-secondary text-secondary items-center justify-center text-lg font-semibold group-hover:bg-secondary group-hover:text-white transition duration-300">
                       {String(index + 1).padStart(2, "0")}
                     </div>
 
@@ -935,7 +935,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className="bg-white py-20 px-20">
+      <section className="bg-white sm:py-20 py-10 lg:px-20 sm:px-10 px-5" id="reviewer">
         <div className="max-w-7xl mx-auto">
           {/* Heading */}
           <div className="mb-16">
@@ -950,9 +950,9 @@ const Home = () => {
           <div className="border border-black/10 rounded-xl overflow-hidden shadow-sm">
             {/* Top */}
             <div className="bg-primary text-white p-8">
-              <h3 className="text-3xl font-bold">{peerReviewerWork.title}</h3>
+              <h3 className="sm:text-3xl text-lg font-bold">{peerReviewerWork.title}</h3>
 
-              <p className="text-white/70 mt-2 text-lg">
+              <p className="text-white/70 mt-2 sm:text-lg text-sm">
                 {peerReviewerWork.role} {"|"} {peerReviewerWork.duration}
               </p>
 
@@ -962,8 +962,8 @@ const Home = () => {
             </div>
 
             {/* Reviewed Topics */}
-            <div className="p-8 border-b border-black/10">
-              <h4 className="text-2xl font-semibold text-primary mb-8">
+            <div className="sm:p-8 p-4 border-b border-black/10">
+              <h4 className="sm:text-2xl text-lg font-semibold text-primary sm:mb-8 mb-4">
                 Reviewed Research Areas
               </h4>
 
@@ -988,14 +988,14 @@ const Home = () => {
             </div>
 
             {/* Reviewed Articles */}
-            <div className="p-8">
-              <h4 className="text-2xl font-semibold text-primary mb-8">
+            <div className="sm:p-8 p-4">
+              <h4 className="sm:text-2xl text-lg font-semibold text-primary mb-8">
                 Reviewed Articles
               </h4>
 
               <div className="space-y-5">
                 {peerReviewerWork.reviewedArticles.map((article, index) => (
-                  <div key={index} className="flex items-center gap-5 px-4">
+                  <div key={index} className="flex items-center gap-5 sm:px-4">
                     <div className="min-w-11.25 h-11.25 rounded-full border border-secondary text-secondary flex items-center justify-center font-semibold">
                       {String(index + 1).padStart(2, "0")}
                     </div>
@@ -1008,7 +1008,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className="bg-primary text-white py-20 px-20 overflow-hidden">
+      <section className="bg-primary text-white py-20 px-20 overflow-hidden" id="awards">
         <div className="max-w-7xl mx-auto">
           {/* Heading */}
           <div className="mb-16">
@@ -1060,7 +1060,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className="bg-white py-20 px-20">
+      <section className="bg-white py-20 px-20" id="training">
         <div className="max-w-7xl mx-auto">
           {/* Heading */}
           <div className="mb-16">
@@ -1099,7 +1099,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className="bg-primary text-white py-20 px-20">
+      <section className="bg-primary text-white py-20 px-20" id="seminars">
         <div className="max-w-7xl mx-auto">
           {/* Heading */}
           <div className="mb-16">
@@ -1136,7 +1136,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className="bg-white py-20 px-4">
+      <section className="bg-white py-20 px-4" id="expertise">
         <div className="max-w-7xl mx-auto">
           {/* Heading */}
           <div className="mb-14 text-center">
