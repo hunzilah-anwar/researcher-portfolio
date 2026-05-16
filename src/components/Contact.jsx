@@ -1,8 +1,10 @@
 import React from "react";
-import { FaLinkedin, FaTwitter, FaFacebook } from "react-icons/fa";
 import { MdEmail, MdLocationOn } from "react-icons/md";
 import { FiPhone } from "react-icons/fi";
 import { Heading } from "./OtherCommon";
+import { FaLinkedin } from "react-icons/fa";
+import { FaGoogleScholar } from "react-icons/fa6";
+import { HiAcademicCap } from "react-icons/hi";
 
 const contactData = {
   name: "Dr. Quratulain",
@@ -10,9 +12,10 @@ const contactData = {
   phone: "+1 (505) 3985375",
   address: "1700 S Parkway, College Station 77840, USA",
   social: {
-    linkedin: "https://linkedin.com",
-    twitter: "https://twitter.com",
-    facebook: "https://facebook.com",
+    linkedin: "https://www.linkedin.com/in/drqurat-ul-ain-4aa8a2165/",
+    academic: "https://www.iare.com.au/team-3/",
+    googleScholar:
+      "https://scholar.google.com/citations?user=2T7GuFUAAAAJ&hl=en",
   },
 };
 
@@ -118,21 +121,21 @@ const Contact = () => {
               </a>
 
               <a
-                href={contactData.social.twitter}
+                href={contactData.social.googleScholar}
                 target="_blank"
                 rel="noreferrer"
                 className="p-3 rounded-full bg-white/10 hover:bg-secondary transition"
               >
-                <FaTwitter />
+                <FaGoogleScholar />
               </a>
 
               <a
-                href={contactData.social.facebook}
+                href={contactData.social.academic}
                 target="_blank"
                 rel="noreferrer"
                 className="p-3 rounded-full bg-white/10 hover:bg-secondary transition"
               >
-                <FaFacebook />
+                <HiAcademicCap />
               </a>
             </div>
           </div>

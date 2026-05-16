@@ -4,8 +4,8 @@
 @theme {
   --font-syne: "Syne", sans-serif;
   --color-primary: #0f0e0f;
-  --color-secondary: #ff6b00;
-  /* --color-secondary: #8338ec; */
+  /* --color-secondary: #ff6b00; */
+  --color-secondary: #8338ec;
 }
 
 @layer base {

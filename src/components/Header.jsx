@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ListMinus } from "lucide-react";
-import { FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
 import { GoArrowUpRight } from "react-icons/go";
 import { FaGoogleScholar } from "react-icons/fa6";
 import { HiAcademicCap } from "react-icons/hi";
@@ -30,7 +30,7 @@ const Header = () => {
   ];
 
   const heroData = {
-    name: "QURATULAIN",
+    name: "Dr. Qurat ul Ain",
     description: `Internationally recognized interdisciplinary researcher specializing in education, addiction science, behavioral health, and school counseling frameworks. Experienced in leading global research collaborations across the USA, Australia, Taiwan, and Pakistan.`,
     contactInfo: {
       location: "College Station, Texas, USA",
@@ -38,8 +38,6 @@ const Header = () => {
       phone: "+1 (505) 398-5375",
     },
     socialLinks: {
-      facebook: "https://www.facebook.com/wix",
-      twitter: "https://www.twitter.com/wix",
       linkedin: "https://www.linkedin.com/in/drqurat-ul-ain-4aa8a2165/",
       academic: "https://www.iare.com.au/team-3/",
       googleScholar:
@@ -157,7 +155,10 @@ const Header = () => {
             className="fixed inset-0 z-50 h-screen flex justify-end bg-black/80 transition-all duration-300"
             onClick={() => setIsOpen(false)}
           >
-            <div className="fixed top-0 md:-right-2 w-full sm:w-96 flex justify-end bg-black/40">
+            <div
+              onClick={(e) => e.stopPropagation()}
+              className="fixed top-0 md:-right-2 w-full sm:w-96 flex justify-end bg-black/40"
+            >
               <div className="bg-[#F3F3F3] w-full sm:w-96 h-screen px-6 py-4 relative shadow-lg overflow-y-auto">
                 {/* Close Button */}
                 <button
@@ -175,15 +176,8 @@ const Header = () => {
                     }}
                     className="inline-block"
                   >
-                    <h1 className="font-syne text-[32px] font-bold mb-4">
-                      {heroData.name.split("").map((char, index) => (
-                        <span
-                          key={index}
-                          className={index % 2 === 0 ? "text-secondary" : ""}
-                        >
-                          {char}
-                        </span>
-                      ))}
+                    <h1 className="font-syne text-secondary text-[32px] font-bold mb-4">
+                      {heroData.name}
                     </h1>
                   </button>
 
@@ -220,28 +214,6 @@ const Header = () => {
 
                   {/* Social Links */}
                   <div className="flex gap-4 mb-10 text-white">
-                    <a
-                      href={heroData.socialLinks.facebook}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <FaFacebook
-                        size={35}
-                        className="p-2 bg-secondary rounded-full hover:bg-primary transition ease-in-out duration-200"
-                      />
-                    </a>
-
-                    <a
-                      href={heroData.socialLinks.twitter}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <FaTwitter
-                        size={35}
-                        className="p-2 bg-secondary rounded-full hover:bg-primary transition ease-in-out duration-200"
-                      />
-                    </a>
-
                     <a
                       href={heroData.socialLinks.linkedin}
                       target="_blank"

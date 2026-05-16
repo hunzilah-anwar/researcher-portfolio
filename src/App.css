@@ -14,7 +14,7 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #ff6b00; /* secondary color */
+  background: #08040e; /* secondary color */
   border-radius: 10px;
   border: 2px solid #f3f3f3;
 }
@@ -26,5 +26,5 @@ html {
 /* Firefox */
 * {
   scrollbar-width: thin;
-  scrollbar-color: #ff6b00 #f3f3f3;
+  scrollbar-color: #08040e #f3f3f3;
 }

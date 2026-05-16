@@ -7,11 +7,11 @@ const Footer = () => {
         {/* Logo */}
         <Link to="/">
           <h1 className="font-syne text-[32px] font-bold">
-            <span className="text-secondary">Quratulain</span>
+            <span className="text-secondary">Dr. Qurat ul Ain</span>
           </h1>
         </Link>
         <p className="text-primary">
-          &copy; {new Date().getFullYear()} {"Quratulain"}. All
+          &copy; {new Date().getFullYear()} {"Dr. Qurat ul Ain"}. All
           rights reserved.
         </p>
       </div>
