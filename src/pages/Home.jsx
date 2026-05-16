@@ -604,7 +604,7 @@ const Home = () => {
             </div>
           </div>
           <div className="lg:p-4 overflow-hidden md:w-fit w-full flex items-center justify-center">
-            <img src={ProfilePic} alt="Profile" className="max-w-full md:max-w-180 md:h-fit h-120 object-cover" />
+            <img src={ProfilePic} alt="Profile" className="max-w-full md:max-w-150 md:h-fit h-120 object-cover border-2 border-secondary rounded-2xl overflow-hidden" />
           </div>
         </div>
       </section>
@@ -1084,13 +1084,13 @@ const Home = () => {
                 )}
 
                 {/* Title */}
-                <h3 className="text-xl font-semibold text-primary leading-relaxed group-hover:text-secondary transition duration-300">
+                <h3 className="sm:text-xl text-[16px] font-semibold text-primary leading-relaxed group-hover:text-secondary transition duration-300">
                   {item.title}
                 </h3>
 
                 {/* Organization */}
                 {item.organization && (
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-gray-600 leading-relaxed text-sm">
                     {item.organization}
                   </p>
                 )}

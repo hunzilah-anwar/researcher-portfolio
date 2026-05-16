@@ -52,7 +52,7 @@ const Header = () => {
       <nav className="mx-auto flex justify-between items-center py-4 px-4">
         {/* Logo */}
         <Link to="/">
-          <h1 className="font-syne text-[32px] font-bold">
+          <h1 className="font-syne sm:text-[32px] text-2xl font-bold">
             <span className="text-secondary">{heroData.name}</span>
           </h1>
         </Link>
@@ -145,7 +145,7 @@ const Header = () => {
         {/* Menu Button */}
         <div>
           <ListMinus
-            size={28}
+            size={26}
             onClick={() => setIsOpen(true)}
             className="text-primary hover:text-secondary cursor-pointer transition ease-in-out duration-200"
           />
