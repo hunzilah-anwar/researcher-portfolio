@@ -1,10 +1,10 @@
 const Heading = ({ name, darkColor }) => {
   return (
-    <div className="relative flex justify-center items-center py-6 px-4">
+    <div className="relative flex justify-center items-center sm:py-6 px-4">
       {/* Stroke Text */}
       <h1
         className="
-          absolute 
+          absolute sm:block hidden
           text-4xl sm:text-5xl md:text-6xl
           font-bold 
           text-transparent 
@@ -26,7 +26,7 @@ const Heading = ({ name, darkColor }) => {
       <h1
         className="
           relative 
-          text-2xl sm:text-3xl md:text-4xl
+          text-3xl sm:text-3xl md:text-4xl
           font-bold 
           text-center 
           z-10

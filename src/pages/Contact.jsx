@@ -5,7 +5,7 @@ import toast, { Toaster } from "react-hot-toast";
 
 import { MdEmail, MdLocationOn } from "react-icons/md";
 import { FiPhone } from "react-icons/fi";
-import { Heading } from "./OtherCommon";
+import { Heading } from "../components/OtherCommon";
 import { FaLinkedin } from "react-icons/fa";
 import { FaGoogleScholar } from "react-icons/fa6";
 import { HiAcademicCap } from "react-icons/hi";
@@ -81,7 +81,7 @@ const Contact = () => {
 
   return (
     <section
-      className="bg-primary text-white sm:py-20 py-10 lg:px-20 sm:px-10 px-5"
+      className="bg-white text-primary sm:py-20 py-10 lg:px-20 sm:px-10 px-5"
       id="contact"
     >
       <Toaster position="top-right" />
@@ -93,12 +93,12 @@ const Contact = () => {
             Get In Touch
           </h4>
 
-          <Heading name="Contact" darkColor="#325254" />
+          <Heading name="Contact" />
         </div>
 
         <div className="grid md:grid-cols-2 gap-14 items-start">
           {/* LEFT SIDE */}
-          <div className="bg-white/5 border border-white/10 sm:p-8 p-4 rounded-xl">
+          <div className="bg-black/5 border border-black/10 sm:p-8 p-4 rounded-xl">
             <h3 className="text-2xl font-semibold mb-6">Send a Message</h3>
 
             {success ? (
@@ -121,11 +121,11 @@ const Contact = () => {
                     </svg>
                   </div>
 
-                  <h2 className="text-3xl font-bold text-white mb-3">
+                  <h2 className="text-3xl font-bold text-primary mb-3">
                     Message Sent Successfully!
                   </h2>
 
-                  <p className="text-white/70 max-w-sm mx-auto leading-relaxed">
+                  <p className="text-primary/70 max-w-sm mx-auto leading-relaxed">
                     Thank you for reaching out to Dr. Qurat ul Ain. Your message
                     has been delivered successfully and a confirmation email has
                     been sent to your inbox.
@@ -133,7 +133,7 @@ const Contact = () => {
                 </div>
               </div>
             ) : (
-              <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-5 text-primary">
                 {/* Name */}
                 <div>
                   <input
@@ -142,7 +142,7 @@ const Contact = () => {
                     {...register("name", {
                       required: "Name is required",
                     })}
-                    className="w-full p-4 rounded-xl bg-black/30 border border-white/10 outline-none focus:border-secondary"
+                    className="w-full p-4 rounded bg-white border border-black/10 outline-none focus:border-secondary"
                   />
 
                   {errors.name && (
@@ -164,7 +164,7 @@ const Contact = () => {
                         message: "Invalid email address",
                       },
                     })}
-                    className="w-full p-4 rounded-xl bg-black/30 border border-white/10 outline-none focus:border-secondary"
+                    className="w-full p-4 rounded bg-white border border-black/10 outline-none focus:border-secondary"
                   />
 
                   {errors.email && (
@@ -182,7 +182,7 @@ const Contact = () => {
                     {...register("message", {
                       required: "Message is required",
                     })}
-                    className="w-full p-4 rounded-xl bg-black/30 border border-white/10 outline-none focus:border-secondary"
+                    className="w-full p-4 rounded bg-white border border-black/10 outline-none focus:border-secondary"
                   ></textarea>
 
                   {errors.message && (
@@ -196,7 +196,7 @@ const Contact = () => {
                 <button
                   type="submit"
                   disabled={loading}
-                  className={`w-full py-4 rounded-xl bg-secondary hover:bg-white hover:text-primary text-white font-semibold transition disabled:opacity-50 ${loading ? "cursor-not-allowed" : "cursor-pointer"}`}
+                  className={`w-full py-4 rounded-xl bg-secondary hover:bg-primary hover:text-white text-white font-semibold transition disabled:opacity-50 ${loading ? "cursor-not-allowed" : "cursor-pointer"}`}
                 >
                   {loading ? "Sending..." : "Send Message"}
                 </button>
@@ -207,7 +207,7 @@ const Contact = () => {
           {/* RIGHT SIDE */}
           <div className="sm:space-y-6 space-y-4">
             <div>
-              <p className="text-white/70 leading-relaxed text-[15px]">
+              <p className="text-primary leading-relaxed text-[15px]">
                 I am always open to meaningful academic collaborations, research
                 opportunities, and professional consultations in the field of
                 education, behavioral health, and interdisciplinary research.
@@ -221,7 +221,7 @@ const Contact = () => {
                 <h3 className="text-lg font-semibold">Address</h3>
               </div>
 
-              <p className="text-white/70 sm:mt-3">{contactData.address}</p>
+              <p className="text-primary sm:mt-3">{contactData.address}</p>
             </div>
 
             {/* Email */}
@@ -231,7 +231,7 @@ const Contact = () => {
                 <h3 className="text-lg font-semibold">Email</h3>
               </div>
 
-              <p className="text-white/70 sm:mt-3">{contactData.email}</p>
+              <p className="text-primary sm:mt-3">{contactData.email}</p>
             </div>
 
             {/* Phone */}
@@ -241,7 +241,7 @@ const Contact = () => {
                 <h3 className="text-lg font-semibold">Phone</h3>
               </div>
 
-              <p className="text-white/70 sm:mt-3">{contactData.phone}</p>
+              <p className="text-primary sm:mt-3">{contactData.phone}</p>
             </div>
 
             {/* Social */}
@@ -250,7 +250,7 @@ const Contact = () => {
                 href={contactData.social.linkedin}
                 target="_blank"
                 rel="noreferrer"
-                className="p-3 rounded-full bg-white/10 hover:bg-secondary transition"
+                className="p-3 rounded-full bg-black/10 hover:bg-secondary hover:text-white transition"
               >
                 <FaLinkedin />
               </a>
@@ -259,7 +259,7 @@ const Contact = () => {
                 href={contactData.social.googleScholar}
                 target="_blank"
                 rel="noreferrer"
-                className="p-3 rounded-full bg-white/10 hover:bg-secondary transition"
+                className="p-3 rounded-full bg-primary/10 hover:bg-secondary hover:text-white transition"
               >
                 <FaGoogleScholar />
               </a>
@@ -268,7 +268,7 @@ const Contact = () => {
                 href={contactData.social.academic}
                 target="_blank"
                 rel="noreferrer"
-                className="p-3 rounded-full bg-white/10 hover:bg-secondary transition"
+                className="p-3 rounded-full bg-primary/10 hover:bg-secondary hover:text-white transition"
               >
                 <HiAcademicCap />
               </a>
