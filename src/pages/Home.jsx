@@ -5,7 +5,7 @@ import { ButtonA, ButtonLink } from "../components/Button";
 import { Heading } from "../components/OtherCommon";
 import ExpertiesImg from "../assets/experties-img.jpg";
 import Contact from "../components/Contact";
-import Resume from "../../public/Resume.pdf";
+import Resume from "../assets/Resume.pdf";
 
 const Home = () => {
   const experience = [

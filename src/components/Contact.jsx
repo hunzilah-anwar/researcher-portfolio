@@ -1,4 +1,8 @@
-import React from "react";
+import { useState } from "react";
+import emailjs from "@emailjs/browser";
+import { useForm } from "react-hook-form";
+import toast, { Toaster } from "react-hot-toast";
+
 import { MdEmail, MdLocationOn } from "react-icons/md";
 import { FiPhone } from "react-icons/fi";
 import { Heading } from "./OtherCommon";
@@ -20,11 +24,68 @@ const contactData = {
 };
 
 const Contact = () => {
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = async (data) => {
+    try {
+      setLoading(true);
+
+      // Admin Email
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        {
+          from_name: data.name,
+          from_email: data.email,
+          message: data.message,
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+      );
+
+      // Auto Reply Email
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_AUTO_REPLY_TEMPLATE_ID,
+        {
+          from_name: data.name,
+          from_email: data.email,
+          message: data.message,
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+      );
+
+      toast.success("Message sent successfully!");
+
+      setSuccess(true);
+
+      setTimeout(() => {
+        setSuccess(false);
+      }, 5000);
+
+      reset();
+    } catch (error) {
+      console.log(error);
+      toast.error("Failed to send message!");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <section
       className="bg-primary text-white sm:py-20 py-10 lg:px-20 sm:px-10 px-5"
       id="contact"
     >
+      <Toaster position="top-right" />
+
       <div className="max-w-7xl mx-auto">
         {/* Heading */}
         <div className="text-center sm:mb-16 mb-5">
@@ -35,50 +96,121 @@ const Contact = () => {
           <Heading name="Contact" darkColor="#325254" />
         </div>
 
-        {/* Content */}
         <div className="grid md:grid-cols-2 gap-14 items-start">
           {/* LEFT SIDE */}
           <div className="bg-white/5 border border-white/10 sm:p-8 p-4 rounded-xl">
             <h3 className="text-2xl font-semibold mb-6">Send a Message</h3>
 
-            <form className="space-y-5">
-              <input
-                type="text"
-                placeholder="Your Name"
-                className="w-full p-4 rounded-xl bg-black/30 border border-white/10 outline-none focus:border-secondary"
-              />
+            {success ? (
+              <div className="h-105 flex items-center justify-center">
+                <div className="text-center">
+                  <div className="w-24 h-24 mx-auto rounded-full bg-green-500 flex items-center justify-center mb-6 border border-green-400/30">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="w-12 h-12 text-white"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                  </div>
 
-              <input
-                type="email"
-                placeholder="Your Email"
-                className="w-full p-4 rounded-xl bg-black/30 border border-white/10 outline-none focus:border-secondary"
-              />
+                  <h2 className="text-3xl font-bold text-white mb-3">
+                    Message Sent Successfully!
+                  </h2>
 
-              <textarea
-                rows="5"
-                placeholder="Your Message"
-                className="w-full p-4 rounded-xl bg-black/30 border border-white/10 outline-none focus:border-secondary"
-              ></textarea>
+                  <p className="text-white/70 max-w-sm mx-auto leading-relaxed">
+                    Thank you for reaching out to Dr. Qurat ul Ain. Your message
+                    has been delivered successfully and a confirmation email has
+                    been sent to your inbox.
+                  </p>
+                </div>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+                {/* Name */}
+                <div>
+                  <input
+                    type="text"
+                    placeholder="Your Name"
+                    {...register("name", {
+                      required: "Name is required",
+                    })}
+                    className="w-full p-4 rounded-xl bg-black/30 border border-white/10 outline-none focus:border-secondary"
+                  />
 
-              <button
-                type="submit"
-                className="w-full py-4 rounded-xl bg-secondary hover:bg-white hover:text-primary text-white font-semibold transition"
-              >
-                Send Message
-              </button>
-            </form>
+                  {errors.name && (
+                    <p className="text-red-400 text-sm mt-1">
+                      {errors.name.message}
+                    </p>
+                  )}
+                </div>
+
+                {/* Email */}
+                <div>
+                  <input
+                    type="email"
+                    placeholder="Your Email"
+                    {...register("email", {
+                      required: "Email is required",
+                      pattern: {
+                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                        message: "Invalid email address",
+                      },
+                    })}
+                    className="w-full p-4 rounded-xl bg-black/30 border border-white/10 outline-none focus:border-secondary"
+                  />
+
+                  {errors.email && (
+                    <p className="text-red-400 text-sm mt-1">
+                      {errors.email.message}
+                    </p>
+                  )}
+                </div>
+
+                {/* Message */}
+                <div>
+                  <textarea
+                    rows="5"
+                    placeholder="Your Message"
+                    {...register("message", {
+                      required: "Message is required",
+                    })}
+                    className="w-full p-4 rounded-xl bg-black/30 border border-white/10 outline-none focus:border-secondary"
+                  ></textarea>
+
+                  {errors.message && (
+                    <p className="text-red-400 text-sm mt-1">
+                      {errors.message.message}
+                    </p>
+                  )}
+                </div>
+
+                {/* Button */}
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className={`w-full py-4 rounded-xl bg-secondary hover:bg-white hover:text-primary text-white font-semibold transition disabled:opacity-50 ${loading ? "cursor-not-allowed" : "cursor-pointer"}`}
+                >
+                  {loading ? "Sending..." : "Send Message"}
+                </button>
+              </form>
+            )}
           </div>
 
           {/* RIGHT SIDE */}
           <div className="sm:space-y-6 space-y-4">
-            {/* Intro Paragraph (NEW) */}
             <div>
               <p className="text-white/70 leading-relaxed text-[15px]">
                 I am always open to meaningful academic collaborations, research
                 opportunities, and professional consultations in the field of
                 education, behavioral health, and interdisciplinary research.
-                Feel free to connect for projects, research discussions, or
-                professional inquiries.
               </p>
             </div>
 
@@ -88,6 +220,7 @@ const Contact = () => {
                 <MdLocationOn className="text-secondary text-2xl" />
                 <h3 className="text-lg font-semibold">Address</h3>
               </div>
+
               <p className="text-white/70 sm:mt-3">{contactData.address}</p>
             </div>
 
@@ -97,6 +230,7 @@ const Contact = () => {
                 <MdEmail className="text-secondary text-2xl" />
                 <h3 className="text-lg font-semibold">Email</h3>
               </div>
+
               <p className="text-white/70 sm:mt-3">{contactData.email}</p>
             </div>
 
@@ -106,6 +240,7 @@ const Contact = () => {
                 <FiPhone className="text-secondary text-2xl" />
                 <h3 className="text-lg font-semibold">Phone</h3>
               </div>
+
               <p className="text-white/70 sm:mt-3">{contactData.phone}</p>
             </div>
 
