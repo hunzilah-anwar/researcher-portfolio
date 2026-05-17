@@ -11,21 +11,6 @@ const Home = () => {
 
   const experience = [
     {
-      role: "Director of Research Operations",
-      company:
-        "Institute of Academic Research and Excellence (IARE), Australia",
-      duration: "May 2025 - Present",
-      type: "Remote | Part-Time",
-      responsibilities: [
-        "Lead and oversee multidisciplinary international research programs from conceptualization to publication and dissemination.",
-        "Design and deliver advanced research training workshops on methodology, statistical analysis, grant writing, and scholarly publishing.",
-        "Supervise and mentor graduate and international researchers in proposal development, study design, and academic writing.",
-        "Ensure research integrity, ethical compliance, and adherence to international scholarly standards.",
-        "Establish global research collaborations and coordinate cross-border academic initiatives.",
-        "Guide strategic planning for institutional research growth and academic excellence.",
-      ],
-    },
-    {
       role: "Teaching Faculty",
       company: "Scoot Education, Houston, TX",
       duration: "May 2024 - March 2025",
