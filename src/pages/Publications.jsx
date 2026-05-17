@@ -131,7 +131,7 @@ Of 1641 HIVPWID registered in the datasets from 2007 to 2012, 961 (58.56%) had r
               <div
                 key={index}
                 onClick={() => setSelectedPublication(item)}
-                className="group relative cursor-pointer overflow-hidden rounded-xl border border-gray-200 bg-[#FAFAFA] p-8 hover:shadow-2xl hover:-translate-y-1 transition duration-300"
+                className="group relative cursor-pointer overflow-hidden rounded-xl border border-gray-200 bg-[#FAFAFA] sm:p-8 p-4 hover:shadow-2xl hover:-translate-y-1 transition duration-300"
               >
                 {/* Number */}
                 <div className="absolute top-0 right-0 text-[90px] font-bold text-black/5 leading-none select-none">
@@ -141,7 +141,7 @@ Of 1641 HIVPWID registered in the datasets from 2007 to 2012, 961 (58.56%) had r
                 {/* Content */}
                 <div className="relative z-10">
                   <div className="mb-6 flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center text-lg font-semibold">
+                    <div className="sm:w-12 w-10 sm:h-12 h-10 rounded-full bg-primary text-white flex items-center justify-center sm:text-lg text-[14px] font-semibold">
                       {index + 1}
                     </div>
 
@@ -150,14 +150,14 @@ Of 1641 HIVPWID registered in the datasets from 2007 to 2012, 961 (58.56%) had r
                     </span>
                   </div>
 
-                  <h3 className="text-xl font-semibold text-black leading-relaxed">
+                  <h3 className="sm:text-xl text-lg font-semibold text-black leading-relaxed">
                     {item.title}
                   </h3>
 
                   {/* Link */}
                   {item.link && (
                     <a
-                    
+                    onClick={(e) => e.stopPropagation()}
                       href={item.link}
                       target="_blank"
                       rel="noreferrer"
