@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   Code2,
   Brain,
@@ -33,7 +33,7 @@ const courses = [
     projects: "25+",
     language: "English & Urdu",
     certificate: "Included",
-    icon: <Code2 size={42} />,
+    icon: Code2,
     short:
       "Learn React, Next.js, Node.js, MongoDB, APIs, authentication systems and modern production-ready development workflows.",
     tags: ["React", "Next.js", "MongoDB", "Node.js"],
@@ -46,7 +46,6 @@ const courses = [
       "Deployment & Hosting",
     ],
   },
-
   {
     id: 2,
     type: "image",
@@ -74,7 +73,6 @@ const courses = [
       "Portfolio Case Studies",
     ],
   },
-
   {
     id: 3,
     type: "icon",
@@ -88,7 +86,7 @@ const courses = [
     projects: "20+",
     language: "English",
     certificate: "Advanced Certification",
-    icon: <Brain size={42} />,
+    icon: Brain,
     short:
       "Learn AI workflows, automation systems, AI tools, prompt engineering, and productivity-focused AI business systems.",
     tags: ["AI", "Automation", "ChatGPT", "Workflows"],
@@ -105,58 +103,57 @@ const courses = [
 
 export default function CoursesSection() {
   const sliderRef = useRef(null);
+  const intervalRef = useRef(null);
 
   const [paused, setPaused] = useState(false);
   const [selectedCourse, setSelectedCourse] = useState(null);
 
-  // AUTO SLIDE
+  // AUTO SLIDER (FIXED LOGIC)
   useEffect(() => {
     const slider = sliderRef.current;
-
     if (!slider) return;
 
-    const interval = setInterval(() => {
-      if (!paused) {
-        slider.scrollBy({
-          left: 360,
-          behavior: "smooth",
-        });
+    const step = () => {
+      if (paused) return;
 
-        // RESET
-        if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 50) {
-          slider.scrollTo({
-            left: 0,
-            behavior: "smooth",
-          });
-        }
+      const cardWidth =
+        slider.offsetWidth >= 1024
+          ? slider.offsetWidth / 3
+          : slider.offsetWidth >= 640
+            ? slider.offsetWidth / 2
+            : slider.offsetWidth;
+
+      const maxScroll = slider.scrollWidth - slider.clientWidth;
+
+      if (slider.scrollLeft >= maxScroll - 10) {
+        slider.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        slider.scrollBy({ left: cardWidth, behavior: "smooth" });
       }
-    }, 2500);
+    };
 
-    return () => clearInterval(interval);
+    intervalRef.current = setInterval(step, 2500);
+
+    return () => clearInterval(intervalRef.current);
   }, [paused]);
 
-  // MANUAL SLIDE
+  // MANUAL SLIDE (FIXED)
   const slide = (direction) => {
-    if (!sliderRef.current) return;
+    const slider = sliderRef.current;
+    if (!slider) return;
 
-    sliderRef.current.scrollBy({
-      left: direction === "left" ? -380 : 380,
+    const cardWidth =
+      slider.offsetWidth >= 1024
+        ? slider.offsetWidth / 3
+        : slider.offsetWidth >= 640
+          ? slider.offsetWidth / 2
+          : slider.offsetWidth;
+
+    slider.scrollBy({
+      left: direction === "left" ? -cardWidth : cardWidth,
       behavior: "smooth",
     });
   };
-
-  // BODY SCROLL LOCK
-  useEffect(() => {
-    if (selectedCourse) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, [selectedCourse]);
 
   return (
     <section className="relative overflow-hidden bg-white py-20 lg:py-28">
@@ -173,7 +170,7 @@ export default function CoursesSection() {
               Courses
             </div>
 
-            <h2 className="text-xl font-black leading-tight text-black sm:text3xl lg:text-5xl">
+            <h2 className="text-xl font-black leading-tight text-black sm:text-3xl lg:text-5xl">
               Explore Modern Courses
             </h2>
 
@@ -204,7 +201,7 @@ export default function CoursesSection() {
         {/* SLIDER */}
         <div
           ref={sliderRef}
-          className="scrollbar-hide flex gap-6 overflow-x-auto scroll-smooth pb-4"
+          className="flex gap-4 overflow-x-auto scroll-smooth pb-4 px-1 scrollbar-hide snap-x snap-mandatory"
         >
           {[...courses, ...courses].map((course, index) => (
             <div
@@ -212,7 +209,7 @@ export default function CoursesSection() {
               onMouseEnter={() => setPaused(true)}
               onMouseLeave={() => setPaused(false)}
               onClick={() => setSelectedCourse(course)}
-              className="group relative flex w-87.5 min-w-87.5 cursor-pointer flex-col overflow-hidden rounded-4xl border border-black/10 bg-white sm:w-100 sm:min-w-100"
+              className="group relative w-full shrink-0 snap-start sm:w-1/2 lg:w-1/3 cursor-pointer flex-col overflow-hidden rounded-4xl border border-black/10 bg-white"
             >
               {/* IMAGE CARD */}
               {course.type === "image" ? (
@@ -289,7 +286,7 @@ export default function CoursesSection() {
 
                     {/* ICON */}
                     <div className="mb-7 flex h-24 w-24 items-center justify-center rounded-[28px] bg-white text-black shadow-2xl transition-all duration-500 group-hover:scale-110 group-hover:rotate-3">
-                      {course.icon}
+                      {React.createElement(course.icon)}
                     </div>
 
                     {/* TITLE */}
@@ -336,11 +333,11 @@ export default function CoursesSection() {
 
       {/* MODAL */}
       {selectedCourse && (
-        <div className="fixed inset-0 z-9999 overflow-y-auto bg-black/60 p-3 backdrop-blur-sm">
+        <div onClick={() => setSelectedCourse(null)} className="fixed inset-0 z-9999 overflow-hidden bg-black/60 p-3 backdrop-blur-sm">
           {/* CENTER WRAPPER */}
           <div className="flex min-h-full items-center justify-center py-5">
-            {/* MODAL */}
-            <div className="relative w-full max-w-4xl bg-white shadow-2xl">
+            {/* MODAL BOX */}
+            <div onClick={(e) => e.stopPropagation()} className="relative w-full max-w-4xl bg-white shadow-2xl overflow-hidden">
               {/* CLOSE BUTTON */}
               <button
                 onClick={() => setSelectedCourse(null)}
@@ -351,15 +348,15 @@ export default function CoursesSection() {
 
               {/* CONTENT SCROLL */}
               <div className="max-h-[90vh] overflow-y-auto">
-                {/* TOP */}
+                {/* TOP BANNER SECTION (FIXED HEIGHT FOR BOTH TYPES) */}
                 <div
-                  className={`relative overflow-hidden ${
-                    selectedCourse.type === "image"
-                      ? "h-52 sm:h-64"
-                      : "bg-linear-to-r from-black via-[#111] to-[#1a1a1a]"
+                  className={`relative h-50 sm:h-60 w-full overflow-hidden ${
+                    selectedCourse.type === "icon" 
+                    ? "bg-linear-to-r from-black via-[#111] to-[#1a1a1a]" 
+                    : ""
                   }`}
                 >
-                  {/* IMAGE */}
+                  {/* BACKGROUND IMAGE FOR IMAGE TYPE */}
                   {selectedCourse.type === "image" ? (
                     <>
                       <img
@@ -367,129 +364,100 @@ export default function CoursesSection() {
                         alt={selectedCourse.title}
                         className="h-full w-full object-cover"
                       />
-
                       <div className="absolute inset-0 bg-black/55" />
                     </>
                   ) : (
-                    <div className="absolute inset-0 bg-linear-to-r from-black via-[#111] to-[#1a1a1a]" />
+                    // GRADIENT OVERLAY FOR ICON TYPE (ALREADY HANDLED BY PARENT BG CLASS)
+                    <div className="absolute inset-0 bg-linear-to-r from-black/20 to-transparent" />
                   )}
 
-                  {/* TOP CONTENT */}
-                  <div className="relative z-10 flex h-full flex-col justify-end p-5 sm:p-7">
-                    {/* ICON */}
-                    {selectedCourse.type === "icon" && (
-                      <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-white text-black shadow-lg">
-                        {selectedCourse.icon}
+                  {/* BANNER CONTENT (ICON, CATEGORY, TITLE) */}
+                  <div className="absolute inset-0 z-20 flex h-full flex-col justify-end p-6 sm:p-10">
+                    {/* ICON FOR ICON TYPE */}
+                    {selectedCourse.type === "icon" && selectedCourse.icon && (
+                      <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-white text-black shadow-xl">
+                        {React.createElement(selectedCourse.icon, { size: 40 })}
                       </div>
                     )}
 
-                    {/* CATEGORY */}
-                    <div className="mb-3 inline-flex w-fit rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[10px] font-semibold tracking-[1.5px] text-white backdrop-blur-md sm:text-xs">
-                      {selectedCourse.category}
+                    {/* CATEGORY TAG */}
+                    <div className="mb-4 inline-flex w-fit rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-[10px] font-semibold tracking-[2px] text-white backdrop-blur-md sm:text-xs">
+                      {selectedCourse.category.toUpperCase()}
                     </div>
 
                     {/* TITLE */}
-                    <h2 className="max-w-2xl text-2xl font-black leading-tight text-white sm:text-4xl">
+                    <h2 className="max-w-2xl text-2xl font-black leading-tight text-white drop-shadow-lg sm:text-4xl">
                       {selectedCourse.title}
                     </h2>
                   </div>
                 </div>
 
-                {/* BODY */}
-                <div className="grid gap-6 p-5 sm:p-7 lg:grid-cols-[1fr_320px]">
-                  {/* LEFT */}
-                  <div>
-                    <p className="text-sm leading-7 text-gray-600 sm:text-[15px]">
-                      {selectedCourse.details}
-                    </p>
+                {/* BODY CONTENT */}
+                <div className="p-8">
+                  <p className="text-sm leading-7 text-gray-600 sm:text-[15px]">
+                    {selectedCourse.details}
+                  </p>
 
-                    {/* HIGHLIGHTS */}
-                    <div className="mt-8">
-                      <h3 className="mb-4 text-xl font-black text-black">
-                        Course Highlights
-                      </h3>
+                  {/* HIGHLIGHTS */}
+                  <div className="mt-8">
+                    <h3 className="mb-4 text-xl font-black text-black">
+                      Course Highlights
+                    </h3>
 
-                      <div className="grid gap-3 sm:grid-cols-2">
-                        {selectedCourse.highlights.map((item, index) => (
-                          <div
-                            key={index}
-                            className="flex items-start gap-3 rounded-2xl border border-black/10 bg-gray-50 p-4"
-                          >
-                            <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-black text-white">
-                              <CheckCircle2 size={15} />
-                            </div>
+                    <div className="grid gap-3 sm:grid-cols-2">
+                      {selectedCourse.highlights.map((item, index) => (
+                        <div
+                          key={index}
+                          className="flex items-center gap-3 rounded-2xl border border-black/10 bg-gray-50 p-4"
+                        >
+                          <div className="mt-0.5 flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-black text-white">
+                            <CheckCircle2 size={15} />
+                          </div>
 
-                            <p className="text-sm font-medium leading-6 text-black">
-                              {item}
+                          <p className="text-sm font-medium leading-6 text-black">
+                            {item}
+                          </p>
+                        </div>
+                      ))}
+                      
+                      {[
+                        { icon: <Wallet size={18} />, title: "Fee", value: selectedCourse.fee },
+                        { icon: <Clock3 size={18} />, title: "Duration", value: selectedCourse.duration },
+                        { icon: <Users size={18} />, title: "Students", value: selectedCourse.students },
+                        { icon: <BookOpen size={18} />, title: "Lessons", value: selectedCourse.lessons },
+                        { icon: <Award size={18} />, title: "Certificate", value: selectedCourse.certificate },
+                        { icon: <Globe size={18} />, title: "Language", value: selectedCourse.language },
+                      ].map((item, index) => (
+                        <div
+                          key={index}
+                          className="flex items-center gap-4 rounded-2xl border border-black/10 bg-gray-50 p-4"
+                        >
+                          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-black text-white">
+                            {item.icon}
+                          </div>
+
+                          <div>
+                            <h4 className="text-sm font-bold text-black">
+                              {item.title}
+                            </h4>
+
+                            <p className="mt-1 text-sm text-gray-600">
+                              {item.value}
                             </p>
                           </div>
-                        ))}
-                        {/* BUTTON */}
-                        <Link
-                          to={"/contact"}
-                          className="mt-4 flex w-full cursor-pointer items-center justify-center gap-2 rounded-2xl bg-black px-5 py-4 text-sm font-bold text-white transition-all duration-200 hover:bg-white border border-primary hover:text-primary"
-                        >
-                          Enroll Now
-                          <ArrowUpRight size={18} />
-                        </Link>
-                      </div>
+                        </div>
+                      ))}
                     </div>
                   </div>
 
-                  {/* RIGHT */}
-                  <div className="space-y-3">
-                    {[
-                      {
-                        icon: <Wallet size={18} />,
-                        title: "Fee",
-                        value: selectedCourse.fee,
-                      },
-                      {
-                        icon: <Clock3 size={18} />,
-                        title: "Duration",
-                        value: selectedCourse.duration,
-                      },
-                      {
-                        icon: <Users size={18} />,
-                        title: "Students",
-                        value: selectedCourse.students,
-                      },
-                      {
-                        icon: <BookOpen size={18} />,
-                        title: "Lessons",
-                        value: selectedCourse.lessons,
-                      },
-                      {
-                        icon: <Award size={18} />,
-                        title: "Certificate",
-                        value: selectedCourse.certificate,
-                      },
-                      {
-                        icon: <Globe size={18} />,
-                        title: "Language",
-                        value: selectedCourse.language,
-                      },
-                    ].map((item, index) => (
-                      <div
-                        key={index}
-                        className="flex items-center gap-4 rounded-2xl border border-black/10 bg-gray-50 p-4"
-                      >
-                        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-black text-white">
-                          {item.icon}
-                        </div>
-
-                        <div>
-                          <h4 className="text-sm font-bold text-black">
-                            {item.title}
-                          </h4>
-
-                          <p className="mt-1 text-sm text-gray-600">
-                            {item.value}
-                          </p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
+                  {/* ENROLL BUTTON */}
+                  <Link
+                    to={"/contact"}
+                    className="mt-8 flex w-full sm:w-fit cursor-pointer items-center justify-center gap-2 rounded-2xl bg-black px-12 py-5 text-sm font-bold text-white transition-all duration-200 hover:bg-white border-2 border-black hover:text-black"
+                  >
+                    Enroll Now
+                    <ArrowUpRight size={18} />
+                  </Link>
                 </div>
               </div>
             </div>
@@ -497,7 +465,7 @@ export default function CoursesSection() {
         </div>
       )}
 
-      {/* SCROLLBAR */}
+      {/* SCROLLBAR HIDER */}
       <style>{`
         .scrollbar-hide::-webkit-scrollbar {
           display: none;
