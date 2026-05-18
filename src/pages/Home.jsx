@@ -259,28 +259,28 @@ const Home = () => {
             </p>
 
             <ul className="md:text-[18px] text-sm mt-8 space-y-2">
-              <li className="flex items-center justify-start gap-2">
+              <li className="flex flex-wrap items-center justify-start gap-2">
                 <span className="text-secondary font-bold text-sm md:text-xl">
                   experience:
                 </span>
                 <p>9+ Years</p>
               </li>
 
-              <li className="flex items-center justify-start gap-2">
+              <li className="flex flex-wrap items-center justify-start gap-2">
                 <span className="text-secondary font-bold text-sm md:text-xl">
                   research projects:
                 </span>
                 <p>20+ International & National Projects</p>
               </li>
 
-              <li className="flex items-center justify-start gap-2">
+              <li className="flex flex-wrap items-center justify-start gap-2">
                 <span className="text-secondary font-bold text-sm md:text-xl">
                   publications:
                 </span>
                 <p>15+ Research Publications</p>
               </li>
 
-              <li className="flex items-center justify-start gap-2">
+              <li className="flex flex-wrap items-center justify-start gap-2">
                 <span className="text-secondary font-bold text-sm md:text-xl">
                   expertise:
                 </span>
