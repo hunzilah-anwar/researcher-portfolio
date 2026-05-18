@@ -108,9 +108,7 @@ Of 1641 HIVPWID registered in the datasets from 2007 to 2012, 961 (58.56%) had r
 
   return (
     <>
-      <section
-        className="bg-white sm:py-20 py-10 lg:px-20 sm:px-10 px-5"
-      >
+      <section className="bg-white sm:py-20 py-10 lg:px-20 sm:px-10 px-5">
         <div className="max-w-7xl mx-auto">
           {/* Heading */}
           <div className="mb-16 text-center">
@@ -153,19 +151,14 @@ Of 1641 HIVPWID registered in the datasets from 2007 to 2012, 961 (58.56%) had r
                   <h3 className="sm:text-xl text-lg font-semibold text-black leading-relaxed">
                     {item.title}
                   </h3>
-
+                  <p className="mt-4 text-black/50">
+                    <span className="font-semibold text-black/80">Year:</span>{" "}
+                    {item.year}
+                  </p>
                   {/* Link */}
-                  {item.link && (
-                    <a
-                    onClick={(e) => e.stopPropagation()}
-                      href={item.link}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center gap-2 mt-6 text-secondary font-medium hover:underline"
-                    >
-                      View Publication →
-                    </a>
-                  )}
+                  <button className="inline-flex cursor-pointer items-center gap-2 mt-6 text-secondary font-medium hover:underline">
+                    Click Here →
+                  </button>
                 </div>
 
                 {/* Hover Effect */}
@@ -178,7 +171,7 @@ Of 1641 HIVPWID registered in the datasets from 2007 to 2012, 961 (58.56%) had r
       {/* Popup Modal */}
       {selectedPublication && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4">
-          <div className="bg-white max-w-2xl w-full p-8 relative overflow-y-auto max-h-[90vh]">
+          <div className="bg-white max-w-2xl w-full sm:px-8 px-4 py-10 relative overflow-y-auto max-h-[90vh]">
             {/* Close Button */}
             <button
               onClick={() => setSelectedPublication(null)}
@@ -188,9 +181,20 @@ Of 1641 HIVPWID registered in the datasets from 2007 to 2012, 961 (58.56%) had r
             </button>
 
             {/* Title */}
-            <h2 className="text-2xl font-bold text-black leading-relaxed">
-              {selectedPublication.title}
-            </h2>
+            {selectedPublication?.link ? (
+              <a
+                href={selectedPublication.link}
+                target="_blank"
+                rel="noreferrer"
+                className="sm:text-2xl text-lg font-bold text-secondary underline leading-relaxed"
+              >
+                {selectedPublication.title}
+              </a>
+            ) : (
+              <h2 className="sm:text-2xl text-lg font-bold text-primary leading-relaxed">
+                {selectedPublication.title}
+              </h2>
+            )}
 
             {/* Meta */}
             <div className="mt-6 space-y-3 text-gray-700">

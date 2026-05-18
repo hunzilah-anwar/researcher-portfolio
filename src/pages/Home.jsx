@@ -1,175 +1,62 @@
 import { useEffect, useRef, useState } from "react";
 import ProfilePic from "../assets/profile-pic.jpg";
-import HeroBg from "../assets/hero-bg.jpg";
+// import HeroBg from "../assets/hero-bg.jpg";
 import { ButtonA, ButtonLink } from "../components/Button";
 import { Heading } from "../components/OtherCommon";
 import ExpertiesImg from "../assets/experties-img.jpg";
 import Resume from "../assets/Resume.pdf";
+import Contact from "./Contact";
+import CoursesSlider from "../components/CoursesSlider";
 
 const Home = () => {
-  const [showAllExperience, setShowAllExperience] = useState(false);
-
-  const experience = [
-    {
-      role: "Teaching Faculty",
-      company: "Scoot Education, Houston, TX",
-      duration: "May 2024 - March 2025",
-      responsibilities: [
-        "Delivered instruction in education and behavioral health related subjects integrating evidence-based teaching methodologies.",
-        "Implemented alternative education strategies to manage diverse classrooms and support differentiated learning needs.",
-        "Mentored students in research literacy, critical thinking, and practical life skills development.",
-        "Promoted inclusive, student-centered learning environments supporting academic achievement and social-emotional growth.",
-      ],
-    },
-    {
-      role: "Psychiatric Technician Operational",
-      company: "New Mexico Behavioral Health Institution, Las Vegas, USA",
-      duration: "Aug 2019 - June 2021",
-      responsibilities: [
-        "Provided direct clinical support to individuals with acute and chronic psychiatric conditions within a state behavioral health system.",
-        "Implemented behavior management and therapeutic support strategies in multidisciplinary treatment teams.",
-        "Monitored patient progress, documented clinical observations, and supported crisis intervention efforts.",
-        "Ensured adherence to confidentiality, patient rights, and regulatory compliance standards.",
-        "Completed professional training in HIPAA compliance, First Aid, AED, and CPR.",
-      ],
-    },
-    {
-      role: "Research Engineer & Collaboration",
-      company: "National Taiwan Normal University, Taipei, Taiwan",
-      duration: "Dec 2018 - May 2019",
-      responsibilities: [
-        "Supported the design, data collection, and statistical analysis of large-scale research projects in education and behavioral sciences.",
-        "Assisted in manuscript preparation, academic editing, and research dissemination activities.",
-        "Contributed to proposal development and research documentation for institutional review and funding processes.",
-      ],
-    },
-    {
-      role: "Research Assistant",
-      company: "Academia Sinica – Institute of Ethnology, Taipei, Taiwan",
-      duration: "Dec 2018 - Apr 2019",
-      responsibilities: [
-        "Contributed to internationally oriented ethnological and interdisciplinary research projects “Parent–child conflict and filial piety within the contemporary East Asian family system within Taiwan’s premier national research institution.",
-        "Assisted postgraduate researchers in study design, data collection, and cross-cultural research implementation.",
-        "Conducted statistical analysis and supported interpretation of findings for scholarly dissemination.",
-        "Contributed to manuscript preparation and academic publications, supporting rigorous methodological standards.",
-        "Participated in research initiatives addressing socially and culturally significant issues with international relevance.",
-        "Contributed to a cross-cultural research project examining",
-        "Assisted in study design, data collection, and implementation of culturally grounded research methodologies.",
-        "Conducted statistical analyses and supported interpretation of findings related to intergenerational relationships and behavioral outcomes.",
-        "Contributed to manuscript preparation and scholarly publications, ensuring methodological rigor and academic integrity.",
-        "Supported research addressing socially significant issues in family dynamics with implications for education and behavioral health policy.",
-      ],
-    },
-    {
-      role: "School Counselor",
-      company: "Askari School & College, Islamabad, Pakistan",
-      duration: "Apr 2011 - Mar 2017",
-      responsibilities: [
-        "Delivered comprehensive counseling services addressing academic, behavioral, and mental health needs of diverse student populations.",
-        "Designed and implemented school-wide mental health, life skills, and crisis intervention workshops.",
-        "Developed preventive and early-intervention strategies to support at-risk students and improve educational outcomes.",
-        "Collaborated with families and faculty to create structured support systems promoting student resilience and long-term wellbeing.",
-        "Led public awareness seminars promoting community-level understanding of mental health and psychosocial development.",
-      ],
-    },
-    {
-      role: "Behavior Management Counselor (BMC)",
-      company:
-        "AASRA Drug Addiction & Rehabilitation Center, Islamabad, Pakistan",
-      duration: "Apr 2011 - Mar 2017",
-      responsibilities: [
-        "Conducted individualized and group behavioral interventions for individuals affected by substance use disorders.",
-        "Performed structured behavioral assessments and developed evidence-informed rehabilitation plans.",
-        "Provided family guidance and psychoeducation to address intergenerational impacts of addiction.",
-        "Collaborated within multidisciplinary rehabilitation teams to strengthen treatment and prevention strategies.",
-        "Contributed to public awareness seminars advancing community-based addiction prevention initiatives.",
-      ],
-    },
-  ];
-
   const education = [
     {
       title:
         "PHD, Pir Mehr Ali Shah Arid Agriculture University, Rawalpindi, Pakistan Research Collaboration with National Taiwan Normal University",
-      duration: "02/2015 – 06/2023",
-      grade: "95% overall Passing Marks (3.79/4.0.GPA)",
-      description: `Graduated with 95% overall Passing Marks (3.79/4.0.GPA) which was held in collaboration with National Taiwan Normal University evaluated by External Examiners: Prof. Dr. Valentin Martínez Otero Perez (Spain): Prof. Dr. Carolyn M. Shields (USA) & Publications in Peer Reviewed Internationally Reputed Journals.
-      Dissertation: "Need Assessment for the Children of Drug-Addicted Parents in Rawalpindi and Role of School Guidance and Counseling Services".
-      Advisor: Prof. Dr. Muhammad Arshad Dahar, Co-Supervisor/Mentor: Prof. Tony Lee, NTNU, Taipei, Taiwan.
-      External Examiners: Prof. Dr. Valentin Martinez Otero Perez (Complutense University, Spain), Prof. Dr. Carolyn M. Shields (Wayne State University, USA).`,
     },
 
     {
       title:
         "MPHIL, Pir Mehr Ali Shah Arid Agriculture University, Rawalpindi, Pakistan",
-      duration: "01/2012 – 06/2014",
-      grade: "91.25% overall Passing Marks (3.65/4 C.GPA)",
-      description: `Master of Philosophy (MPhil) in Education, graduated securing 91.25% overall Passing Marks (3.65/4 C.GPA) with Publications in Peer reviewed well reputed Journals.`,
     },
 
     {
       title:
         "Master of Arts (M.A.) in Education University of the Punjab, Lahore, Pakistan",
-      duration: "01/2007 – 12/2009",
-      grade: "62% overall marks",
-      description: `Graduated securing 62% overall marks in Annual Examination. Successfully completed teaching training in the Government school Islamabad.`,
     },
 
     {
       title:
         "Master of Science (M.Sc.) in Economics, Allama Iqbal Open University, Islamabad, Pakistan",
-      duration: "01/2008 – 2010",
-      grade: "57% marks",
-      description: `Department of Economics
-      Specialization in project management, business research, economic & finance of education and public finance. Successfully attained overall 57% marks in the annual examination system`,
     },
 
     {
       title: "Bachelor of Arts, University of Punjab, Pakistan",
-      duration: "08/2004 – 08/2006",
-      grade: "Overall good Marks",
-      description: `Secured overall good Marks in final Examination and completed the bachelor level education.`,
     },
 
     {
       title: "FSC-HSSC Federal Board of Intermediate & Secondary Education",
-      duration: "04/2001 – 04/2003",
-      grade: "535 Passing Marks",
-      description: `Successfully attained overall 535 Passing Marks in Faculty of Science Final Exams to complete the College education.`,
     },
 
     {
       title:
         "Matriculation, Federal board of Intermediate &Secondary Education Islamabad, Pakistan",
-      duration: "05/1999 – 05/2002",
-      grade: "Passed overall",
-      description: `Passed overall in final Examination and completed the Secondary school Certificate education.`,
     },
 
     {
       title:
         "Graduate Coursework in Guidance & Counseling (Clinical Mental Health), Department of Counseling, New Mexico Highlands University, Las Vegas, NM, USA",
-      duration: "Fall semester 2019 – 2020",
-      grade: "CGPA = 4 out of 4.0",
-      description: `Successfully attained Cumulative Grade Point Average (CGPA) = 4 out of 4.0 in Faculty of Science Final Exams to complete the course work.
-      ● PSYC 6010 – Data Analysis and Statistics (A), COUN 6030 – Career Development (A) | GPA: 4.0`,
     },
 
     {
       title:
         "Diploma in Education, Federal board of Intermediate &Secondary Education Islamabad, Pakistan",
       duration: "Duration 2004 – 2006 (12+1.1/2 Year)",
-      grade: "1007 out of 1500",
-      description: `Successfully attained Cumulative Grade Point Average total 1007 out of 1500 in Annual examination system, Faculty of teaching in H-9 College of Education, Islamabad, Pakistan.
-      Major in Teacher Education: Curriculum & Instruction, Leadership & Planning, change implementation, HRM, Children growth & development, Educational Psychology, Instructional methods & Lesson Planning, Teaching of English, Teaching Practice (Practical)`,
     },
 
     {
       title:
         "Diploma in Information Technology Ministry of Education, Islamabad, Pakistan",
-      duration: "1 Month",
-      grade: "",
-      description: `Major in MS Word, Power point, MS Excel`,
     },
   ];
 
@@ -254,11 +141,11 @@ const Home = () => {
     <>
       <section
         className="lg:px-20 sm:px-10 px-5 py-12"
-        style={{
-          backgroundImage: `url(${HeroBg})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
+        // style={{
+        //   backgroundImage: `url(${HeroBg})`,
+        //   backgroundSize: "cover",
+        //   backgroundPosition: "center",
+        // }}
       >
         <div className="flex md:flex-nowrap flex-wrap items-center justify-between gap-8">
           <div>
@@ -301,61 +188,112 @@ const Home = () => {
       </section>
       <section className="lg:px-20 sm:px-10 px-5 pt-12 pb-30 bg-primary text-white">
         <Heading name="About Me" darkColor="#325254" />
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
-          <div className="md:px-8 overflow-hidden">
-            <img
-              src={ProfilePic}
-              alt="Profile"
-              className="w-full md:h-120 h-fit object-cover rounded-2xl border-2 border-secondary"
-            />
-          </div>
+
+        <div className="mt-8">
           <div className="md:mt-0 mt-5">
-            <h1 className="md:text-2xl text-xl font-bold text-secondary md:max-w-120 max-w-full">
-              Internationally Recognized Interdisciplinary Researcher
+            <h1 className="md:text-2xl text-xl font-bold text-secondary">
+              Internationally recognized researcher bridging education,
+              addiction science, and behavioral health through years of
+              academic, clinical, and counseling experience.
             </h1>
-            <p className="text-sm md:text-[16px] md:max-w-120 max-w-full text-justify">
-              I am an experienced Researcher and Academic passionate about
-              public health, social and behavioral research, and data-driven
-              insights. I lead and mentor students and junior researchers,
-              design workshops and seminars, and translate complex research
-              findings into actionable knowledge. My focus is on global
-              collaboration, research innovation, and fostering learning and
-              impact across communities.
+
+            <p className="text-sm md:text-[16px] text-justify">
+              I am an interdisciplinary researcher, educator, and behavioral
+              health professional with more than nine years of experience
+              working in education, mental health, school counseling, and
+              addiction research. My work focuses on understanding how parental
+              substance use disorders affect children’s academic performance,
+              emotional wellbeing, and long-term development.
               <br />
-              Internationally recognized interdisciplinary researcher
-              specializing in education, addiction science, behavioral health,
-              and school counseling frameworks. Experienced in leading global
-              research collaborations across the USA, Australia, Taiwan, and
-              Pakistan.
+              <br />
+              My research journey began during my years as a School Counselor at
+              Askari School & College and a Behavior Management Counselor at
+              AASRA Drug Addiction & Rehabilitation Center in Islamabad,
+              Pakistan. Working closely with students and families affected by
+              addiction helped shape my long-term research interest in
+              intergenerational behavioral health and addiction-informed
+              educational support systems.
+              <br />
+              <br />
+              I completed my Ph.D. in Education at Pir Mehr Ali Shah Arid
+              Agriculture University in collaboration with National Taiwan
+              Normal University, where my doctoral research explored the needs
+              of children of drug-addicted parents and the role of school
+              counseling services in supporting vulnerable students. I also hold
+              an M.Phil. in Education, an M.A. in Education, and an M.Sc. in
+              Economics, giving me a multidisciplinary academic background in
+              education, behavioral sciences, and social research.
+              <br />
+              <br />
+              During my doctoral studies, I contributed to cross-cultural
+              research projects at Academia Sinica and worked as a Research
+              Engineer at National Taiwan Normal University, supporting
+              large-scale studies in education and behavioral sciences. These
+              experiences strengthened my expertise in quantitative research,
+              statistical analysis, and international academic collaboration.
+              <br />
+              <br />
+              In 2019, I presented my research at the NIDA International Forum
+              in Texas and received the CPDD Young Scientist International
+              Travel Award for my research on how heroin-using parents
+              negatively impact children’s academic achievement. My research has
+              since been published in peer-reviewed international journals,
+              including BMC Psychiatry.
+              <br />
+              <br />
+              My professional experience also includes working as a Psychiatric
+              Technician at the New Mexico Behavioral Health Institution in the
+              United States, where I provided clinical support to individuals
+              with acute and chronic psychiatric conditions. Alongside research
+              and clinical practice, I also serve as a Peer Reviewer for PLOS
+              ONE, reviewing international research in behavioral science,
+              education, and public health.
+              <br />
+              <br />
+              My current interests include addiction-informed school counseling,
+              child and adolescent mental health, bullying and depression in
+              educational settings, methadone treatment adherence research, and
+              behavioral health integration within academic institutions. Beyond
+              research, I actively organize seminars and workshops focused on
+              child wellbeing, resilience-building, and substance use prevention
+              with the goal of creating meaningful impact for vulnerable
+              communities.
             </p>
+
             <ul className="md:text-[18px] text-sm mt-8 space-y-2">
               <li className="flex items-center justify-start gap-2">
                 <span className="text-secondary font-bold text-lg md:text-xl">
                   experience:
-                </span>{" "}
-                <p>9+ Years,</p>
+                </span>
+                <p>9+ Years</p>
               </li>
+
               <li className="flex items-center justify-start gap-2">
                 <span className="text-secondary font-bold text-lg md:text-xl">
-                  projects:
-                </span>{" "}
-                <p>20+ Research Projects,</p>
+                  research projects:
+                </span>
+                <p>20+ International & National Projects</p>
               </li>
+
               <li className="flex items-center justify-start gap-2">
                 <span className="text-secondary font-bold text-lg md:text-xl">
                   publications:
-                </span>{" "}
-                <p>15+ Publications,</p>
+                </span>
+                <p>15+ Research Publications</p>
               </li>
+
               <li className="flex items-center justify-start gap-2">
                 <span className="text-secondary font-bold text-lg md:text-xl">
-                  countries:
-                </span>{" "}
-                <p>4 Countries Worked</p>
+                  expertise:
+                </span>
+                <p>Education, Mental Health & Addiction Research</p>
               </li>
             </ul>
           </div>
         </div>
+      </section>
+      <section className="border-b border-black/20">
+        <CoursesSlider />
       </section>
       <section className="py-16 px-4">
         <div className="max-w-5xl mx-auto">
@@ -368,23 +306,10 @@ const Home = () => {
                 <span className="absolute -left-10.25 top-0 w-4 h-4 bg-white rounded-full inset-ring-2 inset-ring-white group-hover:bg-secondary transition ease-in-out duration-300 border-2 border-primary"></span>
 
                 {/* Content */}
-                <div className="-translate-y-1 group-hover:-translate-y-2 transition ease-in-out duration-300 border-b border-white/20 pb-4">
-                  <div className="flex flex-col items-start">
-                    <h3 className="md:text-xl text-lg font-semibold text-secondary">
-                      {item.title}
-                    </h3>
-                    {item.grade && (
-                      <p className="text-secondary font-medium md:text-[16px] text-sm">
-                        {item.grade}
-                      </p>
-                    )}
-                    <p className="text-gray-400 md:text-[16px] text-sm">
-                      {item.duration}
-                    </p>
-                    <p className="text-primary mt-1 md:text-[16px] text-sm">
-                      {item.description}
-                    </p>
-                  </div>
+                <div className="-translate-y-1 group-hover:-translate-y-2 transition ease-in-out duration-300 border-b border-black/20">
+                  <h3 className="md:text-xl text-lg font-semibold text-primary">
+                    {item.title}
+                  </h3>
                 </div>
               </div>
             ))}
@@ -418,75 +343,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-
-      <section className="py-16 px-4 max-w-6xl mx-auto" id="experience">
-        <Heading name="Experience" />
-
-        <div
-          className={`sm:space-y-8 space-y-4 sm:my-10 my-2 transition-all duration-500 ease-in-out overflow-hidden`}
-        >
-          {(showAllExperience ? experience : experience.slice(0, 4)).map(
-            (item, index) => (
-              <div
-                key={index}
-                className="bg-white shadow-md rounded-xl sm:p-6 p-3 border border-black/10 hover:shadow-lg transition duration-300"
-              >
-                {/* Top */}
-                <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
-                  <div>
-                    <h3 className="text-xl font-semibold text-secondary">
-                      {item.role}
-                    </h3>
-
-                    <p className="text-gray-600">{item.company}</p>
-                  </div>
-
-                  <div className="text-sm text-gray-500 mt-2 md:mt-0">
-                    <p>{item.duration}</p>
-
-                    {item.type && (
-                      <p className="text-secondary font-medium">{item.type}</p>
-                    )}
-                  </div>
-                </div>
-
-                {/* Responsibilities */}
-                <ul className="list-disc pl-5 space-y-2 text-gray-700">
-                  {item.responsibilities.map((task, i) => (
-                    <li key={i}>{task}</li>
-                  ))}
-                </ul>
-              </div>
-            ),
-          )}
-        </div>
-
-        {/* Button */}
-        {experience.length > 4 && (
-          <div id="experience-btn" className="flex justify-center mt-8">
-            <button
-              onClick={() => {
-                if (showAllExperience) {
-                  setShowAllExperience(false);
-
-                  setTimeout(() => {
-                    document.getElementById("experience-btn")?.scrollIntoView({
-                      behavior: "smooth",
-                      block: "center",
-                    });
-                  }, 50);
-                } else {
-                  setShowAllExperience(true);
-                }
-              }}
-              className="px-8 py-3 bg-primary text-white rounded-full hover:bg-white hover:text-primary border border-primary transition duration-300 cursor-pointer"
-            >
-              {showAllExperience ? "Show Less" : "View More"}
-            </button>
-          </div>
-        )}
-      </section>
-      <section className="bg-primary text-white sm:py-20 py-10 lg:px-20 sm:px-10 px-5 overflow-hidden">
+      <section className="bg-white text-primary sm:py-20 py-10 lg:px-20 sm:px-10 px-5 overflow-hidden">
         <div className="max-w-7xl mx-auto">
           {/* Heading */}
           <div className="sm:mb-16 mb-5">
@@ -494,7 +351,7 @@ const Home = () => {
               Recognition & Excellence
             </h4>
 
-            <Heading name="Awards & Achievements" darkColor="#325254" />
+            <Heading name="Awards & Achievements" />
           </div>
 
           {/* Awards Grid */}
@@ -502,25 +359,25 @@ const Home = () => {
             {awards.map((award, index) => (
               <div
                 key={index}
-                className="group relative border border-white/10 rounded-xl sm:p-8 p-4 bg-white/5 hover:bg-white/10 transition duration-500 overflow-hidden"
+                className="group relative border border-black/10 rounded-xl sm:p-8 p-4 bg-black/5 hover:bg-black/10 transition duration-500 overflow-hidden"
               >
                 {/* Number */}
-                <div className="absolute -top-8 -right-5 text-[120px] font-bold text-white/5 select-none">
-                  {String(index + 1).padStart(2, "0")}
+                <div className="absolute -top-8 -right-4 text-[120px] font-bold text-black/5 select-none">
+                  {String(index + 1).padStart(1, "0")}
                 </div>
 
                 {/* Content */}
-                <h3 className="text-lg sm:text-2xl font-semibold leading-snug group-hover:text-secondary transition duration-300">
+                <h3 className="text-lg sm:text-2xl font-semibold leading-snug transition duration-300">
                   {award.title}
                 </h3>
 
                 <div className="sm:mt-5 mt-2 space-y-2">
-                  <p className="text-white/80 sm:text-lg text-sm">
+                  <p className="text-black/80 sm:text-lg text-sm">
                     {award.organization}
                   </p>
 
                   {award.location && (
-                    <p className="text-white/60 sm:text-lg text-sm">
+                    <p className="text-black/60 sm:text-lg text-sm">
                       {award.location}
                     </p>
                   )}
@@ -533,7 +390,7 @@ const Home = () => {
                 </div>
 
                 {award.description && (
-                  <p className="text-white/70 sm:text-[16px] text-sm leading-relaxed sm:mt-8 mt-4">
+                  <p className="text-black/70 sm:text-[16px] text-sm leading-relaxed sm:mt-8 mt-4">
                     {award.description}
                   </p>
                 )}
@@ -542,7 +399,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className="bg-white sm:py-20 py-10 lg:px-20 sm:px-10 px-5">
+      <section className="bg-primary text-white sm:py-20 py-10 lg:px-20 sm:px-10 px-5 border-b border-white/20">
         <div className="max-w-7xl mx-auto">
           {/* Heading */}
           <div className="sm:mb-14 mb-8 text-center">
@@ -550,19 +407,19 @@ const Home = () => {
               Core Strengths
             </h4>
 
-            <Heading name="Areas of Expertise" />
+            <Heading name="Areas of Expertise" darkColor="#325254" />
           </div>
 
           <div className="grid md:grid-cols-2 grid-cols-1 gap-6">
             <div className="space-y-4">
               {expertise.map((item, index) => (
                 <div key={index} className="flex flex-row items-center gap-4">
-                  <div className="min-w-11.25 h-11.25 rounded-full border border-secondary text-secondary flex items-center justify-center font-semibold">
+                  <div className="min-w-11.25 h-11.25 rounded-full border border-white text-white flex items-center justify-center font-semibold">
                     {String(index + 1).padStart(2, "0")}
                   </div>
 
                   {/* Text */}
-                  <p className="text-gray-700 leading-relaxed group-hover:text-primary transition duration-300">
+                  <p className="text-white leading-relaxed group-hover:text-primary transition duration-300">
                     {item}
                   </p>
                 </div>
@@ -578,6 +435,7 @@ const Home = () => {
           </div>
         </div>
       </section>
+      <Contact />
     </>
   );
 };

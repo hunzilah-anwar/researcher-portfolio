@@ -9,7 +9,6 @@ import Home from "./pages/Home";
 import Publications from "./pages/Publications";
 import ResearchProjects from "./pages/ResearchProjects";
 import Trainings from "./pages/Trainings";
-import ResearchArticles from "./pages/ResearchArticles";
 import Seminars from "./pages/Seminars";
 import Contact from "./pages/Contact";
 import PeerReviewer from "./pages/PeerReviewer";
@@ -30,7 +29,6 @@ function App() {
           <Route path="/publications" element={<Publications />} />
           <Route path="/research-projects" element={<ResearchProjects />} />
           <Route path="/training" element={<Trainings />} />
-          <Route path="/research-articles" element={<ResearchArticles />} />
           <Route path="/reviewer" element={<PeerReviewer />} />
           <Route path="/seminars" element={<Seminars />} />
           <Route path="/contact" element={<Contact />} />

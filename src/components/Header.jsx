@@ -17,7 +17,6 @@ const Header = () => {
   ];
 
   const navItemsSec = [
-    { name: "Articles", path: "/research-articles" },
     { name: "Trainings", path: "/training" },
     { name: "Peer Reviewer", path: "/reviewer" },
     { name: "Seminars", path: "/seminars" },
