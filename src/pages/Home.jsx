@@ -4,6 +4,7 @@ import ProfilePic from "../assets/profile-pic.jpg";
 import { ButtonA, ButtonLink } from "../components/Button";
 import { Heading } from "../components/OtherCommon";
 import ExpertiesImg from "../assets/experties-img.jpg";
+import HomeBanner from "../assets/home-banner.png";
 import Resume from "../assets/Resume.pdf";
 import Contact from "./Contact";
 import CoursesSlider from "../components/CoursesSlider";
@@ -139,62 +140,59 @@ const Home = () => {
 
   return (
     <>
-      <section
-        className="lg:px-20 sm:px-10 px-5 py-12"
-        // style={{
-        //   backgroundImage: `url(${HeroBg})`,
-        //   backgroundSize: "cover",
-        //   backgroundPosition: "center",
-        // }}
-      >
-        <div className="flex md:flex-nowrap flex-wrap items-center justify-between gap-8">
-          <div>
-            <h4 className="text-xl font-bold">Hey There!</h4>
-            <h4 className="text-xl font-bold">I'am Dr. Qurat ul Ain</h4>
-            <h1 className="text-xl md:text-2xl lg:text-3xl font-bold max-w-150 text-secondary">
-              International Researcher | Behavioral Health Specialist |
-              Education Expert
-            </h1>
-            <p className="text-sm text-gray-600 max-w-102.5 mt-4">
-              Ph.D. scholar with 9+ years of international experience in
-              education, addiction science, behavioral health, and
-              interdisciplinary research.
-            </p>
-            <div className="mt-6 flex flex-wrap items-center gap-4">
-              <ButtonA
-                name="Download CV"
-                href={Resume}
-                bgColor={"bg-primary"}
-                textColor={"text-white"}
-                HoverClasses={"hover:bg-white hover:text-primary"}
-              />
-              <ButtonLink
-                to="/contact"
-                name="Contact Me"
-                bgColor={"bg-transparent"}
-                textColor={"text-primary"}
-                HoverClasses={"hover:bg-primary hover:text-white"}
+      <section>
+        <div className="relative sm:hidden flex items-center justify-center flex-col"> 
+          <img src={HomeBanner} alt="Profile Banner" className="w-full h-40 object-cover" />
+          <img src={ProfilePic} alt="Profile" className="absolute bottom-0 left-[50%] translate-x-[-50%] translate-y-20 w-40 h-40 object-cover border-4 border-white" />
+        </div>
+        <div className="lg:px-20 sm:px-10 px-5 sm:pt-12 pt-25 pb-12">
+          <div className="flex sm:flex-nowrap flex-wrap items-center justify-between gap-8">
+            <div>
+              <h4 className="text-xl font-bold">Hey There!</h4>
+              <h4 className="text-xl font-bold">I'am Dr. Qurat ul Ain</h4>
+              <h1 className="text-xl md:text-2xl lg:text-3xl font-bold max-w-150 text-secondary">
+                International Researcher | Behavioral Health Specialist |
+                Education Expert
+              </h1>
+              <p className="text-sm text-gray-600 max-w-102.5 mt-4">
+                Ph.D. scholar with 9+ years of international experience in
+                education, addiction science, behavioral health, and
+                interdisciplinary research.
+              </p>
+              <div className="mt-6 flex flex-wrap items-center gap-4">
+                <ButtonA
+                  name="Download CV"
+                  href={Resume}
+                  bgColor={"bg-primary"}
+                  textColor={"text-white"}
+                  HoverClasses={"hover:bg-white hover:text-primary"}
+                />
+                <ButtonLink
+                  to="/contact"
+                  name="Contact Me"
+                  bgColor={"bg-transparent"}
+                  textColor={"text-primary"}
+                  HoverClasses={"hover:bg-primary hover:text-white"}
+                />
+              </div>
+            </div>
+            <div className="lg:p-4 overflow-hidden md:w-fit w-full sm:flex hidden items-center justify-end">
+              <img
+                src={ProfilePic}
+                alt="Profile"
+                className="max-w-50 md:max-w-150 md:h-fit h-50 object-cover border-2 border-secondary rounded-2xl overflow-hidden"
               />
             </div>
           </div>
-          <div className="lg:p-4 overflow-hidden md:w-fit w-full flex items-center justify-center">
-            <img
-              src={ProfilePic}
-              alt="Profile"
-              className="max-w-full md:max-w-150 md:h-fit h-120 object-cover border-2 border-secondary rounded-2xl overflow-hidden"
-            />
-          </div>
         </div>
       </section>
-      <section className="lg:px-20 sm:px-10 px-5 pt-12 pb-30 bg-primary text-white">
+      <section className="lg:px-20 sm:px-10 px-5 pt-12 pb-16 bg-primary text-white">
         <Heading name="About Me" darkColor="#325254" />
 
         <div className="mt-8">
           <div className="md:mt-0 mt-5">
             <h1 className="md:text-2xl text-xl font-bold text-secondary">
-              Internationally recognized researcher bridging education,
-              addiction science, and behavioral health through years of
-              academic, clinical, and counseling experience.
+              Internationally Recognized Researcher
             </h1>
 
             <p className="text-sm md:text-[16px] text-justify">
@@ -262,28 +260,28 @@ const Home = () => {
 
             <ul className="md:text-[18px] text-sm mt-8 space-y-2">
               <li className="flex items-center justify-start gap-2">
-                <span className="text-secondary font-bold text-lg md:text-xl">
+                <span className="text-secondary font-bold text-sm md:text-xl">
                   experience:
                 </span>
                 <p>9+ Years</p>
               </li>
 
               <li className="flex items-center justify-start gap-2">
-                <span className="text-secondary font-bold text-lg md:text-xl">
+                <span className="text-secondary font-bold text-sm md:text-xl">
                   research projects:
                 </span>
                 <p>20+ International & National Projects</p>
               </li>
 
               <li className="flex items-center justify-start gap-2">
-                <span className="text-secondary font-bold text-lg md:text-xl">
+                <span className="text-secondary font-bold text-sm md:text-xl">
                   publications:
                 </span>
                 <p>15+ Research Publications</p>
               </li>
 
               <li className="flex items-center justify-start gap-2">
-                <span className="text-secondary font-bold text-lg md:text-xl">
+                <span className="text-secondary font-bold text-sm md:text-xl">
                   expertise:
                 </span>
                 <p>Education, Mental Health & Addiction Research</p>
@@ -307,7 +305,7 @@ const Home = () => {
 
                 {/* Content */}
                 <div className="-translate-y-1 group-hover:-translate-y-2 transition ease-in-out duration-300 border-b border-black/20">
-                  <h3 className="md:text-xl text-lg font-semibold text-primary">
+                  <h3 className="md:text-xl text-sm font-semibold text-primary">
                     {item.title}
                   </h3>
                 </div>
@@ -343,7 +341,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className="bg-white text-primary sm:py-20 py-10 lg:px-20 sm:px-10 px-5 overflow-hidden">
+      <section className="bg-white text-primary sm:py-16 py-10 lg:px-20 sm:px-10 px-5 overflow-hidden">
         <div className="max-w-7xl mx-auto">
           {/* Heading */}
           <div className="sm:mb-16 mb-5">
@@ -399,7 +397,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className="bg-primary text-white sm:py-20 py-10 lg:px-20 sm:px-10 px-5 border-b border-white/20">
+      <section className="bg-primary text-white sm:py-16 py-10 lg:px-20 sm:px-10 px-5 border-b border-white/20">
         <div className="max-w-7xl mx-auto">
           {/* Heading */}
           <div className="sm:mb-14 mb-8 text-center">

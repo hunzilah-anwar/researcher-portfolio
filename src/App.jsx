@@ -23,7 +23,7 @@ function App() {
 
       <Header />
 
-      <main className="pt-18 text-primary" id="home">
+      <main className="sm:pt-18 pt-16 text-primary" id="home">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/publications" element={<Publications />} />
