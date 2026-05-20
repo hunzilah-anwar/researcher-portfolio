@@ -1,3 +1,12 @@
+# Add .env File for Contact Form
+VITE_EMAILJS_SERVICE_ID=-----------
+VITE_EMAILJS_TEMPLATE_ID=----------
+VITE_EMAILJS_PUBLIC_KEY=----------
+VITE_EMAILJS_AUTO_REPLY_TEMPLATE_ID=----------
+
+# Where you get .env file Keys or ID's?
+using this Link: https://www.emailjs.com/
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
