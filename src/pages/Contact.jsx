@@ -133,7 +133,10 @@ const Contact = () => {
                 </div>
               </div>
             ) : (
-              <form onSubmit={handleSubmit(onSubmit)} className="space-y-5 text-primary">
+              <form
+                onSubmit={handleSubmit(onSubmit)}
+                className="space-y-5 text-primary"
+              >
                 {/* Name */}
                 <div>
                   <input
@@ -208,9 +211,8 @@ const Contact = () => {
           <div className="sm:space-y-6 space-y-4">
             <div>
               <p className="text-primary leading-relaxed text-[15px]">
-                I am always open to meaningful academic collaborations, research
-                opportunities, and professional consultations in the field of
-                education, behavioral health, and interdisciplinary research.
+                If you are interested in collaboration, mentorship, or attending
+                future seminars, I would be delighted to connect with you.
               </p>
             </div>
 

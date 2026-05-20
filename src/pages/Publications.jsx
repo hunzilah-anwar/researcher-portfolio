@@ -1,8 +1,30 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+import { Heading } from "../components/OtherCommon";
+import { ButtonA } from "../components/Button";
+
+import {
+  FaBookOpen,
+  FaExternalLinkAlt,
+} from "react-icons/fa";
 
 const Publications = () => {
-  //   Publications
   const [selectedPublication, setSelectedPublication] = useState(null);
+
+  // Close Modal ESC
+  useEffect(() => {
+    const close = (e) => {
+      if (e.key === "Escape") {
+        setSelectedPublication(null);
+      }
+    };
+
+    window.addEventListener("keydown", close);
+
+    return () => window.removeEventListener("keydown", close);
+  }, []);
+
+  // Publications
   const publications = [
     {
       title:
@@ -14,13 +36,10 @@ const Publications = () => {
       volume: "20 (1)",
       pages: "1-8",
       citations: "10",
-      description: `Aims: 
-The study aims were to investigate adherence to methadone maintenance treatment (MMT) and to identify associated clinical factors in patients who inject drugs diagnosed with human immunodeficiency virus (HIV) infection in Taiwan.
-Methods: 
-Data were from the National Health Surveillance System on HIV and the National Drug Treatment System on MMT. HIV-positive people who inject drugs (HIVPWID) were defined as the study population. Information obtained included age, sex, education, marital status, employment, methadone dose, and date of diagnosis of HIV infection. Adherence was defined as taking methadone for the past 90, 180 and 365 days, then categorized as high (> 90%), moderate (51 to 90%), or low (<=50%) adherent respectively.
-Results: 
-Of 1641 HIVPWID registered in the datasets from 2007 to 2012, 961 (58.56%) had received MMT. For HIVPWID evaluated at 90 days (n = 951), 271 …`,
+      description:
+        "The study investigated adherence to methadone maintenance treatment among HIV-positive injection drug users in Taiwan and identified associated clinical factors using national health datasets.",
       link: "https://link.springer.com/article/10.1186/s12888-020-02764-0",
+      doi: "10.1186/s12888-020-02764-0",
     },
 
     {
@@ -33,7 +52,7 @@ Of 1641 HIVPWID registered in the datasets from 2007 to 2012, 961 (58.56%) had r
       pages: "196-205",
       citations: "2",
       description:
-        "This study is aimed to figure out the effects of paternal heroin addiction and their impact on the academic performance of their children in Rawalpindi and Islamabad, Pakistan. The present research has adopted a qualitative design which comprised of heroin-addicted fathers and the teachers of their children who were studying at secondary school level Data were analyzed by using Pearson Correlation methods and the results indicate that the paternal heroin addiction habit is negative, non-significantly correlated to the academic performance of their children. We hypothesize that the weak negative correlation between paternal heroin-addicted habits and academic performance of children is due to their low dependence on their father than their mother. In under-developing countries like Pakistan, the father is involved in outdoor jobs or activities and does not spend more time with their children.",
+        "Research examining how paternal heroin addiction influences children's academic performance in Rawalpindi and Islamabad, Pakistan.",
       link: "https://www.ojs.rjsser.org.pk/index.php/rjsser/article/view/330",
     },
 
@@ -43,11 +62,11 @@ Of 1641 HIVPWID registered in the datasets from 2007 to 2012, 961 (58.56%) had r
       authors: "Omar J Alkhatib, Qurat-ul-Ain, SMA Abid, MKZ Bajwa, Ajab Khan",
       journal: "Annual Methodological Archive Research Review (AMARR)",
       year: "2026/3/11",
-      volume: "Vol. 4 No. 3 (2026): (March 2026) Annual",
+      volume: "Vol. 4 No. 3 (2026)",
       pages: "443-476",
       citations: "0",
       description:
-        "Framework for intelligent teaching systems integrating AI, NLP, and learning analytics.",
+        "A validated framework for intelligent teaching systems integrating artificial intelligence, NLP, and learning analytics.",
       link: "https://scholar.google.com/scholar?oi=bibs&cluster=13766263908327127581&btnI=1&hl=en",
     },
 
@@ -61,7 +80,7 @@ Of 1641 HIVPWID registered in the datasets from 2007 to 2012, 961 (58.56%) had r
       pages: "1-18",
       citations: "0",
       description:
-        "Bullying among school-aged children and adolescents remains a major public health and educational concern worldwide. This systematic review aimed to determine the global prevalence, common types, and associated factors of bullying among secondary school students to inform effective prevention strategies. A comprehensive literature search was conducted across PubMed, Scopus, Google Scholar, Web of Science, Embase, Pakmedinet, and PsycINFO for studies published between January 2000 and December 2024. Of the 1,609 articles initially identified, 160 met the inclusion criteria, and 52 studies were ultimately included in the final analysis. Data were extracted on study design, geographic distribution, prevalence rates, forms of bullying, and identified factors. The findings revealed that bullying is highly prevalent worldwide, with particularly high rates reported in lower-middle-income and high-income countries and among students attending public secondary schools. Verbal bullying emerged as the most common form across regions, followed by physical and relational or psychological bullying, while cyber-bullying and sexual bullying were reported less frequently. The review highlights significant regional and socio-economic variations in bullying patterns and emphasizes the persistent nature of this problem. Overall, bullying remains a widespread issue affecting the well-being of children and adolescents globally, underscoring the need for coordinated, culturally sensitive, and evidence-based prevention efforts involving schools, families, healthcare providers, and policymakers to mitigate its impact and promote safer school …",
+        "Systematic review exploring bullying prevalence, educational stress, depression, and global adolescent mental health patterns.",
       link: "https://journals.cypedia.net/pels/article/view/105",
     },
 
@@ -70,13 +89,13 @@ Of 1641 HIVPWID registered in the datasets from 2007 to 2012, 961 (58.56%) had r
         "Prevalence of Contingent Academic Stress and Depression Among Children With and Without Substance Use Disorder Family History",
       authors: "Dr M Arshad Dahar, Qurat ul Ain",
       journal:
-        "International Conference on Philosophy of Social Sciences(ICPSS)2022",
+        "International Conference on Philosophy of Social Sciences (ICPSS) 2022",
       year: "2022/12/20",
       volume: "EDU-40",
       pages: "36-37",
       citations: "0",
       description:
-        "Study on academic stress and depression among children with substance use disorder family history.",
+        "Study examining academic stress and depression among children with substance use disorder family history.",
     },
 
     {
@@ -89,168 +108,266 @@ Of 1641 HIVPWID registered in the datasets from 2007 to 2012, 961 (58.56%) had r
       pages: "3303-3314",
       citations: "0",
       description:
-        "Research on prenatal substance misuse and its influence on children's learning abilities.",
+        "Research discussing the influence of prenatal substance misuse on children’s learning abilities and educational outcomes.",
     },
 
     {
       title:
         "The hidden harm: Child academic performance is negatively impacted by heroin-using parents",
       authors: "M. Dahar Q. Ain, T. Lee",
-      journal: "CCPDD 81ST ANNUAL SCIENTIFIC MEETING PROGRAM",
+      journal: "CPDD 81ST ANNUAL SCIENTIFIC MEETING PROGRAM",
       year: "2019/6/16",
       volume: "-",
       pages: "-",
       citations: "0",
       description:
-        "Conference research discussing academic performance impact on children of heroin-using parents.",
+        "Conference research discussing how heroin-using parents negatively affect children's academic performance.",
     },
+  ];
+
+  // Peer Review Activity
+  const peerReviews = [
+    "Learning Deficits and Early School Leaving: Evidence from a Longitudinal Study in India (PONE-D-25-31922R1)",
+
+    "Post-Pandemic Mental Health Skills in South Florida Middle Schoolers",
+
+    "Equity in Rural Physical Education Resource Allocation in China",
+
+    "Research on Leading Medical Talent Groups in China — Academicians of the Chinese Academy of Sciences",
+
+    "Challenges in Rural Physical Education Teacher Resource Allocation in China",
+
+    "Parental Influence and Dietary Habits in Lebanese Students' Lunchboxes: Implications for Health and Academic Performance (Ongoing)",
   ];
 
   return (
     <>
-      <section className="bg-white sm:py-20 py-10 lg:px-20 sm:px-10 px-5">
-        <div className="max-w-7xl mx-auto">
+      <section className="lg:px-20 sm:px-10 px-5 py-20 bg-[#f8fbfb] overflow-hidden">
+        <div className="max-w-375 mx-auto">
           {/* Heading */}
-          <div className="mb-16 text-center">
-            <h2 className="sm:text-4xl text-2xl font-bold text-black">
-              Publications & Scholarly Contributions
-            </h2>
+          <Heading name="Publications" darkColor="#325254" />
 
-            <p className="text-gray-600 mt-4 max-w-3xl mx-auto">
-              Research publications focused on behavioral health, addiction
-              science, counseling, educational psychology, and public health
-              interventions.
-            </p>
+          {/* Hero Section */}
+          <div className="grid lg:grid-cols-2 gap-16 items-center mt-16">
+            {/* Left Side */}
+            <div>
+              <p className="uppercase tracking-[2px] text-secondary font-semibold text-sm mb-1">
+                Scholarly Contributions • Research Publications
+              </p>
+
+              <h1 className="text-3xl font-bold text-primary leading-tight">
+                Publications &
+                <span className="text-secondary"> Academic Contributions</span>
+              </h1>
+
+              <div className="w-28 h-1 bg-secondary rounded-full mt-2 mb-2"></div>
+
+              <p className="text-gray-700 md:text-[17px] text-[15px] leading-8.5 text-justify">
+                My publications focus on addiction science, behavioral health,
+                educational psychology, school counseling, and evidence-based
+                intervention frameworks.
+                <br />
+                Through interdisciplinary and cross-cultural research, my work
+                explores how substance use disorders, mental health, trauma, and
+                educational systems influence the wellbeing and academic
+                outcomes of vulnerable populations.
+                <br />
+                My scholarly contributions include peer-reviewed journal
+                articles, systematic reviews, conference presentations, and
+                collaborative international research projects with researchers
+                and institutions across Taiwan, Pakistan, and the United States.
+              </p>
+            </div>
+
+            {/* Right Side */}
+            <div className="relative">
+              <div className="absolute -top-5 -right-5 w-full h-full border-2 border-secondary rounded-[30px]"></div>
+
+              <img
+                src="https://images.unsplash.com/photo-1718745015015-09cd064a263b?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Publications"
+                className="relative z-10 w-full h-100 object-cover rounded-[30px] shadow-2xl"
+              />
+            </div>
           </div>
 
           {/* Publications Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid xl:grid-cols-2 gap-8 mt-20">
             {publications.map((item, index) => (
               <div
                 key={index}
                 onClick={() => setSelectedPublication(item)}
-                className="group relative cursor-pointer overflow-hidden rounded-xl border border-gray-200 bg-[#FAFAFA] sm:p-8 p-4 hover:shadow-2xl hover:-translate-y-1 transition duration-300"
+                className="group relative bg-white border border-gray-300 p-8 overflow-hidden cursor-pointer hover:bg-black/2 transition-all duration-300"
               >
                 {/* Number */}
-                <div className="absolute top-0 right-0 text-[90px] font-bold text-black/5 leading-none select-none">
-                  {index + 1}
-                </div>
+                <h1 className="absolute -top-6 right-3 text-[120px] font-bold text-primary/5 select-none">
+                  0{index + 1}
+                </h1>
 
-                {/* Content */}
+                {/* Top */}
                 <div className="relative z-10">
-                  <div className="mb-6 flex items-center gap-3">
-                    <div className="sm:w-12 w-10 sm:h-12 h-10 rounded-full bg-primary text-white flex items-center justify-center sm:text-lg text-[14px] font-semibold">
-                      {index + 1}
+                  <div className="flex items-center gap-4">
+                    <div className="w-14 h-14 rounded-2xl bg-secondary text-white flex items-center justify-center text-xl">
+                      <FaBookOpen />
                     </div>
 
-                    <span className="text-sm uppercase tracking-widest text-secondary font-semibold">
-                      Research Publication
-                    </span>
+                    <div>
+                      <p className="uppercase tracking-[3px] text-secondary text-sm font-semibold">
+                        Publication
+                      </p>
+
+                      <p className="text-gray-500 text-sm">{item.year}</p>
+                    </div>
                   </div>
 
-                  <h3 className="sm:text-xl text-lg font-semibold text-black leading-relaxed">
+                  {/* Title */}
+                  <h1 className="text-2xl font-bold text-primary leading-snug mt-8 group-hover:text-secondary transition duration-300">
                     {item.title}
-                  </h3>
-                  <p className="mt-4 text-black/50">
-                    <span className="font-semibold text-black/80">Year:</span>{" "}
-                    {item.year}
+                  </h1>
+
+                  {/* Authors */}
+                  <p className="text-gray-600 mt-3 leading-8">
+                    <span className="font-semibold text-primary">Authors:</span>{" "}
+                    {item.authors}
                   </p>
-                  {/* Link */}
-                  <button className="inline-flex cursor-pointer items-center gap-2 mt-6 text-secondary font-medium hover:underline">
-                    Click Here →
+
+                  {/* Button */}
+                  <button className="inline-flex items-center gap-3 text-secondary font-semibold mt-8 cursor-pointer hover:gap-4 transition-all duration-300">
+                    View Publication
+                    <FaExternalLinkAlt className="text-sm" />
                   </button>
                 </div>
-
-                {/* Hover Effect */}
-                <div className="absolute inset-0 bg-linear-to-br from-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition duration-300"></div>
               </div>
             ))}
           </div>
+
+          {/* Peer Review */}
+          <div className="mt-28">
+            <div className="bg-primary/10 rounded-[40px] lg:p-14 sm:p-10 p-6 text-primary relative overflow-hidden">
+              <div className="absolute -right-10 -top-10 w-64 h-64 rounded-full bg-secondary"></div>
+
+              <div className="relative z-10">
+                <div className="flex items-center gap-4">
+
+                  <div>
+                    <p className="uppercase tracking-[4px] text-secondary font-semibold">
+                      Peer Review Activity
+                    </p>
+
+                    <h1 className="md:text-4xl text-3xl font-bold mt-2">
+                      Peer Reviewer – PLOS ONE | 2023–Present
+                    </h1>
+                  </div>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-6 mt-12">
+                  {peerReviews.map((item, index) => (
+                    <div
+                      key={index}
+                      className="bg-black/5 backdrop-blur-md border border-black/10 rounded-[25px] p-6 hover:bg-black/10 transition-all duration-300"
+                    >
+                      <div className="flex items-start gap-4">
+
+                        <p className="leading-8 text-primary/90">{item}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
-      {/* Popup Modal */}
+
+      {/* Modal */}
       {selectedPublication && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4">
-          <div className="bg-white max-w-2xl w-full sm:px-8 px-4 py-10 relative overflow-y-auto max-h-[90vh]">
-            {/* Close Button */}
-            <button
-              onClick={() => setSelectedPublication(null)}
-              className="absolute top-2 right-2 px-2.5 bg-white hover:bg-primary rounded-full border border-primary cursor-pointer text-2xl font-bold text-primary hover:text-white"
-            >
-              ×
-            </button>
-
-            {/* Title */}
-            {selectedPublication?.link ? (
-              <a
-                href={selectedPublication.link}
-                target="_blank"
-                rel="noreferrer"
-                className="sm:text-2xl text-lg font-bold text-secondary underline leading-relaxed"
+        <div
+          onClick={() => setSelectedPublication(null)}
+          className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4"
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="bg-white p-8 max-w-4xl w-full overflow-hidden max-h-[90vh] overflow-y-auto"
+          >
+            {/* Top */}
+            <div className="py-8 text-primary relative">
+              <button
+                onClick={() => setSelectedPublication(null)}
+                className="absolute top-0 right-0 w-10 h-10 rounded-full border border-white/20 hover:bg-red-500 text-white bg-primary transition-all duration-300 cursor-pointer"
               >
+                ✕
+              </button>
+
+              <h1 className="md:text-3xl text-2xl font-bold leading-tight mt-4">
                 {selectedPublication.title}
-              </a>
-            ) : (
-              <h2 className="sm:text-2xl text-lg font-bold text-primary leading-relaxed">
-                {selectedPublication.title}
-              </h2>
-            )}
+              </h1>
+            </div>
 
-            {/* Meta */}
-            <div className="mt-6 space-y-3 text-gray-700">
-              <p>
-                <span className="font-semibold text-black">Authors:</span>{" "}
-                {selectedPublication.authors}
-              </p>
+            {/* Content */}
+            <div className="">
+              {/* Meta */}
+              <div className="mb-2">
+                <h2 className="text-secondary font-semibold">Authors</h2>
 
-              <p>
-                <span className="font-semibold text-black">Journal:</span>{" "}
-                {selectedPublication.journal}
-              </p>
+                <p className="text-gray-600 leading-8">
+                  {selectedPublication.authors}
+                </p>
+              </div>
 
-              <p>
-                <span className="font-semibold text-black">Year:</span>{" "}
-                {selectedPublication.year}
-              </p>
+              <div className="mb-2">
+                <h2 className="text-secondary font-semibold">Journal</h2>
 
-              <p>
-                <span className="font-semibold text-black">Volume:</span>{" "}
-                {selectedPublication.volume}
-              </p>
+                <p className="text-gray-600 leading-8">
+                  {selectedPublication.journal}
+                </p>
+              </div>
 
-              <p>
-                <span className="font-semibold text-black">Pages:</span>{" "}
-                {selectedPublication.pages}
-              </p>
+              <div className="mb-2">
+                <h2 className="text-secondary font-semibold">
+                  Publication Year
+                </h2>
 
-              <p>
-                <span className="font-semibold text-black">Citations:</span>{" "}
-                {selectedPublication.citations}
-              </p>
+                <p className="text-gray-600">{selectedPublication.year}</p>
+              </div>
+
+              <div className="mb-2">
+                <h2 className="text-secondary font-semibold">Citations</h2>
+
+                <p className="text-gray-600">{selectedPublication.citations}</p>
+              </div>
             </div>
 
             {/* Description */}
-            <div className="mt-6">
-              <h3 className="font-semibold text-black mb-2">
+            <div className="mt-4">
+              <h1 className="text-2xl font-bold text-primary">
                 Research Description
-              </h3>
+              </h1>
 
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-600 leading-8.5 text-justify">
                 {selectedPublication.description}
               </p>
             </div>
 
-            {/* Link */}
-            {selectedPublication?.link && (
-              <a
-                href={selectedPublication.link}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center cursor-pointer gap-2 mt-6 text-secondary font-medium hover:underline"
-              >
-                View Publication →
-              </a>
-            )}
+            {/* Buttons */}
+            <div className="flex flex-wrap gap-4 mt-10">
+
+              {selectedPublication.link && (
+                <a
+                  href={selectedPublication.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex"
+                >
+                  <ButtonA
+                    href={selectedPublication.link}
+                    name="View Publication"
+                    bgColor="bg-secondary"
+                    textColor="text-white"
+                    HoverClasses="hover:bg-primary hover:text-white"
+                  />
+                </a>
+              )}
+            </div>
           </div>
         </div>
       )}

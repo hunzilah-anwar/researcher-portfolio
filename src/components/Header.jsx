@@ -12,19 +12,24 @@ const Header = () => {
 
   const navItemsFirst = [
     { name: "Home", path: "/" },
+    { name: "About Me", path: "/about" },
+    { name: "Research", path: "/research" },
     { name: "Publications", path: "/publications" },
-    { name: "Projects", path: "/research-projects" },
   ];
 
   const navItemsSec = [
+    { name: "Selected Work", path: "/selectedWork" },
+    { name: "Free Seminars", path: "/seminars" },
+    { name: "Resources", path: "/resources" },
+    { name: "Collaboration", path: "/collaboration" },
+    { name: "Presentations", path: "/presentations" },
     { name: "Trainings", path: "/training" },
     { name: "Peer Reviewer", path: "/reviewer" },
-    { name: "Seminars", path: "/seminars" },
   ];
 
   const heroData = {
     name: "Dr. Qurat ul Ain",
-    description: `Internationally recognized interdisciplinary researcher specializing in education, addiction science, behavioral health, and school counseling frameworks. Experienced in leading global research collaborations across the USA, Australia, Taiwan, and Pakistan.`,
+    description: `I am an interdisciplinary researcher specializing in education, behavioral health, and public health. My work focuses on developing evidence-based strategies to improve educational and mental health outcomes for children and families affected by substance use disorders. Through this platform, I share my research, offer free seminars, provide mentorship, and collaborate with students, researchers, and professionals committed to creating meaningful social impact.`,
     contactInfo: {
       location: "College Station, Texas, USA",
       email: "aineenwz@gmail.com",

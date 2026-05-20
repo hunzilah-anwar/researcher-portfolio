@@ -12,8 +12,29 @@ import CoursesSlider from "../components/CoursesSlider";
 import { FaLinkedin } from "react-icons/fa";
 import { FaGoogleScholar } from "react-icons/fa6";
 import { HiAcademicCap } from "react-icons/hi";
+import {
+  Award,
+  BookOpen,
+  FileText,
+  Globe,
+  Presentation,
+  ShieldCheck,
+  Brain,
+  BarChart3,
+  HeartHandshake,
+  ArrowRight,
+  GraduationCap,
+  Users,
+  Handshake,
+  FileDown,
+  Wrench,
+  Mail,
+} from "lucide-react";
+import Testimonials from "../components/Testimonials";
 
 const Home = () => {
+  const organizations = ["NIH", "CDC", "SAMHSA", "WHO", "APA", "UNICEF"];
+
   const education = [
     {
       title:
@@ -150,7 +171,7 @@ const Home = () => {
 
   return (
     <>
-      <section>
+      <section className="border-b border-black/20">
         <div className="relative flex items-center justify-center flex-col lg:mt-5">
           <img
             src={HomeBanner}
@@ -164,170 +185,111 @@ const Home = () => {
           />
         </div>
         <div className="lg:px-20 sm:px-10 px-5 pt-25 pb-12">
-          <div>
-            <h4 className="text-xl font-bold">Hey There!</h4>
-            <h4 className="text-xl font-bold">I'am Dr. Qurat ul Ain</h4>
-            <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-secondary">
-              International Researcher | Behavioral Health Specialist |
-              Education Expert
-            </h1>
-            <p className="text-sm text-gray-600 mt-4">
-              Ph.D. scholar with 9+ years of international experience in
-              education, addiction science, behavioral health, and
-              interdisciplinary research.
-            </p>
-            {/* Social */}
-            <div className="flex gap-4 pt-4">
-              <a
-                href={social.linkedin}
-                target="_blank"
-                rel="noreferrer"
-                className="p-3 rounded-full bg-black/10 hover:bg-secondary hover:text-white transition"
-              >
-                <FaLinkedin />
-              </a>
+          <h4 className="text-xl font-bold">Hey There!</h4>
+          <h4 className="text-xl font-bold">I'am Dr. Qurat-Ul-Ain</h4>
+          <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-secondary">
+            Researcher | Educator | Mentor
+          </h1>
+          <p className="text-md text-primary">
+            Advancing research and evidence-based solutions in behavioral
+            health, education, and child mental health.
+          </p>
+          <p className="text-sm text-gray-600 mt-4">
+            I am an interdisciplinary researcher specializing in education,
+            behavioral health, and public health. My work focuses on developing
+            evidence-based strategies to improve educational and mental health
+            outcomes for children and families affected by substance use
+            disorders. Through this platform, I share my research, offer free
+            seminars, provide mentorship, and collaborate with students,
+            researchers, and professionals committed to creating meaningful
+            social impact.
+          </p>
+          {/* Social */}
+          <div className="flex gap-4 pt-4">
+            <a
+              href={social.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              className="p-3 rounded-full bg-black/10 hover:bg-secondary hover:text-white transition"
+            >
+              <FaLinkedin />
+            </a>
 
-              <a
-                href={social.googleScholar}
-                target="_blank"
-                rel="noreferrer"
-                className="p-3 rounded-full bg-primary/10 hover:bg-secondary hover:text-white transition"
-              >
-                <FaGoogleScholar />
-              </a>
+            <a
+              href={social.googleScholar}
+              target="_blank"
+              rel="noreferrer"
+              className="p-3 rounded-full bg-primary/10 hover:bg-secondary hover:text-white transition"
+            >
+              <FaGoogleScholar />
+            </a>
 
-              <a
-                href={social.academic}
-                target="_blank"
-                rel="noreferrer"
-                className="p-3 rounded-full bg-primary/10 hover:bg-secondary hover:text-white transition"
-              >
-                <HiAcademicCap />
-              </a>
-            </div>
-            <div className="mt-6 flex flex-wrap items-center gap-4">
-              <ButtonA
-                name="Download CV"
-                href={Resume}
-                bgColor={"bg-primary"}
-                textColor={"text-white"}
-                HoverClasses={"hover:bg-white hover:text-primary"}
-              />
-              <ButtonLink
-                to="/contact"
-                name="Contact Me"
-                bgColor={"bg-transparent"}
-                textColor={"text-primary"}
-                HoverClasses={"hover:bg-primary hover:text-white"}
-              />
-            </div>
+            <a
+              href={social.academic}
+              target="_blank"
+              rel="noreferrer"
+              className="p-3 rounded-full bg-primary/10 hover:bg-secondary hover:text-white transition"
+            >
+              <HiAcademicCap />
+            </a>
+          </div>
+          <div className="mt-6 flex flex-wrap items-center gap-4">
+            <ButtonLink
+              to="/contact"
+              name="Contact Me"
+              bgColor={"bg-transparent"}
+              textColor={"text-primary"}
+              HoverClasses={"hover:bg-primary hover:text-white"}
+            />
+            <ButtonA
+              name="Download CV"
+              href={Resume}
+              bgColor={"bg-primary"}
+              textColor={"text-white"}
+              HoverClasses={"hover:bg-white hover:text-primary"}
+            />
           </div>
         </div>
       </section>
-      <section className="lg:px-20 sm:px-10 px-5 pt-12 pb-16 bg-primary text-white">
-        <Heading name="About Me" darkColor="#325254" />
 
-        <div className="mt-8">
-          <div className="md:mt-0 mt-5">
-            <h1 className="md:text-2xl text-xl font-bold text-secondary">
-              Internationally Recognized Researcher
-            </h1>
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          {/* Heading */}
+          <div className="text-center mb-10">
+            <h2 className="text-4xl font-bold text-black">Stay Updated</h2>
 
-            <p className="text-sm md:text-[16px] text-justify">
-              I am an interdisciplinary researcher, educator, and behavioral
-              health professional with more than nine years of experience
-              working in education, mental health, school counseling, and
-              addiction research. My work focuses on understanding how parental
-              substance use disorders affect children’s academic performance,
-              emotional wellbeing, and long-term development.
-              <br />
-              <br />
-              My research journey began during my years as a School Counselor at
-              Askari School & College and a Behavior Management Counselor at
-              AASRA Drug Addiction & Rehabilitation Center in Islamabad,
-              Pakistan. Working closely with students and families affected by
-              addiction helped shape my long-term research interest in
-              intergenerational behavioral health and addiction-informed
-              educational support systems.
-              <br />
-              <br />
-              I completed my Ph.D. in Education at Pir Mehr Ali Shah Arid
-              Agriculture University in collaboration with National Taiwan
-              Normal University, where my doctoral research explored the needs
-              of children of drug-addicted parents and the role of school
-              counseling services in supporting vulnerable students. I also hold
-              an M.Phil. in Education, an M.A. in Education, and an M.Sc. in
-              Economics, giving me a multidisciplinary academic background in
-              education, behavioral sciences, and social research.
-              <br />
-              <br />
-              During my doctoral studies, I contributed to cross-cultural
-              research projects at Academia Sinica and worked as a Research
-              Engineer at National Taiwan Normal University, supporting
-              large-scale studies in education and behavioral sciences. These
-              experiences strengthened my expertise in quantitative research,
-              statistical analysis, and international academic collaboration.
-              <br />
-              <br />
-              In 2019, I presented my research at the NIDA International Forum
-              in Texas and received the CPDD Young Scientist International
-              Travel Award for my research on how heroin-using parents
-              negatively impact children’s academic achievement. My research has
-              since been published in peer-reviewed international journals,
-              including BMC Psychiatry.
-              <br />
-              <br />
-              My professional experience also includes working as a Psychiatric
-              Technician at the New Mexico Behavioral Health Institution in the
-              United States, where I provided clinical support to individuals
-              with acute and chronic psychiatric conditions. Alongside research
-              and clinical practice, I also serve as a Peer Reviewer for PLOS
-              ONE, reviewing international research in behavioral science,
-              education, and public health.
-              <br />
-              <br />
-              My current interests include addiction-informed school counseling,
-              child and adolescent mental health, bullying and depression in
-              educational settings, methadone treatment adherence research, and
-              behavioral health integration within academic institutions. Beyond
-              research, I actively organize seminars and workshops focused on
-              child wellbeing, resilience-building, and substance use prevention
-              with the goal of creating meaningful impact for vulnerable
-              communities.
+            <p className="text-gray-600 mt-4 max-w-2xl mx-auto text-lg leading-relaxed">
+              Subscribe to receive updates on free seminars, downloadable
+              resources, scholarships, and research opportunities.
             </p>
+          </div>
 
-            <ul className="md:text-[18px] text-sm mt-8 space-y-2">
-              <li className="flex flex-wrap items-center justify-start gap-2">
-                <span className="text-secondary font-bold text-sm md:text-xl">
-                  experience:
-                </span>
-                <p>9+ Years</p>
-              </li>
+          {/* Form */}
+          <div className="max-w-2xl mx-auto bg-white border border-gray-200 rounded-3xl shadow-sm p-6 sm:p-8">
+            <form className="flex flex-col sm:flex-row items-center gap-4">
+              {/* Input */}
+              <div className="flex items-center w-full border border-gray-300 rounded-2xl px-4 py-3 focus-within:border-black transition-all">
+                <Mail className="text-gray-500 mr-2" size={20} />
+                <input
+                  type="email"
+                  placeholder="Email Address"
+                  className="w-full outline-none text-gray-700"
+                  required
+                />
+              </div>
 
-              <li className="flex flex-wrap items-center justify-start gap-2">
-                <span className="text-secondary font-bold text-sm md:text-xl">
-                  research projects:
-                </span>
-                <p>20+ International & National Projects</p>
-              </li>
-
-              <li className="flex flex-wrap items-center justify-start gap-2">
-                <span className="text-secondary font-bold text-sm md:text-xl">
-                  publications:
-                </span>
-                <p>15+ Research Publications</p>
-              </li>
-
-              <li className="flex flex-wrap items-center justify-start gap-2">
-                <span className="text-secondary font-bold text-sm md:text-xl">
-                  expertise:
-                </span>
-                <p>Education, Mental Health & Addiction Research</p>
-              </li>
-            </ul>
+              {/* Button */}
+              <button
+                type="submit"
+                className="bg-black text-white px-8 py-3 rounded-2xl font-semibold hover:bg-gray-800 transition-all duration-300 w-full sm:w-auto"
+              >
+                Subscribe
+              </button>
+            </form>
           </div>
         </div>
       </section>
+
       <section className="border-b border-black/20">
         <CoursesSlider />
       </section>
