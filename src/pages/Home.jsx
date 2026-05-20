@@ -8,6 +8,9 @@ import HomeBanner from "../assets/home-banner.png";
 import Resume from "../assets/Resume.pdf";
 import Contact from "./Contact";
 import CoursesSlider from "../components/CoursesSlider";
+import { FaLinkedin } from "react-icons/fa";
+import { FaGoogleScholar } from "react-icons/fa6";
+import { HiAcademicCap } from "react-icons/hi";
 
 const Home = () => {
   const education = [
@@ -137,50 +140,84 @@ const Home = () => {
     "Behavioral health integration in academic institutions",
     "Quantitative research design & statistical analysis",
   ];
+  const social = {
+    linkedin: "https://www.linkedin.com/in/drqurat-ul-ain-4aa8a2165/",
+    academic: "https://www.iare.com.au/team-3/",
+    googleScholar:
+      "https://scholar.google.com/citations?user=2T7GuFUAAAAJ&hl=en",
+  };
 
   return (
     <>
       <section>
-        <div className="relative sm:hidden flex items-center justify-center flex-col"> 
-          <img src={HomeBanner} alt="Profile Banner" className="w-full h-40 object-cover" />
-          <img src={ProfilePic} alt="Profile" className="absolute bottom-0 left-[50%] translate-x-[-50%] translate-y-20 w-40 h-40 object-cover border-4 border-white" />
+        <div className="relative flex items-center justify-center flex-col mt-5">
+          <img
+            src={HomeBanner}
+            alt="Profile Banner"
+            className="w-full h-40 object-cover"
+          />
+          <img
+            src={ProfilePic}
+            alt="Profile"
+            className="absolute bottom-0 object-cover object-top left-[50%] translate-x-[-50%] translate-y-20 w-40 h-40 border-4 border-white"
+          />
         </div>
-        <div className="lg:px-20 sm:px-10 px-5 sm:pt-12 pt-25 pb-12">
-          <div className="flex sm:flex-nowrap flex-wrap items-center justify-between gap-8">
-            <div>
-              <h4 className="text-xl font-bold">Hey There!</h4>
-              <h4 className="text-xl font-bold">I'am Dr. Qurat ul Ain</h4>
-              <h1 className="text-xl md:text-2xl lg:text-3xl font-bold max-w-150 text-secondary">
-                International Researcher | Behavioral Health Specialist |
-                Education Expert
-              </h1>
-              <p className="text-sm text-gray-600 max-w-102.5 mt-4">
-                Ph.D. scholar with 9+ years of international experience in
-                education, addiction science, behavioral health, and
-                interdisciplinary research.
-              </p>
-              <div className="mt-6 flex flex-wrap items-center gap-4">
-                <ButtonA
-                  name="Download CV"
-                  href={Resume}
-                  bgColor={"bg-primary"}
-                  textColor={"text-white"}
-                  HoverClasses={"hover:bg-white hover:text-primary"}
-                />
-                <ButtonLink
-                  to="/contact"
-                  name="Contact Me"
-                  bgColor={"bg-transparent"}
-                  textColor={"text-primary"}
-                  HoverClasses={"hover:bg-primary hover:text-white"}
-                />
-              </div>
+        <div className="lg:px-20 sm:px-10 px-5 pt-25 pb-12">
+          <div>
+            <h4 className="text-xl font-bold">Hey There!</h4>
+            <h4 className="text-xl font-bold">I'am Dr. Qurat ul Ain</h4>
+            <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-secondary">
+              International Researcher | Behavioral Health Specialist |
+              Education Expert
+            </h1>
+            <p className="text-sm text-gray-600 mt-4">
+              Ph.D. scholar with 9+ years of international experience in
+              education, addiction science, behavioral health, and
+              interdisciplinary research.
+            </p>
+            {/* Social */}
+            <div className="flex gap-4 pt-4">
+              <a
+                href={social.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                className="p-3 rounded-full bg-black/10 hover:bg-secondary hover:text-white transition"
+              >
+                <FaLinkedin />
+              </a>
+
+              <a
+                href={social.googleScholar}
+                target="_blank"
+                rel="noreferrer"
+                className="p-3 rounded-full bg-primary/10 hover:bg-secondary hover:text-white transition"
+              >
+                <FaGoogleScholar />
+              </a>
+
+              <a
+                href={social.academic}
+                target="_blank"
+                rel="noreferrer"
+                className="p-3 rounded-full bg-primary/10 hover:bg-secondary hover:text-white transition"
+              >
+                <HiAcademicCap />
+              </a>
             </div>
-            <div className="lg:p-4 overflow-hidden md:w-fit w-full sm:flex hidden items-center justify-end">
-              <img
-                src={ProfilePic}
-                alt="Profile"
-                className="max-w-50 md:max-w-150 md:h-fit h-50 object-cover border-2 border-secondary rounded-2xl overflow-hidden"
+            <div className="mt-6 flex flex-wrap items-center gap-4">
+              <ButtonA
+                name="Download CV"
+                href={Resume}
+                bgColor={"bg-primary"}
+                textColor={"text-white"}
+                HoverClasses={"hover:bg-white hover:text-primary"}
+              />
+              <ButtonLink
+                to="/contact"
+                name="Contact Me"
+                bgColor={"bg-transparent"}
+                textColor={"text-primary"}
+                HoverClasses={"hover:bg-primary hover:text-white"}
               />
             </div>
           </div>

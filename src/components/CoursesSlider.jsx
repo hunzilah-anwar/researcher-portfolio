@@ -156,7 +156,7 @@ export default function CoursesSection() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-white py-20 lg:py-28">
+    <section className="relative overflow-hidden bg-white py-16">
       {/* Background Blur */}
       <div className="absolute left-0 top-0 h-72 w-72 rounded-full bg-black/5 blur-3xl" />
       <div className="absolute bottom-0 right-0 h-72 w-72 rounded-full bg-black/5 blur-3xl" />
@@ -165,7 +165,7 @@ export default function CoursesSection() {
         {/* HEADER */}
         <div className="mb-14 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl">
-            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-black/10 bg-black/3 px-5 py-2 text-sm font-semibold text-black">
+            <div className="mb-2 inline-flex items-center gap-2 rounded-full border border-black/10 bg-black/3 px-5 py-2 text-sm font-semibold text-black">
               <Sparkles size={16} />
               Courses
             </div>
@@ -174,7 +174,7 @@ export default function CoursesSection() {
               Explore Modern Courses
             </h2>
 
-            <p className="mt-6 text-base leading-[1.9] text-gray-600 sm:text-lg">
+            <p className="mt-1 text-base leading-[1.9] text-gray-600 sm:text-lg">
               Industry-focused learning experiences designed with practical
               projects, certifications, modern workflows, and real-world skills.
             </p>

@@ -20,7 +20,7 @@ const ResearchProjects = () => {
   return (
     <>
       <section
-        className="bg-white text-primary py-20 px-4"
+        className="bg-white text-primary py-10 px-4"
         id="researchprojects"
       >
         <div className="max-w-6xl mx-auto">
@@ -48,9 +48,9 @@ const ResearchProjects = () => {
                 <span className="absolute sm:block hidden -left-2.25 top-0 w-4 h-4 bg-white rounded-full inset-ring-2 inset-ring-white group-hover:bg-secondary transition ease-in-out duration-300 border-2 border-primary"></span>
 
                 {/* Card */}
-                <div className="bg-white border border-black/10 p-8 hover:bg-black/10 transition duration-300">
+                <div className="bg-white border border-black/10 sm:p-8 p-4 hover:bg-black/10 transition duration-300">
                   {/* Title */}
-                  <h3 className="text-lg sm:text-2xl font-semibold leading-relaxed text-primary">
+                  <h3 className="text-[16px] sm:text-2xl font-semibold leading-relaxed text-primary">
                     {project.title}
                   </h3>
 
