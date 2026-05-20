@@ -4,7 +4,8 @@ import ProfilePic from "../assets/profile-pic.jpg";
 import { ButtonA, ButtonLink } from "../components/Button";
 import { Heading } from "../components/OtherCommon";
 import ExpertiesImg from "../assets/experties-img.jpg";
-import HomeBanner from "../assets/home-banner.png";
+// import HomeBanner from "../assets/home-banner.png";
+import HomeBanner from "../assets/home-banner-1.png";
 import Resume from "../assets/Resume.pdf";
 import Contact from "./Contact";
 import CoursesSlider from "../components/CoursesSlider";
@@ -150,11 +151,11 @@ const Home = () => {
   return (
     <>
       <section>
-        <div className="relative flex items-center justify-center flex-col mt-5">
+        <div className="relative flex items-center justify-center flex-col lg:mt-5">
           <img
             src={HomeBanner}
             alt="Profile Banner"
-            className="w-full h-40 object-cover"
+            className="w-full h-40 object-cover object-top"
           />
           <img
             src={ProfilePic}
