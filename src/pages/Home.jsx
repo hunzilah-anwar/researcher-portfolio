@@ -13,27 +13,10 @@ import { FaLinkedin } from "react-icons/fa";
 import { FaGoogleScholar } from "react-icons/fa6";
 import { HiAcademicCap } from "react-icons/hi";
 import {
-  Award,
-  BookOpen,
-  FileText,
-  Globe,
-  Presentation,
-  ShieldCheck,
-  Brain,
-  BarChart3,
-  HeartHandshake,
-  ArrowRight,
-  GraduationCap,
-  Users,
-  Handshake,
-  FileDown,
-  Wrench,
   Mail,
 } from "lucide-react";
-import Testimonials from "../components/Testimonials";
 
 const Home = () => {
-  const organizations = ["NIH", "CDC", "SAMHSA", "WHO", "APA", "UNICEF"];
 
   const education = [
     {
