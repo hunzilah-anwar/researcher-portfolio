@@ -1,5 +1,4 @@
-import { Heading } from "../components/OtherCommon";
-import { ButtonA } from "../components/Button";
+import { ButtonLink } from "../components/Button";
 
 const Seminars = () => {
   // Upcoming Events
@@ -55,20 +54,17 @@ const Seminars = () => {
 
 
   return (
-    <section className="lg:px-20 sm:px-10 px-5 py-20 bg-[#f8fbfb] overflow-hidden">
-      <div className="max-w-375 mx-auto">
-        {/* Heading */}
-        <Heading name="Free Seminars" darkColor="#325254" />
+    <section className="bg-white overflow-hidden">
 
         {/* Hero */}
-        <div className="grid lg:grid-cols-2 gap-16 items-center mt-16">
+        <div className="grid lg:grid-cols-2 gap-16 items-start lg:px-20 sm:px-10 px-5 pt-20 pb-15 border-b border-black/5">
           {/* Left */}
           <div>
             <p className="uppercase tracking-[2px] text-secondary text-sm font-semibold mb-4">
               Free Learning • Global Research • Professional Development
             </p>
 
-            <h1 className="text-3xl font-bold text-primary leading-tight">
+            <h1 className="md:text-3xl text-xl font-bold text-primary leading-tight">
               Free Seminars &<span className="text-secondary"> Webinars</span>
             </h1>
 
@@ -89,24 +85,24 @@ const Seminars = () => {
 
           {/* Right */}
           <div className="relative">
-            <div className="absolute -top-5 -right-5 w-full h-full border-2 border-secondary rounded-[30px]"></div>
+            <div className="absolute -top-4 -right-4 w-full h-full border-2 border-secondary rounded-[30px]"></div>
 
             <img
               src="https://plus.unsplash.com/premium_photo-1683121640863-d68b839a9270?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="Seminars"
-              className="relative z-10 w-full h-100 object-cover rounded-[30px] shadow-2xl"
+              className="relative z-10 w-full h-100 object-cover rounded-[30px]"
             />
           </div>
         </div>
 
         {/* Upcoming Events */}
-        <div className="my-28">
+        <div className="bg-gray-100 lg:px-20 sm:px-10 px-5 pt-20 pb-15 border-b border-black/5">
           <div className="text-center max-w-4xl mx-auto">
-            <p className="uppercase tracking-[4px] text-secondary font-semibold">
+            <p className="uppercase tracking-[4px] text-sm text-secondary font-semibold">
               Official Links
             </p>
 
-            <h1 className="md:text-4xl text-3xl font-bold text-primary mt-4">
+            <h1 className="md:text-3xl text-xl font-bold text-primary mt-1">
               Upcoming Events &
               <span className="text-secondary"> Global Organizations</span>
             </h1>
@@ -117,21 +113,21 @@ const Seminars = () => {
             {upcomingEvents.map((item) => (
               <div
                 key={item.id}
-                className="bg-white rounded-[30px] border border-gray-300 p-8 hover:bg-black/5 transition-all duration-300 group"
+                className="bg-white rounded-xl border border-gray-300 p-4 hover:bg-black/5 transition-all duration-300 group"
               >
-                <h1 className="text-2xl font-bold text-primary leading-snug">
+                <h1 className="text-xl font-bold text-primary leading-snug">
                   {item.title}
                 </h1>
 
-                <p className="text-secondary font-semibold mt-4 leading-7">
+                <p className="text-secondary font-semibold mt-1 leading-7">
                   {item.organization}
                 </p>
 
-                <p className="text-gray-600 leading-8 mt-5">{item.desc}</p>
+                <p className="text-gray-600 leading-6 mt-2">{item.desc}</p>
 
                 {/* Buttons */}
-                <div className="flex flex-wrap gap-3 mt-8">
-                  <a href={item.link} className="text-secondary underline">
+                <div className="flex flex-wrap gap-3 mt-5">
+                  <a href={item.link} target="_blank" className="text-secondary underline">
                     Register Now
                   </a>
                 </div>
@@ -139,15 +135,15 @@ const Seminars = () => {
             ))}
           </div>
         </div>
-        <div>
-          <div className="flex items-center justify-center text-center gap-4 my-8">
+        <div className="lg:px-20 sm:px-10 px-5 pt-20 pb-15 border-b border-black/5">
+          <div className="flex items-center justify-center text-center gap-4 mb-8">
 
             <div>
-              <p className="uppercase tracking-[4px] text-secondary font-semibold">
+              <p className="uppercase text-sm tracking-[4px] text-secondary font-semibold">
                 Join us to explore
               </p>
 
-              <h1 className="text-3xl font-bold text-primary mt-2">
+              <h1 className="md:text-3xl text-xl font-bold text-primary mt-1">
                 Free Seminar Series for Students
               </h1>
             </div>
@@ -180,7 +176,7 @@ const Seminars = () => {
             ].map((topic, index) => (
               <div
                 key={index}
-                className="bg-white border border-gray-300 p-4 hover:shadow-xl transition-all duration-300 group"
+                className="bg-gray-100 border border-gray-300 p-4 hover:shadow-xl transition-all duration-300 group"
               >
                 <div className="flex items-start gap-4">
                   <div className="min-w-10 h-10 rounded-full bg-secondary text-white flex items-center justify-center font-semibold text-sm transition-all duration-300">
@@ -195,32 +191,15 @@ const Seminars = () => {
 
           {/* Buttons */}
           <div className="flex flex-wrap gap-4 mt-10">
-            <ButtonA
-              href="#"
+            <ButtonLink
+              to="/contact"
               name="Register Now"
               bgColor="bg-primary"
               textColor="text-white"
               HoverClasses="hover:bg-transparent hover:text-primary"
             />
-
-            <ButtonA
-              href="#"
-              name="Join Webinar"
-              bgColor="bg-secondary"
-              textColor="text-white"
-              HoverClasses="hover:bg-primary hover:text-white"
-            />
-
-            <ButtonA
-              href="#"
-              name="View Schedule"
-              bgColor="bg-transparent"
-              textColor="text-primary"
-              HoverClasses="hover:bg-primary hover:text-white"
-            />
           </div>
         </div>
-      </div>
     </section>
   );
 };

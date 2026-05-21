@@ -1,12 +1,7 @@
 import { useEffect, useState } from "react";
-
-import { Heading } from "../components/OtherCommon";
 import { ButtonA } from "../components/Button";
 
-import {
-  FaBookOpen,
-  FaExternalLinkAlt,
-} from "react-icons/fa";
+import { FaBookOpen, FaExternalLinkAlt } from "react-icons/fa";
 
 const Publications = () => {
   const [selectedPublication, setSelectedPublication] = useState(null);
@@ -142,137 +137,130 @@ const Publications = () => {
 
   return (
     <>
-      <section className="lg:px-20 sm:px-10 px-5 py-20 bg-[#f8fbfb] overflow-hidden">
-        <div className="max-w-375 mx-auto">
-          {/* Heading */}
-          <Heading name="Publications" darkColor="#325254" />
+      <section className="bg-gray-100 lg:px-20 sm:px-10 px-5 pt-20 pb-15 overflow-hidden">
+        {/* Hero Section */}
+        <div className="grid lg:grid-cols-2 gap-16 items-start">
+          {/* Left Side */}
+          <div>
+            <p className="uppercase tracking-[2px] text-secondary font-semibold text-sm mb-1">
+              Scholarly Contributions • Research Publications
+            </p>
 
-          {/* Hero Section */}
-          <div className="grid lg:grid-cols-2 gap-16 items-center mt-16">
-            {/* Left Side */}
-            <div>
-              <p className="uppercase tracking-[2px] text-secondary font-semibold text-sm mb-1">
-                Scholarly Contributions • Research Publications
-              </p>
+            <h1 className="md:text-3xl text-xl font-bold text-primary leading-tight">
+              Publications &
+              <span className="text-secondary"> Academic Contributions</span>
+            </h1>
 
-              <h1 className="text-3xl font-bold text-primary leading-tight">
-                Publications &
-                <span className="text-secondary"> Academic Contributions</span>
+            <div className="w-28 h-1 bg-secondary rounded-full mt-2 mb-2"></div>
+
+            <p className="text-gray-700 md:text-[17px] text-[15px] leading-8.5 text-justify">
+              My publications focus on addiction science, behavioral health,
+              educational psychology, school counseling, and evidence-based
+              intervention frameworks.
+              <br />
+              Through interdisciplinary and cross-cultural research, my work
+              explores how substance use disorders, mental health, trauma, and
+              educational systems influence the wellbeing and academic outcomes
+              of vulnerable populations.
+              <br />
+              My scholarly contributions include peer-reviewed journal articles,
+              systematic reviews, conference presentations, and collaborative
+              international research projects with researchers and institutions
+              across Taiwan, Pakistan, and the United States.
+            </p>
+          </div>
+
+          {/* Right Side */}
+          <div className="relative">
+            <div className="absolute -top-5 -right-5 w-full h-full border-2 border-secondary rounded-[30px]"></div>
+
+            <img
+              src="https://images.unsplash.com/photo-1718745015015-09cd064a263b?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Publications"
+              className="relative z-10 w-full h-100 object-cover rounded-[30px]"
+            />
+          </div>
+        </div>
+
+        {/* Publications Grid */}
+        <div className="grid xl:grid-cols-2 gap-8 mt-20">
+          {publications.map((item, index) => (
+            <div
+              key={index}
+              onClick={() => setSelectedPublication(item)}
+              className="group relative bg-white border border-gray-300 p-4 overflow-hidden cursor-pointer hover:bg-black/2 transition-all duration-300"
+            >
+              {/* Number */}
+              <h1 className="absolute -top-15 right-1 text-[120px] font-bold text-primary/5 select-none">
+                {index + 1}
               </h1>
 
-              <div className="w-28 h-1 bg-secondary rounded-full mt-2 mb-2"></div>
-
-              <p className="text-gray-700 md:text-[17px] text-[15px] leading-8.5 text-justify">
-                My publications focus on addiction science, behavioral health,
-                educational psychology, school counseling, and evidence-based
-                intervention frameworks.
-                <br />
-                Through interdisciplinary and cross-cultural research, my work
-                explores how substance use disorders, mental health, trauma, and
-                educational systems influence the wellbeing and academic
-                outcomes of vulnerable populations.
-                <br />
-                My scholarly contributions include peer-reviewed journal
-                articles, systematic reviews, conference presentations, and
-                collaborative international research projects with researchers
-                and institutions across Taiwan, Pakistan, and the United States.
-              </p>
-            </div>
-
-            {/* Right Side */}
-            <div className="relative">
-              <div className="absolute -top-5 -right-5 w-full h-full border-2 border-secondary rounded-[30px]"></div>
-
-              <img
-                src="https://images.unsplash.com/photo-1718745015015-09cd064a263b?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                alt="Publications"
-                className="relative z-10 w-full h-100 object-cover rounded-[30px] shadow-2xl"
-              />
-            </div>
-          </div>
-
-          {/* Publications Grid */}
-          <div className="grid xl:grid-cols-2 gap-8 mt-20">
-            {publications.map((item, index) => (
-              <div
-                key={index}
-                onClick={() => setSelectedPublication(item)}
-                className="group relative bg-white border border-gray-300 p-8 overflow-hidden cursor-pointer hover:bg-black/2 transition-all duration-300"
-              >
-                {/* Number */}
-                <h1 className="absolute -top-6 right-3 text-[120px] font-bold text-primary/5 select-none">
-                  0{index + 1}
-                </h1>
-
-                {/* Top */}
-                <div className="relative z-10">
-                  <div className="flex items-center gap-4">
-                    <div className="w-14 h-14 rounded-2xl bg-secondary text-white flex items-center justify-center text-xl">
-                      <FaBookOpen />
-                    </div>
-
-                    <div>
-                      <p className="uppercase tracking-[3px] text-secondary text-sm font-semibold">
-                        Publication
-                      </p>
-
-                      <p className="text-gray-500 text-sm">{item.year}</p>
-                    </div>
-                  </div>
-
-                  {/* Title */}
-                  <h1 className="text-2xl font-bold text-primary leading-snug mt-8 group-hover:text-secondary transition duration-300">
-                    {item.title}
-                  </h1>
-
-                  {/* Authors */}
-                  <p className="text-gray-600 mt-3 leading-8">
-                    <span className="font-semibold text-primary">Authors:</span>{" "}
-                    {item.authors}
-                  </p>
-
-                  {/* Button */}
-                  <button className="inline-flex items-center gap-3 text-secondary font-semibold mt-8 cursor-pointer hover:gap-4 transition-all duration-300">
-                    View Publication
-                    <FaExternalLinkAlt className="text-sm" />
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Peer Review */}
-          <div className="mt-28">
-            <div className="bg-primary/10 rounded-[40px] lg:p-14 sm:p-10 p-6 text-primary relative overflow-hidden">
-              <div className="absolute -right-10 -top-10 w-64 h-64 rounded-full bg-secondary"></div>
-
+              {/* Top */}
               <div className="relative z-10">
                 <div className="flex items-center gap-4">
+                  <div className="w-14 h-14 rounded-2xl bg-secondary text-white flex items-center justify-center text-xl">
+                    <FaBookOpen />
+                  </div>
 
                   <div>
-                    <p className="uppercase tracking-[4px] text-secondary font-semibold">
-                      Peer Review Activity
+                    <p className="uppercase tracking-[3px] text-secondary text-sm font-semibold">
+                      Publication
                     </p>
 
-                    <h1 className="md:text-4xl text-3xl font-bold mt-2">
-                      Peer Reviewer – PLOS ONE | 2023–Present
-                    </h1>
+                    <p className="text-gray-500 text-sm">{item.year}</p>
                   </div>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-6 mt-12">
-                  {peerReviews.map((item, index) => (
-                    <div
-                      key={index}
-                      className="bg-black/5 backdrop-blur-md border border-black/10 rounded-[25px] p-6 hover:bg-black/10 transition-all duration-300"
-                    >
-                      <div className="flex items-start gap-4">
+                {/* Title */}
+                <h1 className="text-xl font-bold text-primary leading-snug mt-2 group-hover:text-secondary transition duration-300">
+                  {item.title}
+                </h1>
 
-                        <p className="leading-8 text-primary/90">{item}</p>
-                      </div>
-                    </div>
-                  ))}
+                {/* Authors */}
+                <p className="text-gray-600 mt-2 leading-8">
+                  <span className="font-semibold text-primary">Authors:</span>{" "}
+                  {item.authors}
+                </p>
+
+                {/* Button */}
+                <button className="inline-flex items-center gap-3 text-secondary font-semibold mt-4 cursor-pointer hover:gap-4 transition-all duration-300">
+                  View Publication
+                  <FaExternalLinkAlt className="text-sm" />
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Peer Review */}
+        <div className="mt-28">
+          <div className="bg-primary/10 rounded-xl lg:p-14 sm:p-10 p-6 text-primary relative overflow-hidden">
+            <div className="absolute -right-10 -top-10 w-64 h-64 rounded-full bg-secondary"></div>
+
+            <div className="relative z-10">
+              <div className="flex items-center gap-4">
+                <div>
+                  <p className="uppercase tracking-[4px] sm:text-secondary text-primary font-semibold">
+                    Peer Review Activity
+                  </p>
+
+                  <h1 className="md:text-4xl text-2xl font-bold mt-2">
+                    Peer Reviewer – PLOS ONE | 2023–Present
+                  </h1>
                 </div>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-6 mt-12">
+                {peerReviews.map((item, index) => (
+                  <div
+                    key={index}
+                    className="bg-white backdrop-blur-md border border-black/10 rounded-xl p-6 hover:bg-black/10 transition-all duration-300"
+                  >
+                    <div className="flex items-start gap-4">
+                      <p className="leading-8 text-primary/90">{item}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -350,7 +338,6 @@ const Publications = () => {
 
             {/* Buttons */}
             <div className="flex flex-wrap gap-4 mt-10">
-
               {selectedPublication.link && (
                 <a
                   href={selectedPublication.link}

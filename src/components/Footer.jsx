@@ -1,116 +1,225 @@
+import { Link } from "react-router-dom";
+
 import {
-  Globe,
-  BookOpen,
-  FileText,
-} from "lucide-react";
-import { FaYoutube } from "react-icons/fa";
-import { LiaLinkedin } from "react-icons/lia";
+  FaLinkedin,
+  FaYoutube,
+  FaFacebookF,
+  FaXTwitter,
+} from "react-icons/fa6";
+
+import { FaGoogleScholar } from "react-icons/fa6";
+import { HiAcademicCap } from "react-icons/hi";
 
 const Footer = () => {
+  const quickLinks = [
+    {
+      name: "Home",
+      path: "/",
+    },
+
+    {
+      name: "About Me",
+      path: "/about",
+    },
+
+    {
+      name: "Research",
+      path: "/research",
+    },
+
+    {
+      name: "Publications",
+      path: "/publications",
+    },
+
+    {
+      name: "Selected Work",
+      path: "/selectedWork",
+    },
+
+    {
+      name: "Resources",
+      path: "/resources",
+    },
+  ];
+
+  const moreLinks = [
+    {
+      name: "Free Seminars",
+      path: "/seminars",
+    },
+
+    {
+      name: "Collaboration",
+      path: "/collaboration",
+    },
+
+    {
+      name: "Mentorship",
+      path: "/mentorship",
+    },
+
+    {
+      name: "Academic Consulting",
+      path: "/academic-consulting",
+    },
+
+    {
+      name: "Research Insights",
+      path: "/research-insights",
+    },
+
+    {
+      name: "Contact",
+      path: "/contact",
+    },
+  ];
+
+  const socialLinks = {
+    googleScholar:
+      "https://scholar.google.com/citations?hl=en&user=2T7GuFUAAAAJ",
+
+    orcid: "https://orcid.org/0009-0003-2060-7678",
+
+    linkedIn: "https://www.linkedin.com/in/dr-qurat-ul-ain-4aa8a2165/",
+
+    youtube: "https://www.youtube.com/@DrQurat_research",
+
+    twitter: "https://x.com/DrQuratulain01",
+
+    facebook: "https://www.facebook.com/profile.php?id=61589971090780",
+  };
+
   return (
-    <footer className="bg-black text-white pt-14">
-      <div className="container mx-auto px-4">
+    <footer className="bg-primary text-white lg:px-20 sm:px-10 px-5 pt-20 pb-8 overflow-hidden">
+      <div className="max-w-375 mx-auto">
+        {/* Top */}
+        <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-12 border-b border-white/10 pb-16">
+          {/* About */}
+          <div className="lg:col-span-2">
+            <Link to={"/"} className="md:text-4xl text-3xl font-bold leading-tight">Dr. Qurat-ul-Ain</Link>
 
-        {/* Main Footer */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 pb-10">
+            <div className="w-24 h-1 bg-secondary rounded-full mt-2"></div>
 
-          {/* Left */}
-          <div>
-            <h2 className="text-2xl font-bold">
-              Dr. Qurat-Ul-Ain
-            </h2>
-            <p className="text-gray-400 mt-2">
-              Researcher | Educator | Mentor
+            <p className="text-white/70 leading-8 mt-4 max-w-2xl">
+              Interdisciplinary researcher specializing in education, behavioral
+              health, addiction science, and public health. Dedicated to
+              advancing evidence-based research, mentorship, academic
+              collaboration, and student development across international
+              academic communities.
             </p>
+
+            {/* Social Links */}
+            <div className="flex flex-wrap gap-4 mt-5">
+              {/* LinkedIn */}
+              <a
+                href={socialLinks.linkedIn}
+                target="_blank"
+                rel="noreferrer"
+                className="w-12 h-12 rounded-full bg-white/10 hover:bg-secondary transition-all duration-300 flex items-center justify-center"
+              >
+                <FaLinkedin size={18} />
+              </a>
+
+              {/* Google Scholar */}
+              <a
+                href={socialLinks.googleScholar}
+                target="_blank"
+                rel="noreferrer"
+                className="w-12 h-12 rounded-full bg-white/10 hover:bg-secondary transition-all duration-300 flex items-center justify-center"
+              >
+                <FaGoogleScholar size={18} />
+              </a>
+
+              {/* ORCID */}
+              <a
+                href={socialLinks.orcid}
+                target="_blank"
+                rel="noreferrer"
+                className="w-12 h-12 rounded-full bg-white/10 hover:bg-secondary transition-all duration-300 flex items-center justify-center"
+              >
+                <HiAcademicCap size={20} />
+              </a>
+
+              {/* YouTube */}
+              <a
+                href={socialLinks.youtube}
+                target="_blank"
+                rel="noreferrer"
+                className="w-12 h-12 rounded-full bg-white/10 hover:bg-secondary transition-all duration-300 flex items-center justify-center"
+              >
+                <FaYoutube size={18} />
+              </a>
+
+              {/* Twitter */}
+              <a
+                href={socialLinks.twitter}
+                target="_blank"
+                rel="noreferrer"
+                className="w-12 h-12 rounded-full bg-white/10 hover:bg-secondary transition-all duration-300 flex items-center justify-center"
+              >
+                <FaXTwitter size={18} />
+              </a>
+
+              {/* Facebook */}
+              <a
+                href={socialLinks.facebook}
+                target="_blank"
+                rel="noreferrer"
+                className="w-12 h-12 rounded-full bg-white/10 hover:bg-secondary transition-all duration-300 flex items-center justify-center"
+              >
+                <FaFacebookF size={18} />
+              </a>
+            </div>
           </div>
 
-          {/* Middle */}
+          {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">
-              Quick Links
-            </h3>
+            <h1 className="text-2xl font-bold">Quick Links</h1>
 
-            <ul className="space-y-2 text-gray-300">
-              {[
-                "Home",
-                "About",
-                "Research",
-                "Free Seminars",
-                "Resources",
-                "Contact",
-              ].map((item, index) => (
-                <li
-                  key={index}
-                  className="hover:text-white cursor-pointer transition-all"
-                >
-                  {item}
+            <div className="w-16 h-1 bg-secondary rounded-full mt-2 mb-8"></div>
+
+            <ul className="space-y-4">
+              {quickLinks.map((item, index) => (
+                <li key={index}>
+                  <Link
+                    to={item.path}
+                    className="text-white/70 hover:text-secondary transition-all duration-300"
+                  >
+                    {item.name}
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Right */}
+          {/* More Pages */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">
-              Professional Links
-            </h3>
+            <h1 className="text-2xl font-bold">More Pages</h1>
 
-            <div className="space-y-3 text-gray-300">
+            <div className="w-16 h-1 bg-secondary rounded-full mt-2 mb-8"></div>
 
-              <a
-                href="https://scholar.google.com/citations?hl=en&user=2T7GuFUAAAAJ"
-                target="_blank"
-                className="flex items-center gap-2 hover:text-white transition-all"
-              >
-                <BookOpen size={18} />
-                Google Scholar
-              </a>
-
-              <a
-                href="https://orcid.org/0009-0003-2060-7678"
-                target="_blank"
-                className="flex items-center gap-2 hover:text-white transition-all"
-              >
-                <Globe size={18} />
-                ORCID
-              </a>
-
-              <a
-                href="https://linkedin.com/in/dr-qurat-ul-ain-4aa8a2165"
-                target="_blank"
-                className="flex items-center gap-2 hover:text-white transition-all"
-              >
-                <LiaLinkedin size={18} />
-                LinkedIn
-              </a>
-
-              <div className="flex items-center gap-2 text-gray-400">
-                <FaYoutube size={18} />
-                YouTube — Coming Soon
-              </div>
-
-              <div className="flex items-center gap-2 text-gray-400">
-                <FileText size={18} />
-                ResearchGate — Add Profile URL
-              </div>
-            </div>
+            <ul className="space-y-4">
+              {moreLinks.map((item, index) => (
+                <li key={index}>
+                  <Link
+                    to={item.path}
+                    className="text-white/70 hover:text-secondary transition-all duration-300"
+                  >
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
-
         </div>
 
-        {/* Bottom Bar */}
-        <div className="border-t border-gray-800 py-5 flex flex-col md:flex-row items-center justify-between text-gray-400 text-sm">
-
-          <p>
-            © 2026 Dr. Qurat-Ul-Ain. All Rights Reserved.
+        {/* Bottom */}
+        <div className="flex justify-center items-center pt-8">
+          <p className="text-white/60 text-center md:text-left leading-7">
+            © {new Date().getFullYear()} Dr. Qurat ul Ain. All Rights Reserved.
           </p>
-
-          <button className="mt-3 md:mt-0 hover:text-white transition-all">
-            Download CV
-          </button>
-
         </div>
-
       </div>
     </footer>
   );

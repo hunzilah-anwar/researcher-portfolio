@@ -1,4 +1,3 @@
-import { Heading } from "../components/OtherCommon";
 import { ButtonA } from "../components/Button";
 
 import {
@@ -119,239 +118,170 @@ const Resources = () => {
   ];
 
   return (
-    <section className="lg:px-20 sm:px-10 px-5 py-20 bg-white overflow-hidden">
-      <div className="max-w-[1500px] mx-auto">
-        {/* Heading */}
-        <Heading name="Resources" darkColor="#325254" />
+    <section className="bg-white overflow-hidden">
+      {/* Hero */}
+      <div className="grid lg:grid-cols-2 gap-16 items-start lg:px-20 sm:px-10 px-5 pt-20 pb-15 border-b border-black/5">
+        {/* Left */}
+        <div>
+          <p className="uppercase tracking-[4px] text-secondary font-semibold mb-1 text-sm">
+            Academic Support • Research Skills • Student Growth
+          </p>
 
-        {/* Hero */}
-        <div className="grid lg:grid-cols-2 gap-16 items-center mt-16">
-          {/* Left */}
-          <div>
-            <p className="uppercase tracking-[4px] text-secondary font-semibold mb-4">
-              Academic Support • Research Skills • Student Growth
-            </p>
+          <h1 className="md:text-3xl text-xl font-bold text-primary leading-tight">
+            Free Resources for
+            <span className="text-secondary"> Researchers & Students</span>
+          </h1>
 
-            <h1 className="md:text-5xl text-3xl font-bold text-primary leading-tight">
-              Free Resources for
-              <span className="text-secondary">
-                {" "}
-                Researchers & Students
-              </span>
-            </h1>
+          <div className="w-28 h-1 bg-secondary rounded-full mt-2 mb-4"></div>
 
-            <div className="w-28 h-1 bg-secondary rounded-full mt-6 mb-8"></div>
+          <p className="text-gray-700 md:text-[17px] text-[15px] leading-8.5 text-justify">
+            Download free academic templates, guides, and toolkits designed to
+            help students, early-career researchers, and graduate scholars
+            strengthen their research skills and academic writing.
+            <br />
+            These resources include proposal templates, literature review
+            guides, APA citation support, publication resources, and recommended
+            learning platforms from leading global universities.
+          </p>
+        </div>
 
-            <p className="text-gray-700 md:text-[17px] text-[15px] leading-[34px] text-justify">
-              Download free academic templates, guides, and
-              toolkits designed to help students, early-career
-              researchers, and graduate scholars strengthen
-              their research skills and academic writing.
-              <br />
-              <br />
-              These resources include proposal templates,
-              literature review guides, APA citation support,
-              publication resources, and recommended learning
-              platforms from leading global universities.
-            </p>
+        {/* Right */}
+        <div className="relative">
+          <div className="absolute -top-4 -right-4 w-full h-full border-2 border-secondary rounded-[30px]"></div>
 
-            {/* Stats */}
-            <div className="grid sm:grid-cols-3 gap-5 mt-10">
-              <div className="bg-[#f8fbfb] rounded-[25px] border border-gray-100 p-5">
-                <h1 className="text-3xl font-bold text-secondary">
-                  7+
-                </h1>
+          <img
+            src="https://images.unsplash.com/photo-1562789278-dac7af7fb5b1?q=80&w=869&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="Resources"
+            className="relative z-10 w-full h-100 object-cover rounded-[30px]"
+          />
+        </div>
+      </div>
+      {/* Downloadable Templates */}
+      <div className="bg-gray-100 lg:px-20 sm:px-10 px-5 pt-20 pb-15 border-b border-black/5">
+        <div className="text-center max-w-4xl mx-auto">
+          <p className="uppercase tracking-[4px] text-secondary font-semibold">
+            Free Downloads
+          </p>
 
-                <p className="text-gray-600 mt-2 leading-7">
-                  Downloadable Templates
-                </p>
+          <h1 className="md:text-3xl text-xl font-bold text-primary mt-1">
+            Downloadable
+            <span className="text-secondary"> Academic Templates</span>
+          </h1>
+        </div>
+
+        {/* Grid */}
+        <div className="grid xl:grid-cols-3 md:grid-cols-2 gap-7 mt-16">
+          {resources.map((item, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-xl border border-gray-300 p-4 transition-all duration-300 group"
+            >
+              <div className="w-16 h-16 rounded-2xl bg-secondary/10 text-secondary flex items-center justify-center text-2xl group-hover:bg-secondary group-hover:text-white transition-all duration-300">
+                <FaFileAlt />
               </div>
 
-              <div className="bg-[#f8fbfb] rounded-[25px] border border-gray-100 p-5">
-                <h1 className="text-3xl font-bold text-secondary">
-                  7+
-                </h1>
-
-                <p className="text-gray-600 mt-2 leading-7">
-                  Recommended Courses
-                </p>
-              </div>
-
-              <div className="bg-[#f8fbfb] rounded-[25px] border border-gray-100 p-5">
-                <h1 className="text-3xl font-bold text-secondary">
-                  6+
-                </h1>
-
-                <p className="text-gray-600 mt-2 leading-7">
-                  Research Tools
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Right */}
-          <div className="relative">
-            <div className="absolute -top-5 -right-5 w-full h-full border-2 border-secondary rounded-[30px]"></div>
-
-            <img
-              src="/resources/resources.webp"
-              alt="Resources"
-              className="relative z-10 w-full h-[750px] object-cover rounded-[30px] shadow-2xl"
-            />
-
-            {/* Floating Box */}
-            <div className="absolute bottom-8 -left-5 z-20 bg-primary text-white p-6 rounded-[30px] shadow-2xl max-w-[280px]">
-              <h1 className="text-4xl font-bold">
-                Academic Toolkit
+              <h1 className="text-xl font-bold text-primary mt-5 leading-snug">
+                {item.title}
               </h1>
 
-              <p className="text-white/90 leading-7 mt-3">
-                Free templates, academic guides, research tools,
-                and educational platforms for students and
-                researchers.
-              </p>
+              <div className="mt-8">
+                <ButtonA
+                  href="#"
+                  name="Download Template"
+                  bgColor="bg-primary"
+                  textColor="text-white"
+                  HoverClasses="hover:bg-transparent hover:text-primary"
+                />
+              </div>
             </div>
-          </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Recommended Courses */}
+      <div className="lg:px-20 sm:px-10 px-5 pt-20 pb-15 border-b border-black/5">
+        <div className="text-center max-w-4xl mx-auto">
+          <p className="uppercase tracking-[4px] text-sm text-secondary font-semibold">
+            Learning Platforms
+          </p>
+
+          <h1 className="md:text-3xl text-xl font-bold text-primary mt-1">
+            Recommended
+            <span className="text-secondary"> Free Courses</span>
+          </h1>
         </div>
 
-        {/* Downloadable Templates */}
-        <div className="mt-28">
-          <div className="text-center max-w-4xl mx-auto">
-            <p className="uppercase tracking-[4px] text-secondary font-semibold">
-              Free Downloads
-            </p>
-
-            <h1 className="md:text-4xl text-3xl font-bold text-primary mt-4">
-              Downloadable
-              <span className="text-secondary">
-                {" "}
-                Academic Templates
-              </span>
-            </h1>
-          </div>
-
-          {/* Grid */}
-          <div className="grid xl:grid-cols-3 md:grid-cols-2 gap-7 mt-16">
-            {resources.map((item, index) => (
-              <div
-                key={index}
-                className="bg-[#f8fbfb] rounded-[30px] border border-gray-100 p-8 hover:shadow-2xl transition-all duration-300 group"
-              >
-                <div className="w-16 h-16 rounded-2xl bg-secondary/10 text-secondary flex items-center justify-center text-2xl group-hover:bg-secondary group-hover:text-white transition-all duration-300">
-                  <FaFileAlt />
-                </div>
-
-                <h1 className="text-2xl font-bold text-primary mt-7 leading-snug">
-                  {item.title}
-                </h1>
-
-                <div className="mt-8">
-                  <ButtonA
-                    href="#"
-                    name={item.button}
-                    bgColor="bg-primary"
-                    textColor="text-white"
-                    HoverClasses="hover:bg-transparent hover:text-primary"
-                  />
-                </div>
+        {/* Courses */}
+        <div className="grid xl:grid-cols-3 md:grid-cols-2 gap-7 mt-16">
+          {courses.map((item, index) => (
+            <div
+              key={index}
+              className="bg-primary rounded-xl p-6 text-white hover:-translate-y-1 transition-all duration-300"
+            >
+              <div className="w-16 h-16 rounded-2xl bg-white/10 text-white flex items-center justify-center text-2xl">
+                <FaGraduationCap />
               </div>
-            ))}
-          </div>
-        </div>
 
-        {/* Recommended Courses */}
-        <div className="mt-28">
-          <div className="text-center max-w-4xl mx-auto">
-            <p className="uppercase tracking-[4px] text-secondary font-semibold">
-              Learning Platforms
-            </p>
+              <h1 className="text-xl font-bold mt-7 leading-snug">
+                {item.title}
+              </h1>
 
-            <h1 className="md:text-4xl text-3xl font-bold text-primary mt-4">
-              Recommended
-              <span className="text-secondary">
-                {" "}
-                Free Courses
-              </span>
-            </h1>
-          </div>
-
-          {/* Courses */}
-          <div className="grid xl:grid-cols-4 md:grid-cols-2 gap-7 mt-16">
-            {courses.map((item, index) => (
-              <div
-                key={index}
-                className="bg-primary rounded-[30px] p-8 text-white hover:-translate-y-2 transition-all duration-300"
-              >
-                <div className="w-16 h-16 rounded-2xl bg-white/10 text-secondary flex items-center justify-center text-2xl">
-                  <FaGraduationCap />
-                </div>
-
-                <h1 className="text-2xl font-bold mt-7 leading-snug">
-                  {item.title}
-                </h1>
-
-                <a
-                  href={item.link}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-3 mt-8 text-secondary font-semibold hover:gap-4 transition-all duration-300"
-                >
-                  Visit Platform
-                  <FaExternalLinkAlt className="text-sm" />
-                </a>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Research Tools */}
-        <div className="mt-28">
-          <div className="text-center max-w-4xl mx-auto">
-            <p className="uppercase tracking-[4px] text-secondary font-semibold">
-              Essential Platforms
-            </p>
-
-            <h1 className="md:text-4xl text-3xl font-bold text-primary mt-4">
-              Recommended
-              <span className="text-secondary">
-                {" "}
-                Research Tools
-              </span>
-            </h1>
-          </div>
-
-          {/* Tools */}
-          <div className="grid xl:grid-cols-3 md:grid-cols-2 gap-7 mt-16">
-            {tools.map((item, index) => (
               <a
-                key={index}
                 href={item.link}
                 target="_blank"
                 rel="noreferrer"
-                className="group bg-white border border-gray-100 rounded-[30px] p-8 hover:shadow-2xl transition-all duration-300"
+                className="underline inline-flex items-center gap-3 mt-8 text-white font-semibold hover:gap-4 transition-all duration-300"
               >
-                <div className="flex items-center justify-between gap-5">
-                  <div className="flex items-center gap-5">
-                    <div className="w-16 h-16 rounded-2xl bg-secondary/10 text-secondary flex items-center justify-center text-2xl group-hover:bg-secondary group-hover:text-white transition-all duration-300">
-                      <FaTools />
-                    </div>
+                Visit Platform
+                <FaExternalLinkAlt className="text-sm" />
+              </a>
+            </div>
+          ))}
+        </div>
+      </div>
 
-                    <div>
-                      <h1 className="text-2xl font-bold text-primary">
-                        {item.title}
-                      </h1>
+      {/* Research Tools */}
+      <div className="bg-gray-100 lg:px-20 sm:px-10 px-5 pt-20 pb-30 border-b border-black/5">
+        <div className="text-center max-w-4xl mx-auto">
+          <p className="uppercase tracking-[4px] text-sm text-secondary font-semibold">
+            Essential Platforms
+          </p>
 
-                      <p className="text-gray-500 mt-2">
-                        Research Platform
-                      </p>
-                    </div>
+          <h1 className="md:text-3xl text-xl font-bold text-primary mt-1">
+            Recommended
+            <span className="text-secondary"> Research Tools</span>
+          </h1>
+        </div>
+
+        {/* Tools */}
+        <div className="grid xl:grid-cols-3 md:grid-cols-2 gap-7 mt-16">
+          {tools.map((item, index) => (
+            <a
+              key={index}
+              href={item.link}
+              target="_blank"
+              rel="noreferrer"
+              className="group bg-white border border-gray-300 rounded-xl p-4 hover:shadow-2xl transition-all duration-300"
+            >
+              <div className="flex items-center justify-between gap-5">
+                <div className="flex items-center gap-5">
+                  <div className="w-16 h-16 rounded-xl bg-secondary/10 text-secondary flex items-center justify-center text-2xl group-hover:bg-secondary group-hover:text-white transition-all duration-300">
+                    <FaTools />
                   </div>
 
-                  <FaExternalLinkAlt className="text-secondary text-lg" />
+                  <div>
+                    <h1 className="text-xl font-bold text-primary">
+                      {item.title}
+                    </h1>
+
+                    <p className="text-gray-500 mt-1">Research Platform</p>
+                  </div>
                 </div>
-              </a>
-            ))}
-          </div>
+
+                <FaExternalLinkAlt className="text-secondary text-lg" />
+              </div>
+            </a>
+          ))}
         </div>
       </div>
     </section>

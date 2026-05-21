@@ -1,5 +1,4 @@
-import { Heading } from "../components/OtherCommon";
-import { ButtonA, ButtonLink } from "../components/Button";
+import { ButtonLink } from "../components/Button";
 
 import {
   FaBrain,
@@ -86,16 +85,13 @@ const Research = () => {
 
   return (
     <>
-      <section className="lg:px-20 sm:px-10 px-5 py-20 bg-[#f8fbfb] overflow-hidden">
-        <div className="max-w-375 mx-auto">
-          {/* Heading */}
-          <Heading name="Research" darkColor="#325254" />
+      <section className="bg-white overflow-hidden">
 
           {/* Hero */}
-          <div className="grid lg:grid-cols-2 gap-16 items-start mt-16">
+          <div className="grid lg:grid-cols-2 gap-16 items-start lg:px-20 sm:px-10 px-5 pt-20 pb-15">
             {/* Left */}
             <div>
-              <h1 className="text-3xl font-bold text-primary leading-tight">
+              <h1 className="md:text-3xl text-xl font-bold text-primary leading-tight">
                 Understanding the Hidden Harm —
                 <span className="text-secondary">
                   {" "}
@@ -104,14 +100,13 @@ const Research = () => {
                 , Education & Behavioral Health
               </h1>
 
-              <div className="w-28 h-1 bg-secondary rounded-full mt-6 mb-8"></div>
+              <div className="w-28 h-1 bg-secondary rounded-full mt-1 mb-4"></div>
 
               <p className="text-gray-700 md:text-[17px] text-[15px] leading-8.5 text-justify">
                 My research is driven by one core question: how does parental
                 substance use disorder shape the academic, emotional, and social
                 lives of children — and what can schools, counselors, and
                 policymakers do about it?
-                <br />
                 <br />
                 I approach this question through rigorous quantitative research
                 design, cross-cultural comparison, and evidence-informed
@@ -140,18 +135,18 @@ const Research = () => {
 
             {/* Right */}
             <div className="relative">
-              <div className="absolute -top-5 -right-5 w-full h-full border-2 border-secondary rounded-[30px]"></div>
+              <div className="absolute -top-4 -right-4 w-full h-full border-2 border-secondary rounded-[30px]"></div>
 
               <img
-                src="/research/research.webp"
+                src="https://plus.unsplash.com/premium_photo-1679429321037-f1921d15198b?q=80&w=869&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt="Research"
-                className="relative z-10 w-full h-162.5 object-cover rounded-[30px] shadow-2xl"
+                className="relative z-10 w-full h-100 object-cover rounded-[30px] shadow-2xl"
               />
             </div>
           </div>
 
           {/* Expertise Areas */}
-          <div className="mt-28">
+          <div className="bg-gray-100 lg:px-20 sm:px-10 px-5 pt-20 pb-15">
             <div className="text-center max-w-4xl mx-auto">
               <h1 className="md:text-4xl text-3xl font-bold text-primary">
                 Areas of Expertise
@@ -188,22 +183,21 @@ const Research = () => {
           </div>
 
           {/* Framework */}
-          <div className="mt-28 bg-primary/10 rounded-[40px] lg:p-16 sm:p-10 p-6 text-primary relative overflow-hidden">
+          <div className="lg:mx-20 sm:mx-10 mx-5 mt-20 mb-15 bg-primary/10 rounded-xl lg:p-16 sm:p-10 p-6 text-primary relative overflow-hidden">
             <div className="absolute -right-20 -top-20 w-72 h-72 bg-secondary rounded-full"></div>
 
             <div className="relative z-10">
-              <p className="uppercase tracking-[4px] text-secondary font-semibold mb-4">
+              <p className="uppercase tracking-[4px] sm:text-secondary text-primary font-semibold mb-1">
                 Research Philosophy
               </p>
 
-              <h1 className="md:text-5xl text-3xl font-bold leading-tight">
+              <h1 className="md:text-4xl text-2xl font-bold leading-tight">
                 My Research Framework
               </h1>
 
-              <p className="mt-8 text-black/90 leading-8.5 max-w-5xl text-justify">
+              <p className="mt-2 text-black/90 leading-8.5 max-w-5xl text-justify">
                 My work sits at the intersection of three interconnected
                 domains:
-                <br />
                 <br />
                 <span className="font-semibold text-secondary">
                   Education
@@ -211,20 +205,17 @@ const Research = () => {
                 — academic performance, school counseling, curriculum, and
                 learning outcomes.
                 <br />
-                <br />
                 <span className="font-semibold text-secondary">
                   Addiction Science
                 </span>{" "}
                 — substance use epidemiology, treatment adherence, harm
                 reduction.
                 <br />
-                <br />
                 <span className="font-semibold text-secondary">
                   Behavioral Health
                 </span>{" "}
                 — mental health, trauma, psychosocial development, crisis
                 intervention.
-                <br />
                 <br />
                 Each research project I undertake draws from at least two of
                 these domains — producing findings with direct implications for
@@ -248,34 +239,18 @@ const Research = () => {
                   textColor="text-primary"
                   HoverClasses="hover:bg-secondary hover:text-white"
                 />
-
-                <ButtonA
-                  href="/files/poster.pdf"
-                  name="Download Poster"
-                  bgColor="bg-transparent"
-                  textColor="text-primary"
-                  HoverClasses="hover:bg-secondary hover:text-white hover:border-secondary"
-                />
-
-                <ButtonA
-                  href="/files/presentation.pdf"
-                  name="View Presentation"
-                  bgColor="bg-transparent"
-                  textColor="text-primary"
-                  HoverClasses="hover:bg-secondary hover:text-white hover:border-secondary"
-                />
               </div>
             </div>
           </div>
 
           {/* Projects */}
-          <div className="mt-28">
+          <div className="bg-gray-100 lg:px-20 sm:px-10 px-5 pt-20 pb-15">
             <div className="text-center max-w-4xl mx-auto">
               <h1 className="md:text-4xl text-3xl font-bold text-primary">
                 Research Projects
               </h1>
 
-              <p className="text-gray-600 mt-5 leading-8">
+              <p className="text-gray-600 mt-2 leading-8">
                 National and international research projects focused on
                 addiction science, behavioral health, counseling systems, and
                 educational intervention frameworks.
@@ -283,7 +258,7 @@ const Research = () => {
             </div>
 
             {/* Timeline */}
-            <div className="mt-16 space-y-10">
+            <div className="mt-8 space-y-10">
               {researchProjects.map((project, index) => (
                 <div
                   key={project.id}
@@ -301,14 +276,14 @@ const Research = () => {
 
                   {/* Card */}
                   <div className="bg-white border border-gray-300 lg:p-10 p-6 hover:bg-black/5 transition-all duration-300">
-                    <h1 className="md:text-3xl text-2xl font-bold text-primary leading-snug">
+                    <h1 className="md:text-3xl text-xl font-bold text-primary leading-snug">
                       {project.title}
                     </h1>
 
-                    <div className="grid md:grid-cols-2 gap-8 mt-8">
+                    <div className="grid md:grid-cols-2 gap-8 mt-4">
                       {project.advisor && (
                         <div>
-                          <h2 className="text-secondary font-semibold text-lg mb-2">
+                          <h2 className="text-secondary font-semibold text-lg mb-1">
                             Advisor
                           </h2>
 
@@ -320,7 +295,7 @@ const Research = () => {
 
                       {project.mentor && (
                         <div>
-                          <h2 className="text-secondary font-semibold text-lg mb-2">
+                          <h2 className="text-secondary font-semibold text-lg mb-1">
                             Co-Mentor
                           </h2>
 
@@ -332,7 +307,7 @@ const Research = () => {
 
                       {project.examiners && (
                         <div className="md:col-span-2">
-                          <h2 className="text-secondary font-semibold text-lg mb-2">
+                          <h2 className="text-secondary font-semibold text-lg mb-1">
                             External Examiners
                           </h2>
 
@@ -359,7 +334,6 @@ const Research = () => {
               ))}
             </div>
           </div>
-        </div>
       </section>
     </>
   );

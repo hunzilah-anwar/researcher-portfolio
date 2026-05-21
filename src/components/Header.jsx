@@ -5,6 +5,7 @@ import { FaLinkedin } from "react-icons/fa";
 import { GoArrowUpRight } from "react-icons/go";
 import { FaGoogleScholar } from "react-icons/fa6";
 import { HiAcademicCap } from "react-icons/hi";
+import { FaYoutube, FaFacebookF, FaXTwitter } from "react-icons/fa6";
 
 const Header = () => {
   const location = useLocation();
@@ -22,24 +23,40 @@ const Header = () => {
     { name: "Free Seminars", path: "/seminars" },
     { name: "Resources", path: "/resources" },
     { name: "Collaboration", path: "/collaboration" },
-    { name: "Presentations", path: "/presentations" },
+    { name: "Opportunities", path: "/opportunities" },
+    { name: "Academic", path: "/academic-consulting" },
+    { name: "Mentorship", path: "/mentorship" },
     { name: "Trainings", path: "/training" },
     { name: "Peer Reviewer", path: "/reviewer" },
+    { name: "Insights (Blogs)", path: "/research-insights" },
   ];
 
   const heroData = {
     name: "Dr. Qurat ul Ain",
+
     description: `I am an interdisciplinary researcher specializing in education, behavioral health, and public health. My work focuses on developing evidence-based strategies to improve educational and mental health outcomes for children and families affected by substance use disorders. Through this platform, I share my research, offer free seminars, provide mentorship, and collaborate with students, researchers, and professionals committed to creating meaningful social impact.`,
+
     contactInfo: {
-      location: "College Station, Texas, USA",
-      email: "aineenwz@gmail.com",
+      location: "2312 Bay Laurel Lane, Forney, TX 75126",
+
+      emails: ["aineenwz@gmail.com", "dr.ain.psychresearch@proton.me"],
+
       phone: "+1 (505) 398-5375",
     },
+
     socialLinks: {
-      linkedin: "https://www.linkedin.com/in/drqurat-ul-ain-4aa8a2165/",
-      academic: "https://www.iare.com.au/team-3/",
       googleScholar:
-        "https://scholar.google.com/citations?user=2T7GuFUAAAAJ&hl=en",
+        "https://scholar.google.com/citations?hl=en&user=2T7GuFUAAAAJ",
+
+      orcid: "https://orcid.org/0009-0003-2060-7678",
+
+      linkedIn: "https://www.linkedin.com/in/dr-qurat-ul-ain-4aa8a2165/",
+
+      youtube: "https://www.youtube.com/@DrQurat_research",
+
+      twitter: "https://x.com/DrQuratulain01",
+
+      facebook: "https://www.facebook.com/profile.php?id=61589971090780",
     },
   };
 
@@ -167,17 +184,17 @@ const Header = () => {
                     onClick={() => setIsOpen(false)}
                     className="inline-block"
                   >
-                    <h1 className="font-syne text-secondary text-[32px] font-bold mb-4">
+                    <h1 className="font-syne text-secondary text-[32px] font-bold mb-2">
                       {heroData.name}
                     </h1>
                   </Link>
 
-                  <p className="text-primary text-[13px] mb-6">
+                  <p className="text-primary text-[13px] mb-4">
                     {heroData.description}
                   </p>
 
                   {/* Contact Info */}
-                  <div className="space-y-5 text-gray-600 mb-8">
+                  <div className="space-y-4 text-gray-600 mb-4">
                     <p className="text-[16px] text-primary font-medium">
                       <strong className="text-[14px] text-secondary font-bold">
                         Address
@@ -188,10 +205,15 @@ const Header = () => {
 
                     <p className="text-[16px] text-primary font-medium">
                       <strong className="text-[14px] text-secondary font-bold">
-                        Email
+                        Emails
                       </strong>
                       <br />
-                      {heroData.contactInfo.email}
+
+                      {heroData.contactInfo.emails.map((email, index) => (
+                        <span key={index} className="block">
+                          {email}
+                        </span>
+                      ))}
                     </p>
 
                     <p className="text-[16px] text-primary font-medium">
@@ -204,9 +226,10 @@ const Header = () => {
                   </div>
 
                   {/* Social Links */}
-                  <div className="flex gap-4 mb-10 text-white">
+                  <div className="flex flex-wrap gap-4 mb-10 text-white">
+                    {/* LinkedIn */}
                     <a
-                      href={heroData.socialLinks.linkedin}
+                      href={heroData.socialLinks.linkedIn}
                       target="_blank"
                       rel="noreferrer"
                     >
@@ -216,6 +239,7 @@ const Header = () => {
                       />
                     </a>
 
+                    {/* Google Scholar */}
                     <a
                       href={heroData.socialLinks.googleScholar}
                       target="_blank"
@@ -227,12 +251,49 @@ const Header = () => {
                       />
                     </a>
 
+                    {/* ORCID */}
                     <a
-                      href={heroData.socialLinks.academic}
+                      href={heroData.socialLinks.orcid}
                       target="_blank"
                       rel="noreferrer"
                     >
                       <HiAcademicCap
+                        size={35}
+                        className="p-2 bg-secondary rounded-full hover:bg-primary transition ease-in-out duration-200"
+                      />
+                    </a>
+
+                    {/* YouTube */}
+                    <a
+                      href={heroData.socialLinks.youtube}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <FaYoutube
+                        size={35}
+                        className="p-2 bg-secondary rounded-full hover:bg-primary transition ease-in-out duration-200"
+                      />
+                    </a>
+
+                    {/* Twitter / X */}
+                    <a
+                      href={heroData.socialLinks.twitter}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <FaXTwitter
+                        size={35}
+                        className="p-2 bg-secondary rounded-full hover:bg-primary transition ease-in-out duration-200"
+                      />
+                    </a>
+
+                    {/* Facebook */}
+                    <a
+                      href={heroData.socialLinks.facebook}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <FaFacebookF
                         size={35}
                         className="p-2 bg-secondary rounded-full hover:bg-primary transition ease-in-out duration-200"
                       />

@@ -14,9 +14,12 @@ import Seminars from "./pages/Seminars";
 import Contact from "./pages/Contact";
 import PeerReviewer from "./pages/PeerReviewer";
 import Collaboration from "./pages/Collaboration";
-import Presentations from "./pages/Presentations";
+import Opportunities from "./pages/Opportunities";
 import SelectedWork from "./pages/SelectedWork";
 import Resources from "./pages/Resources";
+import AcademicConsulting from "./pages/AcademicConsulting";
+import Mentorship from "./pages/Mentorship";
+import ResearchInsights from "./pages/ResearchInsights";
 
 // Scroll Component
 import ScrollToTop from "./components/ScrollToTop";
@@ -35,7 +38,10 @@ function App() {
           <Route path="/publications" element={<Publications />} />
           <Route path="/research" element={<Research />} />
           <Route path="/collaboration" element={<Collaboration />} />
-          <Route path="/presentations" element={<Presentations />} />
+          <Route path="/opportunities" element={<Opportunities />} />
+          <Route path="/academic-consulting" element={<AcademicConsulting />} />
+          <Route path="/mentorship" element={<Mentorship />} />
+          <Route path="/research-insights" element={<ResearchInsights />} />
           <Route path="/selectedWork" element={<SelectedWork />} />
           <Route path="/resources" element={<Resources />} />
           <Route path="/training" element={<Trainings />} />

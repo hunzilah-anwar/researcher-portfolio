@@ -10,16 +10,30 @@ import { FaLinkedin } from "react-icons/fa";
 import { FaGoogleScholar } from "react-icons/fa6";
 import { HiAcademicCap } from "react-icons/hi";
 
+import { FaYoutube, FaFacebookF, FaXTwitter } from "react-icons/fa6";
+
 const contactData = {
-  name: "Dr. Quratulain",
-  email: "aineenwz@gmail.com",
-  phone: "+1 (505) 3985375",
-  address: "1700 S Parkway, College Station 77840, USA",
+  name: "Dr. Qurat ul Ain",
+
+  emails: ["aineenwz@gmail.com", "dr.ain.psychresearch@proton.me"],
+
+  phone: "+1 (505) 398-5375",
+
+  address: "2312 Bay Laurel Lane, Forney, TX 75126",
+
   social: {
-    linkedin: "https://www.linkedin.com/in/drqurat-ul-ain-4aa8a2165/",
-    academic: "https://www.iare.com.au/team-3/",
+    linkedIn: "https://www.linkedin.com/in/dr-qurat-ul-ain-4aa8a2165/",
+
     googleScholar:
-      "https://scholar.google.com/citations?user=2T7GuFUAAAAJ&hl=en",
+      "https://scholar.google.com/citations?hl=en&user=2T7GuFUAAAAJ",
+
+    orcid: "https://orcid.org/0009-0003-2060-7678",
+
+    youtube: "https://www.youtube.com/@DrQurat_research",
+
+    twitter: "https://x.com/DrQuratulain01",
+
+    facebook: "https://www.facebook.com/profile.php?id=61589971090780",
   },
 };
 
@@ -249,10 +263,10 @@ const Contact = () => {
             {/* Social */}
             <div className="flex gap-4 pt-4">
               <a
-                href={contactData.social.linkedin}
+                href={contactData.social.linkedIn}
                 target="_blank"
                 rel="noreferrer"
-                className="p-3 rounded-full bg-black/10 hover:bg-secondary hover:text-white transition"
+                className="p-3 cursor-pointer rounded-full bg-black/10 hover:bg-secondary hover:text-white transition"
               >
                 <FaLinkedin />
               </a>
@@ -261,18 +275,42 @@ const Contact = () => {
                 href={contactData.social.googleScholar}
                 target="_blank"
                 rel="noreferrer"
-                className="p-3 rounded-full bg-primary/10 hover:bg-secondary hover:text-white transition"
+                className="p-3 cursor-pointer rounded-full bg-primary/10 hover:bg-secondary hover:text-white transition"
               >
                 <FaGoogleScholar />
               </a>
 
               <a
-                href={contactData.social.academic}
+                href={contactData.social.orcid}
                 target="_blank"
                 rel="noreferrer"
-                className="p-3 rounded-full bg-primary/10 hover:bg-secondary hover:text-white transition"
+                className="p-3 cursor-pointer rounded-full bg-primary/10 hover:bg-secondary hover:text-white transition"
               >
                 <HiAcademicCap />
+              </a>
+              <a
+                href={contactData.social.youtube}
+                target="_blank"
+                rel="noreferrer"
+                className="p-3 cursor-pointer rounded-full bg-primary/10 hover:bg-secondary hover:text-white transition"
+              >
+                <FaYoutube />
+              </a>
+              <a
+                href={contactData.social.facebook}
+                target="_blank"
+                rel="noreferrer"
+                className="p-3 cursor-pointer rounded-full bg-primary/10 hover:bg-secondary hover:text-white transition"
+              >
+                <FaXTwitter />
+              </a>
+              <a
+                href={contactData.social.twitter}
+                target="_blank"
+                rel="noreferrer"
+                className="p-3 cursor-pointer rounded-full bg-primary/10 hover:bg-secondary hover:text-white transition"
+              >
+                <FaFacebookF />
               </a>
             </div>
           </div>
