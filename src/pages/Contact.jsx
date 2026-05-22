@@ -102,7 +102,7 @@ const Contact = () => {
 
       <div className="max-w-7xl mx-auto">
         {/* Heading */}
-        <div className="text-center sm:mb-16 mb-5">
+        <div className="text-center sm:mb-10 mb-5">
           <h4 className="text-secondary uppercase tracking-[4px] text-sm font-medium">
             Get In Touch
           </h4>

@@ -1,157 +1,263 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import ProfilePic from "../assets/profile-pic.jpg";
 // import HeroBg from "../assets/hero-bg.jpg";
 import { ButtonA, ButtonLink } from "../components/Button";
-import { Heading } from "../components/OtherCommon";
-import ExpertiesImg from "../assets/experties-img.jpg";
 // import HomeBanner from "../assets/home-banner.png";
 import HomeBanner from "../assets/home-banner-1.png";
 import Resume from "../assets/Resume.pdf";
 import Contact from "./Contact";
-import CoursesSlider from "../components/CoursesSlider";
 import { FaLinkedin } from "react-icons/fa";
 import { FaGoogleScholar } from "react-icons/fa6";
 import { HiAcademicCap } from "react-icons/hi";
-import { Mail } from "lucide-react";
+import { FaYoutube, FaFacebookF, FaXTwitter } from "react-icons/fa6";
+import StatsBar from "../components/StatsBar";
+import { GoArrowUpRight } from "react-icons/go";
+import { FaBrain, FaGlobeAsia, FaChartLine } from "react-icons/fa";
+import {
+  FaGlobe,
+  FaHeartbeat,
+  FaUsers,
+  FaBookMedical,
+  FaUserGraduate,
+} from "react-icons/fa";
+import { FaSchool } from "react-icons/fa";
+import { MdHealthAndSafety, MdOutlineScience } from "react-icons/md";
+import { GiTeacher } from "react-icons/gi";
+import { FaBookOpen, FaBriefcase } from "react-icons/fa";
+import { FaEnvelopeOpenText } from "react-icons/fa";
 
 const Home = () => {
-  const education = [
+  const researchCards = [
     {
-      title:
-        "PHD, Pir Mehr Ali Shah Arid Agriculture University, Rawalpindi, Pakistan Research Collaboration with National Taiwan Normal University",
-    },
-
-    {
-      title:
-        "MPHIL, Pir Mehr Ali Shah Arid Agriculture University, Rawalpindi, Pakistan",
-    },
-
-    {
-      title:
-        "Master of Arts (M.A.) in Education University of the Punjab, Lahore, Pakistan",
-    },
-
-    {
-      title:
-        "Master of Science (M.Sc.) in Economics, Allama Iqbal Open University, Islamabad, Pakistan",
-    },
-
-    {
-      title: "Bachelor of Arts, University of Punjab, Pakistan",
-    },
-
-    {
-      title: "FSC-HSSC Federal Board of Intermediate & Secondary Education",
-    },
-
-    {
-      title:
-        "Matriculation, Federal board of Intermediate &Secondary Education Islamabad, Pakistan",
-    },
-
-    {
-      title:
-        "Graduate Coursework in Guidance & Counseling (Clinical Mental Health), Department of Counseling, New Mexico Highlands University, Las Vegas, NM, USA",
-    },
-
-    {
-      title:
-        "Diploma in Education, Federal board of Intermediate &Secondary Education Islamabad, Pakistan",
-      duration: "Duration 2004 – 2006 (12+1.1/2 Year)",
-    },
-
-    {
-      title:
-        "Diploma in Information Technology Ministry of Education, Islamabad, Pakistan",
-    },
-  ];
-
-  //   Skill Related Code
-  const sectionRef = useRef(null);
-  const [animate, setAnimate] = useState(false);
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setAnimate(entry.isIntersecting);
-      },
-      { threshold: 0.3 },
-    );
-
-    const current = sectionRef.current;
-
-    if (current) {
-      observer.observe(current);
-    }
-
-    return () => {
-      if (current) observer.unobserve(current);
-      observer.disconnect();
-    };
-  }, []);
-  const skills = [
-    { name: "Teamwork", value: 100 },
-    { name: "Microsoft Excel", value: 100 },
-    { name: "Leadership Skills", value: 80 },
-    { name: "Communication Skills", value: 100 },
-    { name: "Multitasking", value: 100 },
-    { name: "Dedicated Team Player", value: 100 },
-    { name: "Behavioral Health Research", value: 100 },
-    { name: "Addiction Epidemiology & Public Health", value: 80 },
-    { name: "Microsoft Office & LMS", value: 80 },
-    { name: "Public Speaking", value: 100 },
-  ];
-
-  //   Awards and Recognitions
-  const awards = [
-    {
-      title:
-        "Young Scientist Travel Award – CPDD 81st Annual Scientific Meeting",
-      organization:
-        "National Institute on Drug Abuse (NIDA) International Forum",
-      location: "San Antonio, Texas, USA",
-      year: "June 2019",
+      icon: <FaBrain />,
+      title: "Core Focus",
       description:
-        '"The Hidden Harm: Child Academic Performance Negatively Impacted by Heroin Use" — Recognized for academic merit and research contribution in behavioral and public health.',
+        "Intergenerational impact of parental substance use disorders on children's academic performance, behavioral outcomes, and mental health at school level.",
     },
 
     {
-      title:
-        "National Award for Excellence in Research Supporting Children and Families Affected by Substance Use",
-      organization: "Anti-Narcotic Force (ANF)",
+      icon: <FaGlobeAsia />,
+      title: "Cross-Cultural Reach",
       description:
-        "Recognized for strengthening preventive and rehabilitative strategies, supporting vulnerable populations, and advancing institutional and national frameworks aligned with the ANF mission.",
+        "Research conducted across Pakistan, Taiwan, and the USA — including collaborative work at National Taiwan Normal University and Academia Sinica, Taipei.",
     },
 
     {
-      title: "Best Teacher of the Year Award",
-      organization: "Pakistan Askari School & College",
+      icon: <FaChartLine />,
+      title: "Applied Impact",
+      description:
+        "From NIDA-presented findings to peer-reviewed publications in BMC Psychiatry — research designed to inform counselors, schools, and policymakers.",
+    },
+  ];
+
+  const organizations = [
+    {
+      name: "NIH – National Institutes of Health",
+      icon: <FaHeartbeat />,
+      link: "https://www.nih.gov/events",
     },
 
     {
-      title: "Best Speaker of the Year Award",
-      organization: "Iqra University, Islamabad, Pakistan",
+      name: "CDC – Centers for Disease Control",
+      icon: <FaBookMedical />,
+      link: "https://www.cdc.gov/training",
+    },
+
+    {
+      name: "SAMHSA",
+      icon: <FaBrain />,
+      link: "https://www.samhsa.gov",
+    },
+
+    {
+      name: "WHO – World Health Organization",
+      icon: <FaGlobe />,
+      link: "https://www.who.int/news-room/events",
+    },
+
+    {
+      name: "APA – American Psychological Association",
+      icon: <FaUserGraduate />,
+      link: "https://www.apa.org/convention",
+    },
+
+    {
+      name: "UNICEF",
+      icon: <FaUsers />,
+      link: "https://www.unicef.org",
     },
   ];
 
-  //   Expertises
-  const expertise = [
-    "Intergenerational impact of substance use disorders on academic achievement",
-    "Addiction-informed school counseling frameworks",
-    "Methadone treatment adherence research",
-    "Bullying, depression, and educational performance outcomes",
-    "Behavioral health integration in academic institutions",
-    "Quantitative research design & statistical analysis",
+  const courses = [
+    {
+      name: "Harvard Online",
+      link: "https://pll.harvard.edu",
+    },
+
+    {
+      name: "MIT OpenCourseWare",
+      link: "https://ocw.mit.edu",
+    },
+
+    {
+      name: "Stanford Online",
+      link: "https://online.stanford.edu",
+    },
+
+    {
+      name: "Yale Open Courses",
+      link: "https://oyc.yale.edu",
+    },
+
+    {
+      name: "edX",
+      link: "https://www.edx.org",
+    },
+
+    {
+      name: "Coursera",
+      link: "https://www.coursera.org",
+    },
+
+    {
+      name: "FutureLearn",
+      link: "https://www.futurelearn.com",
+    },
   ];
+
+  const collaborationAreas = [
+    {
+      title: "Intergenerational Impact of Substance Use on Children",
+
+      icon: FaUsers,
+
+      description:
+        "Research examining how parental substance use disorders affect children's academic, emotional, and behavioral development.",
+    },
+
+    {
+      title: "Addiction-Informed Educational Intervention Design",
+
+      icon: GiTeacher,
+
+      description:
+        "Designing evidence-based school interventions and counseling frameworks for drug-affected family environments.",
+    },
+
+    {
+      title: "School Mental Health & Counseling Evaluation",
+
+      icon: FaSchool,
+
+      description:
+        "Evaluating school-based counseling systems, mental health programs, and psychosocial support strategies.",
+    },
+
+    {
+      title: "Cross-Cultural Behavioral Health Research",
+
+      icon: FaGlobeAsia,
+
+      description:
+        "International collaborative research across Pakistan, Taiwan, the USA, and broader Asian contexts.",
+    },
+
+    {
+      title: "Public Health & Epidemiology in Low-Resource Settings",
+
+      icon: MdHealthAndSafety,
+
+      description:
+        "Behavioral health and epidemiological research focused on underserved and vulnerable populations.",
+    },
+
+    {
+      title: "Systematic Reviews in Behavioral & Educational Sciences",
+
+      icon: MdOutlineScience,
+
+      description:
+        "Collaborative evidence synthesis projects including systematic reviews and meta-analytic research.",
+    },
+  ];
+
+  const expertiseTags = [
+    "Addiction & Education",
+    "Intergenerational Harm",
+    "School Counseling",
+    "Methadone Adherence",
+    "Bullying & Depression",
+    "Quantitative Methods",
+    "Behavioral Health",
+    "Public Health",
+  ];
+
+  const mentorshipCards = [
+    {
+      title: "Graduate Students (M.Phil., M.Sc., Ph.D.)",
+
+      icon: FaUserGraduate,
+
+      description:
+        "Research guidance for students needing support with proposal development, methodology, thesis writing, and academic direction.",
+    },
+
+    {
+      title: "Early-Career Researchers",
+
+      icon: FaBookOpen,
+
+      description:
+        "Mentorship for researchers preparing their first journal publications, conference papers, and research manuscripts.",
+    },
+
+    {
+      title: "International Scholars",
+
+      icon: FaGlobeAsia,
+
+      description:
+        "Support for scholars developing cross-cultural and international behavioral health or educational research designs.",
+    },
+
+    {
+      title: "Professionals Transitioning into Research",
+
+      icon: FaBriefcase,
+
+      description:
+        "Guidance for professionals moving toward academic careers, research-based roles, and graduate-level scholarship.",
+    },
+  ];
+
+  const [email, setEmail] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    console.log("Subscribed:", email);
+
+    setEmail("");
+  };
+
   const social = {
-    linkedin: "https://www.linkedin.com/in/drqurat-ul-ain-4aa8a2165/",
-    academic: "https://www.iare.com.au/team-3/",
     googleScholar:
-      "https://scholar.google.com/citations?user=2T7GuFUAAAAJ&hl=en",
+      "https://scholar.google.com/citations?hl=en&user=2T7GuFUAAAAJ",
+
+    orcid: "https://orcid.org/0009-0003-2060-7678",
+
+    linkedIn: "https://www.linkedin.com/in/dr-qurat-ul-ain-4aa8a2165/",
+
+    youtube: "https://www.youtube.com/@DrQurat_research",
+
+    twitter: "https://x.com/DrQuratulain01",
+
+    facebook: "https://www.facebook.com/profile.php?id=61589971090780",
   };
 
   return (
     <>
-      <section className="border-b border-black/20">
+      <section className="bg-white">
         <div className="relative flex items-center justify-center flex-col lg:mt-5">
           <img
             src={HomeBanner}
@@ -187,7 +293,7 @@ const Home = () => {
           {/* Social */}
           <div className="flex gap-4 pt-4">
             <a
-              href={social.linkedin}
+              href={social.linkedIn}
               target="_blank"
               rel="noreferrer"
               className="p-3 rounded-full bg-black/10 hover:bg-secondary hover:text-white transition"
@@ -205,12 +311,39 @@ const Home = () => {
             </a>
 
             <a
-              href={social.academic}
+              href={social.orcid}
               target="_blank"
               rel="noreferrer"
               className="p-3 rounded-full bg-primary/10 hover:bg-secondary hover:text-white transition"
             >
               <HiAcademicCap />
+            </a>
+
+            <a
+              href={social.youtube}
+              target="_blank"
+              rel="noreferrer"
+              className="p-3 rounded-full bg-primary/10 hover:bg-secondary hover:text-white transition"
+            >
+              <FaYoutube />
+            </a>
+
+            <a
+              href={social.facebook}
+              target="_blank"
+              rel="noreferrer"
+              className="p-3 rounded-full bg-primary/10 hover:bg-secondary hover:text-white transition"
+            >
+              <FaFacebookF />
+            </a>
+
+            <a
+              href={social.twitter}
+              target="_blank"
+              rel="noreferrer"
+              className="p-3 rounded-full bg-primary/10 hover:bg-secondary hover:text-white transition"
+            >
+              <FaXTwitter />
             </a>
           </div>
           <div className="mt-6 flex flex-wrap items-center gap-4">
@@ -235,184 +368,384 @@ const Home = () => {
           </div>
         </div>
       </section>
+      <StatsBar />
+      <section className="bg-white py-16 lg:px-20 sm:px-10 px-5 overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          {/* Top */}
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            {/* Left */}
+            <div>
+              <p className="uppercase tracking-[4px] text-secondary font-semibold text-sm">
+                My Research
+              </p>
 
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          {/* Heading */}
-          <div className="text-center mb-10">
-            <h2 className="text-4xl font-bold text-black">Stay Updated</h2>
+              <h1 className="md:text-4xl text-3xl font-bold text-primary leading-tight mt-5">
+                Understanding the Hidden Harm —
+                <span className="text-secondary">
+                  {" "}
+                  Where Education Meets Addiction Science
+                </span>
+              </h1>
+              <p className="text-gray-600 leading-8 text-[15px]">
+                My research explores how parental substance use disorders affect
+                children’s emotional wellbeing, educational development, and
+                behavioral health outcomes — while designing evidence-based
+                intervention frameworks for schools, counselors, and
+                policymakers.
+              </p>
+            </div>
 
-            <p className="text-gray-600 mt-4 max-w-2xl mx-auto text-lg leading-relaxed">
-              Subscribe to receive updates on free seminars, downloadable
-              resources, scholarships, and research opportunities.
+            {/* Right */}
+            <div className="">
+              <div className="max-w-3xl">
+                <h1 className="text-xl font-bold text-primary">
+                  Research Domains &
+                  <span className="text-secondary"> Specializations</span>
+                </h1>
+              </div>
+
+              {/* Tags */}
+              <div className="flex flex-wrap justify-start gap-4 mt-4">
+                {expertiseTags.map((tag, index) => (
+                  <span
+                    key={index}
+                    className="px-6 py-3 rounded-full border border-primary/10 bg-primary/5 hover:bg-secondary hover:text-white hover:border-secondary text-primary font-medium transition-all duration-300 cursor-default"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Cards */}
+          <div className="grid lg:grid-cols-3 gap-8 mt-8">
+            {researchCards.map((item, index) => (
+              <div
+                key={index}
+                className="group relative bg-[#FAFAFA] border border-black/10 rounded-xl p-6"
+              >
+                {/* Hover BG */}
+                <div className="absolute inset-0 bg-linear-to-br from-black/5 to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
+
+                {/* Icon */}
+                <div className="relative z-10 sm:w-18 w-16 sm:h-18 h-16 rounded-2xl bg-primary text-white flex items-center justify-center sm:text-3xl text-2xl group-hover:bg-secondary transition-all duration-300">
+                  {item.icon}
+                </div>
+
+                {/* Title */}
+                <h1 className="relative z-10 text-xl font-bold text-primary mt-4">
+                  {item.title}
+                </h1>
+
+                {/* Desc */}
+                <p className="relative z-10 text-gray-600 leading-8 mt-2 text-[15px]">
+                  {item.description}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {/* Button */}
+          <div className="mt-8 flex justify-center">
+            <ButtonLink
+              to={"/research"}
+              name={"Explore My Research"}
+              bgColor="bg-primary"
+              textColor="text-white"
+              HoverClasses="hover:bg-transparent hover:text-primary"
+            />
+          </div>
+        </div>
+      </section>
+      <section className="bg-gray-100 py-16 lg:px-20 sm:px-10 px-5 overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          {/* Top */}
+          <div className="max-w-4xl">
+            <p className="uppercase tracking-[4px] text-secondary font-semibold text-sm">
+              Free Seminars & Webinars
+            </p>
+
+            <h1 className="md:text-4xl text-3xl font-bold text-primary leading-tight mt-1">
+              Stay Connected with
+              <span className="text-secondary">
+                {" "}
+                Global Research & Professional Development
+              </span>
+            </h1>
+
+            <p className="text-gray-600 leading-8 mt-4 text-[15px]">
+              Access free upcoming seminars, webinars, and conferences from the
+              world's leading health and research organizations — curated and
+              updated regularly.
             </p>
           </div>
 
-          {/* Form */}
-          <div className="max-w-2xl mx-auto bg-white border border-gray-200 rounded-3xl shadow-sm p-6 sm:p-8">
-            <form className="flex flex-col sm:flex-row items-center gap-4">
-              {/* Input */}
-              <div className="flex items-center w-full border border-gray-300 rounded-2xl px-4 py-3 focus-within:border-black transition-all">
-                <Mail className="text-gray-500 mr-2" size={20} />
-                <input
-                  type="email"
-                  placeholder="Email Address"
-                  className="w-full outline-none text-gray-700"
-                  required
-                />
-              </div>
-
-              {/* Button */}
-              <button
-                type="submit"
-                className="bg-black text-white px-8 py-3 rounded-2xl font-semibold hover:bg-gray-800 transition-all duration-300 w-full sm:w-auto"
+          {/* Organization Cards */}
+          <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-4 mt-8">
+            {organizations.map((item, index) => (
+              <a
+                key={index}
+                href={item.link}
+                target="_blank"
+                rel="noreferrer"
+                className="group bg-white rounded-xl border border-black/10 p-4"
               >
-                Subscribe
-              </button>
-            </form>
-          </div>
-        </div>
-      </section>
-
-      <section className="border-b border-black/20">
-        <CoursesSlider />
-      </section>
-      <section className="py-16 px-4">
-        <div className="max-w-5xl mx-auto">
-          <Heading name="Education" />
-
-          <div className="relative border-l-2 border-black/40 pl-8 md:space-y-10 space-y-4 my-10 cursor-default">
-            {education.map((item, index) => (
-              <div key={index} className="relative group">
-                {/* Dot */}
-                <span className="absolute -left-10.25 top-0 w-4 h-4 bg-white rounded-full inset-ring-2 inset-ring-white group-hover:bg-secondary transition ease-in-out duration-300 border-2 border-primary"></span>
-
-                {/* Content */}
-                <div className="-translate-y-1 group-hover:-translate-y-2 transition ease-in-out duration-300 border-b border-black/20">
-                  <h3 className="md:text-xl text-sm font-semibold text-primary">
-                    {item.title}
-                  </h3>
+                {/* Icon */}
+                <div className="w-12 h-12 rounded-2xl bg-primary text-white flex items-center justify-center text-2xl group-hover:bg-secondary transition-all duration-300">
+                  {item.icon}
                 </div>
-              </div>
+
+                {/* Name */}
+                <h1 className="text-xl font-bold text-primary mt-2 leading-snug">
+                  {item.name}
+                </h1>
+
+                {/* Link */}
+                <div className="inline-flex items-center gap-2 mt-4 text-secondary font-medium">
+                  Visit Website
+                  <GoArrowUpRight />
+                </div>
+              </a>
             ))}
           </div>
-        </div>
-      </section>
-      <section ref={sectionRef} className="bg-primary text-white py-16 px-4">
-        <div className="max-w-5xl mx-auto">
-          <Heading name="Skills" darkColor="#325254" />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 py-5 sm:py-10">
-            {skills.map((skill, index) => (
-              <div key={index}>
-                {/* Label */}
-                <div className="flex justify-between mb-1">
-                  <span className="font-medium">{skill.name}</span>
-                  <span className="text-sm">{skill.value}%</span>
-                </div>
-
-                {/* Bar */}
-                <div className="w-full bg-gray-200 rounded-full sm:h-3 h-2 overflow-hidden">
-                  <div
-                    className="sm:h-3 h-2 bg-secondary rounded-full transition-all duration-1000 ease-out"
-                    style={{
-                      width: animate ? `${skill.value}%` : "0%",
-                    }}
-                  ></div>
-                </div>
-              </div>
-            ))}
+          {/* Buttons */}
+          <div className="mt-8 flex justify-center">
+            <ButtonLink
+              to={"/seminars"}
+              name={"View More Seminars"}
+              bgColor="bg-primary"
+              textColor="text-white"
+              HoverClasses="hover:bg-transparent hover:text-primary"
+            />
           </div>
         </div>
       </section>
-      <section className="bg-white text-primary sm:py-16 py-10 lg:px-20 sm:px-10 px-5 overflow-hidden">
+      <section className="bg-white py-16 lg:px-20 sm:px-10 px-5 overflow-hidden">
         <div className="max-w-7xl mx-auto">
           {/* Heading */}
-          <div className="sm:mb-16 mb-5">
-            <h4 className="text-secondary text-center uppercase tracking-[4px] text-sm font-medium">
-              Recognition & Excellence
-            </h4>
+          <div className="max-w-4xl">
+            <p className="uppercase tracking-[5px] text-secondary font-semibold text-sm">
+              Download Free Resources
+            </p>
 
-            <Heading name="Awards & Achievements" />
+            <h1 className="md:text-4xl text-3xl font-bold text-primary mt-1 leading-tight">
+              Free Resources for
+              <span className="text-secondary"> Researchers & Students</span>
+            </h1>
+
+            <p className="text-gray-600 leading-8 mt-2">
+              Practical, ready-to-use academic resources designed to help
+              students, early-career researchers, and graduate scholars
+              strengthen their research and writing skills.
+            </p>
           </div>
 
-          {/* Awards Grid */}
-          <div className="grid lg:grid-cols-2 sm:gap-8 gap-4">
-            {awards.map((award, index) => (
+          {/* Resource Cards */}
+          <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-6 mt-10">
+            {courses.map((course, index) => (
+              <a
+                key={index}
+                href={course.link}
+                target="_blank"
+                rel="noreferrer"
+                className="group flex items-center justify-between rounded-xl border border-gray-200 bg-gray-100 px-5 py-4 hover:border-secondary hover:bg-secondary hover:text-white transition-all duration-300"
+              >
+                <span className="font-medium">{course.name}</span>
+
+                <span className="group-hover:translate-x-1 transition-all duration-300">
+                  ↗
+                </span>
+              </a>
+            ))}
+          </div>
+
+          {/* Buttons */}
+          <div className="mt-8 flex justify-center">
+            <ButtonLink
+              to={"/resources"}
+              name={"Explore Resources"}
+              bgColor="bg-primary"
+              textColor="text-white"
+              HoverClasses="hover:bg-transparent hover:text-primary"
+            />
+          </div>
+        </div>
+      </section>
+      <section className="bg-[#F8F9FB] py-16 lg:px-20 sm:px-10 px-5 overflow-hidden">
+        {/* Heading */}
+        <div className="max-w-4xl">
+          <p className="uppercase tracking-[5px] text-secondary font-semibold text-sm">
+            Collaborate With Me
+          </p>
+
+          <h1 className="md:text-4xl text-3xl font-bold text-primary mt-1 leading-tight">
+            Research
+            <span className="text-secondary"> Collaboration</span>
+          </h1>
+
+          <h2 className="text-xl md:text-2xl font-medium text-primary/80 mt-2">
+            Open to International Research Partnerships
+          </h2>
+
+          <p className="text-gray-600 leading-8 mt-2">
+            Dr. Quratulain welcomes collaborations with scholars, universities,
+            NGOs, and health organizations working in aligned research areas. If
+            your work touches on any of the areas below, let&apos;s connect.
+          </p>
+        </div>
+
+        {/* Collaboration Cards */}
+        <div className="grid xl:grid-cols-3 md:grid-cols-2 gap-7 mt-8">
+          {collaborationAreas.map((item, index) => {
+            const Icon = item.icon;
+            return (
               <div
                 key={index}
-                className="group relative border border-black/10 rounded-xl sm:p-8 p-4 bg-black/5 hover:bg-black/10 transition duration-500 overflow-hidden"
+                className="bg-white rounded-xl border border-gray-300 p-4 hover:shadow-2xl transition-all duration-300 group"
               >
-                {/* Number */}
-                <div className="absolute -top-8 -right-4 text-[120px] font-bold text-black/5 select-none">
-                  {String(index + 1).padStart(1, "0")}
+                <div className="w-16 h-16 rounded-xl bg-secondary/10 text-secondary flex items-center justify-center text-2xl group-hover:bg-secondary group-hover:text-white transition-all duration-300">
+                  <Icon />
                 </div>
 
-                {/* Content */}
-                <h3 className="text-lg sm:text-2xl font-semibold leading-snug transition duration-300">
-                  {award.title}
-                </h3>
+                <h1 className="text-xl font-bold text-primary mt-2 leading-snug">
+                  {item.title}
+                </h1>
 
-                <div className="sm:mt-5 mt-2 space-y-2">
-                  <p className="text-black/80 sm:text-lg text-sm">
-                    {award.organization}
-                  </p>
-
-                  {award.location && (
-                    <p className="text-black/60 sm:text-lg text-sm">
-                      {award.location}
-                    </p>
-                  )}
-
-                  {award.year && (
-                    <p className="inline-flex px-4 py-1 rounded-full border border-secondary text-secondary text-sm sm:mt-3 mt-1">
-                      {award.year}
-                    </p>
-                  )}
-                </div>
-
-                {award.description && (
-                  <p className="text-black/70 sm:text-[16px] text-sm leading-relaxed sm:mt-8 mt-4">
-                    {award.description}
-                  </p>
-                )}
+                <p className="text-gray-600 leading-8 mt-2">
+                  {item.description}
+                </p>
               </div>
-            ))}
-          </div>
+            );
+          })}
+        </div>
+
+        {/* Buttons */}
+        <div className="mt-8 flex justify-center">
+          <ButtonLink
+            to={"/collaboration"}
+            name={"Collaborate With Me"}
+            bgColor="bg-primary"
+            textColor="text-white"
+            HoverClasses="hover:bg-transparent hover:text-primary"
+          />
         </div>
       </section>
-      <section className="bg-primary text-white sm:py-16 py-10 lg:px-20 sm:px-10 px-5 border-b border-white/20">
-        <div className="max-w-7xl mx-auto">
-          {/* Heading */}
-          <div className="sm:mb-14 mb-8 text-center">
-            <h4 className="text-secondary text-center uppercase tracking-[4px] text-sm font-medium">
-              Core Strengths
-            </h4>
+      <section className="bg-white py-16 lg:px-20 sm:px-10 px-5 overflow-hidden">
+        {/* Heading */}
+        <div className="max-w-4xl">
+          <p className="uppercase tracking-[5px] text-secondary font-semibold text-sm">
+            Request Mentorship
+          </p>
 
-            <Heading name="Areas of Expertise" darkColor="#325254" />
-          </div>
+          <h1 className="md:text-4xl text-3xl font-bold text-primary mt-1 leading-tight">
+            Research
+            <span className="text-secondary"> Mentorship</span>
+          </h1>
 
-          <div className="grid md:grid-cols-2 grid-cols-1 gap-6">
-            <div className="space-y-4">
-              {expertise.map((item, index) => (
-                <div key={index} className="flex flex-row items-center gap-4">
-                  <div className="min-w-11.25 h-11.25 rounded-full border border-white text-white flex items-center justify-center font-semibold">
-                    {String(index + 1).padStart(2, "0")}
+          <h2 className="text-xl md:text-2xl font-medium text-primary/80 mt-2">
+            Guiding Researchers Across India, China, USA & Pakistan
+          </h2>
+
+          <p className="text-gray-600 leading-8 mt-2">
+            Dr. Quratulain has successfully mentored graduate students and
+            early-career researchers across four countries — helping them
+            develop strong proposals, publish their work, and grow their
+            academic careers.
+          </p>
+        </div>
+
+        {/* Cards */}
+        <div className="grid md:grid-cols-2 gap-6 mt-16">
+          {mentorshipCards.map((item, index) => {
+            const Icon = item.icon;
+            return (
+              <div
+                key={index}
+                className="bg-white rounded-xl border border-gray-300 p-4 transition-all duration-300 group"
+              >
+                <div className="w-16 h-16 rounded-xl bg-secondary/10 text-secondary flex items-center justify-center text-2xl group-hover:bg-secondary group-hover:text-white transition-all duration-300">
+                  <Icon />
+                </div>
+
+                <h1 className="text-2xl font-bold text-primary mt-4 leading-snug">
+                  {item.title}
+                </h1>
+
+                <p className="text-gray-600 leading-8 mt-2">
+                  {item.description}
+                </p>
+              </div>
+            );
+          })}
+        </div>
+        {/* Buttons */}
+        <div className="mt-12 flex justify-center">
+          <ButtonLink
+            to={"/mentorship"}
+            name={"View More Detail"}
+            bgColor="bg-primary"
+            textColor="text-white"
+            HoverClasses="hover:bg-transparent hover:text-primary"
+          />
+        </div>
+      </section>
+      <section className="bg-gray-100 py-16 lg:px-20 sm:px-10 px-5 overflow-hidden">
+        <div className="max-w-6xl mx-auto">
+          {/* Main Card */}
+          <div className="relative rounded-xl overflow-hidden bg-primary text-white">
+            {/* Background Blur Effects */}
+            <div className="absolute top-0 left-0 w-72 h-72 bg-secondary/30 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+            <div className="absolute bottom-0 right-0 w-72 h-72 bg-secondary/20 rounded-full blur-3xl translate-x-1/3 translate-y-1/3"></div>
+
+            <div className="relative z-10 grid lg:grid-cols-2 gap-12 items-start sm:p-14 p-7">
+              {/* Left Content */}
+              <div>
+                <div className="w-20 h-20 rounded-3xl bg-secondary flex items-center justify-center text-4xl shadow-lg">
+                  <FaEnvelopeOpenText />
+                </div>
+
+                <h2 className="sm:text-4xl text-2xl font-bold leading-tight mt-2">
+                  Join Our <span className="text-secondary">Mailing List</span>
+                </h2>
+
+                <p className="text-gray-300 leading-8 mt-2 max-w-xl">
+                  Stay updated with the latest seminars, scholarships, research
+                  opportunities, publications, and free academic resources
+                  directly in your inbox.
+                </p>
+              </div>
+
+              {/* Right Form */}
+              <div className="bg-white rounded-xl p-8 sm:p-10 shadow-2xl">
+                <h3 className="text-primary text-3xl font-bold">
+                  Subscribe Now
+                </h3>
+
+                <form onSubmit={handleSubmit} className="mt-8 space-y-5">
+                  <div>
+                    <input
+                      type="email"
+                      required
+                      placeholder="Enter your email address"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className="w-full h-15 px-6 rounded-2xl border border-gray-200 bg-gray-50 outline-none focus:border-secondary focus:bg-white transition-all duration-300 text-primary"
+                    />
                   </div>
 
-                  {/* Text */}
-                  <p className="text-white leading-relaxed group-hover:text-primary transition duration-300">
-                    {item}
-                  </p>
-                </div>
-              ))}
-            </div>
-            <div>
-              <img
-                src={ExpertiesImg}
-                alt="Experties"
-                className="w-full h-fit rounded-2xl"
-              />
+                  {/* Buttons */}
+                  <div className="flex sm:flex-row flex-col gap-4">
+                    <button
+                      type="submit"
+                      className="flex-1 bg-secondary hover:bg-primary text-white py-4 rounded-2xl font-semibold transition-all duration-300 cursor-pointer shadow-lg hover:scale-[1.02]"
+                    >
+                      Subscribe Now
+                    </button>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
         </div>

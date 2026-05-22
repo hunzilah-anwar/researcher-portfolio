@@ -5,7 +5,7 @@ const commonClasses = `
 group relative overflow-hidden
 flex items-center justify-center gap-2
 px-4 py-2 text-[14px] font-medium
-rounded border border-primary
+rounded border border-primary w-fit
 transition-all duration-300
 active:translate-x-[3px] active:translate-y-[3px]
 `;
