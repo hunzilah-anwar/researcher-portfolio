@@ -158,8 +158,8 @@ const SelectedWork = () => {
                   <ButtonA
                     href={item.link}
                     name="View Details"
-                    bgColor="bg-secondary"
-                    textColor="text-white"
+                    bgColor="bg-white"
+                    textColor="text-primary"
                     HoverClasses="hover:bg-primary hover:text-white"
                   />
                 ) : (

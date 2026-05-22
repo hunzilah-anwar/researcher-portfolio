@@ -111,8 +111,8 @@ const About = () => {
             <ButtonLink
               to="/publications"
               name="View Publications"
-              bgColor="bg-secondary"
-              textColor="text-white"
+              bgColor="bg-white"
+              textColor="text-primary"
               HoverClasses="hover:bg-primary hover:text-white"
             />
           </div>

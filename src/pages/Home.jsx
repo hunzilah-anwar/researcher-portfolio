@@ -12,12 +12,9 @@ import CoursesSlider from "../components/CoursesSlider";
 import { FaLinkedin } from "react-icons/fa";
 import { FaGoogleScholar } from "react-icons/fa6";
 import { HiAcademicCap } from "react-icons/hi";
-import {
-  Mail,
-} from "lucide-react";
+import { Mail } from "lucide-react";
 
 const Home = () => {
-
   const education = [
     {
       title:
@@ -222,14 +219,18 @@ const Home = () => {
               name="Contact Me"
               bgColor={"bg-transparent"}
               textColor={"text-primary"}
-              HoverClasses={"hover:bg-primary hover:text-white"}
+              HoverClasses={"hover:text-white"}
+              HoverClasses={"hover:text-white"}
+              effectColor={"#000000"}
             />
             <ButtonA
               name="Download CV"
               href={Resume}
               bgColor={"bg-primary"}
               textColor={"text-white"}
-              HoverClasses={"hover:bg-white hover:text-primary"}
+              HoverClasses={"hover:text-primary"}
+              effectColor={"#ffffff"}
+              download
             />
           </div>
         </div>

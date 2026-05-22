@@ -126,8 +126,8 @@ const Research = () => {
                 <ButtonLink
                   to="/contact"
                   name="Collaborate"
-                  bgColor="bg-secondary"
-                  textColor="text-white"
+                  bgColor="bg-white"
+                  textColor="text-primary"
                   HoverClasses="hover:bg-primary hover:text-white"
                 />
               </div>
@@ -227,7 +227,7 @@ const Research = () => {
                 <ButtonLink
                   to="/framework"
                   name="View Research Framework"
-                  bgColor="bg-secondary"
+                  bgColor="bg-primary"
                   textColor="text-white"
                   HoverClasses="hover:bg-white hover:text-primary"
                 />
@@ -237,7 +237,7 @@ const Research = () => {
                   name="Read More"
                   bgColor="bg-transparent"
                   textColor="text-primary"
-                  HoverClasses="hover:bg-secondary hover:text-white"
+                  HoverClasses="hover:bg-primary hover:text-white"
                 />
               </div>
             </div>

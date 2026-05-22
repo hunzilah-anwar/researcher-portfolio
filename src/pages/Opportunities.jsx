@@ -161,7 +161,7 @@ const Opportunities = () => {
         <div className="lg:px-20 sm:px-10 px-5 pt-20 pb-15">
           <div className="bg-primary rounded-[40px] lg:p-16 sm:p-12 p-8 text-center text-white relative overflow-hidden">
             {/* Shapes */}
-            <div className="absolute -top-20 -right-20 w-72 h-72 rounded-full bg-secondary/20"></div>
+            <div className="absolute -top-20 -right-20 w-72 h-72 rounded-full bg-white/5"></div>
 
             <div className="absolute -bottom-20 -left-20 w-72 h-72 rounded-full bg-white/5"></div>
 
