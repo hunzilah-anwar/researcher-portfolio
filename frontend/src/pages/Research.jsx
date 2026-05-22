@@ -88,7 +88,7 @@ const Research = () => {
       <section className="bg-white overflow-hidden">
 
           {/* Hero */}
-          <div className="grid lg:grid-cols-2 gap-16 items-start lg:px-20 sm:px-10 px-5 pt-20 pb-15">
+          <div className="grid lg:grid-cols-2 gap-16 items-start lg:px-20 sm:px-10 px-5 sm:pt-20 pt-5 pb-15">
             {/* Left */}
             <div>
               <h1 className="md:text-3xl text-xl font-bold text-primary leading-tight">
@@ -102,7 +102,7 @@ const Research = () => {
 
               <div className="w-28 h-1 bg-secondary rounded-full mt-1 mb-4"></div>
 
-              <p className="text-gray-700 md:text-[17px] text-[15px] leading-8.5 text-justify">
+              <p className="text-gray-700 md:text-[17px] text-[14px] leading-6">
                 My research is driven by one core question: how does parental
                 substance use disorder shape the academic, emotional, and social
                 lives of children — and what can schools, counselors, and
@@ -195,7 +195,7 @@ const Research = () => {
                 My Research Framework
               </h1>
 
-              <p className="mt-2 text-black/90 leading-8.5 max-w-5xl text-justify">
+              <p className="mt-2 text-black/90 leading-6 max-w-5xl text-justify">
                 My work sits at the intersection of three interconnected
                 domains:
                 <br />

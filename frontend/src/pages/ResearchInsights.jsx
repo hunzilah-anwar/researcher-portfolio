@@ -56,7 +56,7 @@ const ResearchInsights = () => {
     <section className="bg-white overflow-hidden">
 
         {/* Hero Section */}
-        <div className="grid lg:grid-cols-2 gap-16 items-start lg:px-20 sm:px-10 px-5 pt-20 pb-15">
+        <div className="grid lg:grid-cols-2 gap-16 items-start lg:px-20 sm:px-10 px-5 sm:pt-20 pt-5 pb-15">
           {/* Left */}
           <div>
             <div className="inline-flex items-center gap-3 bg-secondary/10 text-secondary px-5 py-3 rounded-full font-semibold">
@@ -74,7 +74,7 @@ const ResearchInsights = () => {
 
             <div className="w-28 h-1 bg-secondary rounded-full mt-1 mb-4"></div>
 
-            <p className="text-gray-700 md:text-[17px] text-[15px] leading-8.5 text-justify">
+            <p className="text-gray-700 md:text-[17px] text-[14px] leading-6">
               Practical articles and guides on research
               methods, academic writing, publication
               strategies, and career development — coming

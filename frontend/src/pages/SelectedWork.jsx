@@ -63,10 +63,10 @@ const SelectedWork = () => {
   ];
 
   return (
-    <section className="bg-gray-100 lg:px-20 sm:px-10 px-5 pt-20 pb-30 overflow-hidden">
+    <section className="bg-gray-100 lg:px-20 sm:px-10 px-5 sm:pt-20 pt-5 pb-30 overflow-hidden">
       {/* Intro */}
       <div className="text-center max-w-5xl mx-auto">
-        <p className="uppercase text-sm tracking-[4px] text-secondary font-semibold">
+        <p className="uppercase text-xs tracking-[4px] text-secondary font-semibold">
           Research • Collaboration • Impact
         </p>
 
@@ -75,7 +75,7 @@ const SelectedWork = () => {
           <span className="text-secondary"> Projects & Contributions</span>
         </h1>
 
-        <p className="text-gray-600 leading-8.5 mt-1 md:text-[16px] text-[12px]">
+        <p className="text-gray-600 leading-6 mt-1 md:text-[16px] text-[14px]">
           Interdisciplinary research projects focused on addiction science,
           behavioral health, school counseling, educational systems, and
           cross-cultural research collaboration.

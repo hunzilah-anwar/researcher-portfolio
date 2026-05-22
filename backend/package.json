@@ -1,0 +1,20 @@
+{
+  "name": "researcher-portfolio-backend",
+  "version": "1.0.0",
+  "description": "Backend API for researcher portfolio to handle contact emails and newsletter subscriptions.",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^16.6.1",
+    "express": "^4.22.2",
+    "nodemailer": "^6.10.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}

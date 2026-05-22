@@ -1,4 +1,5 @@
 import { useState } from "react";
+import toast from "react-hot-toast";
 import ProfilePic from "../assets/profile-pic.jpg";
 // import HeroBg from "../assets/hero-bg.jpg";
 import { ButtonA, ButtonLink } from "../components/Button";
@@ -231,13 +232,35 @@ const Home = () => {
   ];
 
   const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    try {
+      setLoading(true);
+      const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
+      const response = await fetch(`${apiUrl}/api/newsletter`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
 
-    console.log("Subscribed:", email);
+      const result = await response.json();
 
-    setEmail("");
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || "Subscription failed.");
+      }
+
+      toast.success("Subscribed successfully!");
+      setEmail("");
+    } catch (error) {
+      console.error(error);
+      toast.error(error.message || "Failed to subscribe. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const social = {
@@ -739,9 +762,10 @@ const Home = () => {
                   <div className="flex sm:flex-row flex-col gap-4">
                     <button
                       type="submit"
-                      className="flex-1 bg-secondary hover:bg-primary text-white py-4 rounded-2xl font-semibold transition-all duration-300 cursor-pointer shadow-lg hover:scale-[1.02]"
+                      disabled={loading}
+                      className={`flex-1 bg-secondary hover:bg-primary text-white py-4 rounded-2xl font-semibold transition-all duration-300 shadow-lg hover:scale-[1.02] disabled:opacity-50 ${loading ? "cursor-not-allowed" : "cursor-pointer"}`}
                     >
-                      Subscribe Now
+                      {loading ? "Subscribing..." : "Subscribe Now"}
                     </button>
                   </div>
                 </form>

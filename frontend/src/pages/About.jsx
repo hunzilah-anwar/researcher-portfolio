@@ -39,16 +39,16 @@ const About = () => {
       {/* Top Layout */}
 
         {/* Content Side */}
-        <div className="lg:px-20 sm:px-10 px-5 pt-20 pb-15">
-          <h1 className="md:text-3xl text-3xl font-bold text-primary leading-tight">
+        <div className="lg:px-20 sm:px-10 px-5 sm:pt-20 pt-5 pb-15">
+          <h1 className="md:text-3xl text-xl font-bold text-primary leading-tight">
             Bridging Education,
             <span className="text-secondary"> Behavioral Health</span> &
             Addiction Research
           </h1>
 
-          <div className="w-28 h-1 bg-secondary rounded-full mt-6 mb-8"></div>
+          <div className="w-28 h-1 bg-secondary rounded-full mt-1 mb-4"></div>
 
-          <div className="space-y-6 text-gray-700 leading-8.5 md:text-[17px] text-[15px] text-justify">
+          <div className="space-y-6 text-gray-700 leading-8.5 md:text-[17px] text-[14px]">
             <p>
               I am an interdisciplinary researcher, educator, and behavioral
               health professional with more than nine years of experience

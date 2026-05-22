@@ -50,7 +50,7 @@ const AcademicConsulting = () => {
     <section className="bg-white overflow-hidden">
 
         {/* Hero Section */}
-        <div className="grid lg:grid-cols-2 gap-16 items-start lg:px-20 sm:px-10 px-5 pt-20 pb-15">
+        <div className="grid lg:grid-cols-2 gap-16 items-start lg:px-20 sm:px-10 px-5 sm:pt-20 pt-5 pb-15">
           {/* Left */}
           <div>
             <p className="uppercase text-xs tracking-[4px] text-secondary font-semibold mb-1">
@@ -67,7 +67,7 @@ const AcademicConsulting = () => {
 
             <div className="w-28 h-1 bg-secondary rounded-full mt-1 mb-2"></div>
 
-            <p className="text-gray-700 md:text-[16px] text-[12px] leading-8.5 text-justify">
+            <p className="text-gray-700 md:text-[16px] text-[14px] leading-6">
               Dr. Quratulain offers personalized academic
               consulting services for students and researchers
               applying to international universities,

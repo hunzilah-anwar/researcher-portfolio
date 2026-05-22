@@ -57,10 +57,10 @@ const Seminars = () => {
     <section className="bg-white overflow-hidden">
 
         {/* Hero */}
-        <div className="grid lg:grid-cols-2 gap-16 items-start lg:px-20 sm:px-10 px-5 pt-20 pb-15 border-b border-black/5">
+        <div className="grid lg:grid-cols-2 gap-16 items-start lg:px-20 sm:px-10 px-5 sm:pt-20 pt-5 pb-15 border-b border-black/5">
           {/* Left */}
           <div>
-            <p className="uppercase tracking-[2px] text-secondary text-sm font-semibold mb-4">
+            <p className="uppercase tracking-[2px] text-secondary text-xs font-semibold mb-2">
               Free Learning • Global Research • Professional Development
             </p>
 
@@ -70,7 +70,7 @@ const Seminars = () => {
 
             <div className="w-28 h-1 bg-secondary rounded-full mt-2 mb-4"></div>
 
-            <p className="text-gray-700 md:text-[17px] text-[15px] leading-8.5 text-justify">
+            <p className="text-gray-700 md:text-[17px] text-[15px] leading-6">
               I am pleased to offer a series of free educational seminars on
               mental health, psychology, research, and personal development.
               These sessions are designed to help students gain practical

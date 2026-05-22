@@ -120,10 +120,10 @@ const Resources = () => {
   return (
     <section className="bg-white overflow-hidden">
       {/* Hero */}
-      <div className="grid lg:grid-cols-2 gap-16 items-start lg:px-20 sm:px-10 px-5 pt-20 pb-15 border-b border-black/5">
+      <div className="grid lg:grid-cols-2 gap-16 items-start lg:px-20 sm:px-10 px-5 sm:pt-20 pt-5 pb-15 border-b border-black/5">
         {/* Left */}
         <div>
-          <p className="uppercase tracking-[4px] text-secondary font-semibold mb-1 text-sm">
+          <p className="uppercase tracking-[4px] text-secondary font-semibold mb-1 text-xs">
             Academic Support • Research Skills • Student Growth
           </p>
 
@@ -134,7 +134,7 @@ const Resources = () => {
 
           <div className="w-28 h-1 bg-secondary rounded-full mt-2 mb-4"></div>
 
-          <p className="text-gray-700 md:text-[17px] text-[15px] leading-8.5 text-justify">
+          <p className="text-gray-700 md:text-[17px] text-[15px] leading-6">
             Download free academic templates, guides, and toolkits designed to
             help students, early-career researchers, and graduate scholars
             strengthen their research skills and academic writing.

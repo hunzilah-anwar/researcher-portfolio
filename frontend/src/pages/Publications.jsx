@@ -137,12 +137,12 @@ const Publications = () => {
 
   return (
     <>
-      <section className="bg-gray-100 lg:px-20 sm:px-10 px-5 pt-20 pb-15 overflow-hidden">
+      <section className="bg-gray-100 lg:px-20 sm:px-10 px-5 sm:pt-20 pt-5 pb-15 overflow-hidden">
         {/* Hero Section */}
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           {/* Left Side */}
           <div>
-            <p className="uppercase tracking-[2px] text-secondary font-semibold text-sm mb-1">
+            <p className="uppercase tracking-[2px] text-secondary font-semibold text-xs mb-1">
               Scholarly Contributions • Research Publications
             </p>
 
@@ -153,7 +153,7 @@ const Publications = () => {
 
             <div className="w-28 h-1 bg-secondary rounded-full mt-2 mb-2"></div>
 
-            <p className="text-gray-700 md:text-[17px] text-[15px] leading-8.5 text-justify">
+            <p className="text-gray-700 md:text-[17px] text-[15px] leading-6">
               My publications focus on addiction science, behavioral health,
               educational psychology, school counseling, and evidence-based
               intervention frameworks.
