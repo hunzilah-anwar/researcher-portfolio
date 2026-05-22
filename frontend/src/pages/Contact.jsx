@@ -240,8 +240,11 @@ const Contact = () => {
                 <MdEmail className="text-secondary text-2xl" />
                 <h3 className="text-lg font-semibold">Email</h3>
               </div>
-
-              <p className="text-primary sm:mt-3">{contactData.email}</p>
+              {contactData.emails.map((item, index) => (
+                <p key={index} className="text-primary sm:mt-3">
+                  {item}
+                </p>
+              ))}
             </div>
 
             {/* Phone */}
