@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 5000;
 // Enable CORS
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://researcher-portfolio-iota.vercel.app"
+  "https://drquratulainresearch.com"
 ];
 
 if (process.env.CORS_ORIGIN) {
