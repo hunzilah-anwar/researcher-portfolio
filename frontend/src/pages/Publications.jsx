@@ -23,6 +23,17 @@ const Publications = () => {
   const publications = [
     {
       title:
+        "SURVIVORS IN LOVE The Psychology of Attachment, Partner Choice, and Healing After Trauma",
+      authors:
+        "Dr.Qurat ul ain",
+      year: "23 May 2026",
+      description:
+        "Survivors in Love explores how trauma shapes attachment, partner selection, emotional intimacy, and the patterns people repeat in relationships. Blending psychology, trauma research, attachment theory, and compassionate insight, Dr. Qurat ul Ain guides readers through the emotional impact of unresolved trauma and the journey toward healing, safety, self-worth, and healthier relationships. This book examines the psychological foundations of love after trauma, including anxious and avoidant attachment, emotional regulation, nervous system responses, shame, trust, communication, and recovery. Written for survivors, mental health advocates, and readers seeking deeper self-understanding, Survivors in Love offers a trauma-informed perspective on healing and relational growth.",
+      link: "https://www.lulu.com/shop/drqurat-ul-ain/survivors-in-love-the-psychology-of-attachment-partner-choice-and-healing-after-trauma/ebook/product-q689vp8.html?page=1&pageSize=4",
+    },
+
+    {
+      title:
         "Adherence among HIV-positive injection drug users undergoing methadone treatment in Taiwan",
       authors:
         "En Chao, Chia-Chun Hung, Ching-Po Lin, Yi-Chien Jacob Ku, Qurat Ul Ain, David S Metzger, Tony Szu-Hsien Lee",
